@@ -273,6 +273,19 @@ class TestCheckout(TransactionCase):
         self.system["orderId"] = "order_test_5678"
         self.assertEqual(self.controller.phone_systems()["systems"][0]["order_id"], "order_test_5678")
 
+    def test_setup_progress_from_gcna_is_shown_in_the_users_language(self):
+        self._start()
+        self.controller.checkout_confirm(code="123456")
+        message = "Your phone system is created and is waiting for its license. You can leave this page and come back."
+        self.system["stages"]["provisioned"] = {"state": "in_progress", "message": message}
+        self.assertEqual(self.controller.phone_systems()["systems"][0]["stages"]["provisioned"]["message"], message)
+        self.system["stages"]["provisioned"]["message"] = "Something GCNA added later."
+        self.assertEqual(self.controller.phone_systems()["systems"][0]["stages"]["provisioned"]["message"], "Something GCNA added later.")
+        if "de_DE" in dict(self.env["res.lang"].get_installed()):
+            self.system["stages"]["provisioned"]["message"] = message
+            self.request.env = self.request.env(context=dict(self.request.env.context, lang="de_DE"))
+            self.assertIn("wartet auf ihre Lizenz", self.controller.phone_systems()["systems"][0]["stages"]["provisioned"]["message"])
+
     def test_a_purchase_gcna_no_longer_knows_is_dropped_when_resumed(self):
         self._start()
         self.responses["/status"] = (400, {"error": {"code": "CHECKOUT_EXPIRED"}})
