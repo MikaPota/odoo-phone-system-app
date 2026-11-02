@@ -1,0 +1,2779 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * phone_system
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-30 22:08+0000\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.js:0
+msgid "%(count)s extensions are live on %(name)s."
+msgstr "%(count)s Nebenstellen sind auf %(name)s aktiv."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "%s has connected users but no Odoo connection. Contact support."
+msgstr ""
+"%s hat verbundene Benutzer, aber keine Odoo-Verbindung. Wenden Sie sich an "
+"den Support."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+msgid "%s has no linked extension on this phone system; choose another user."
+msgstr ""
+"%s hat keine verknüpfte Nebenstelle auf dieser Telefonanlage; wählen Sie "
+"einen anderen Benutzer."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "%s was added to your contacts."
+msgstr "%s wurde zu Ihren Kontakten hinzugefügt."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.js:0
+msgid "1 extension is live on %s."
+msgstr "1 Nebenstelle ist auf %s aktiv."
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_partner_form_vodia_calls
+msgid ""
+"<span class=\"badge text-bg-success mb-2\" invisible=\"not "
+"vodia_network_connected\">GCNA connected</span>"
+msgstr ""
+"<span class=\"badge text-bg-success mb-2\" invisible=\"not "
+"vodia_network_connected\">GCNA verbunden</span>"
+
+#. module: phone_system
+#: model:ir.model.constraint,message:phone_system.constraint_vodia_pilot_call_owner_uid_unique
+msgid "A call is recorded only once per user."
+msgstr "Ein Anruf wird pro Benutzer nur einmal aufgezeichnet."
+
+#. module: phone_system
+#: model:ir.model.fields,help:phone_system.field_vodia_pilot_number__number
+msgid "A number of your SIP trunk, e.g. +49 30 1234567."
+msgstr "Eine Nummer Ihres SIP-Trunks, z. B. +49 30 1234567."
+
+#. module: phone_system
+#: model:ir.model.constraint,message:phone_system.constraint_vodia_pilot_number_connection_number_unique
+msgid "A phone number can ring only one extension."
+msgstr "Eine Rufnummer kann nur bei einer Nebenstelle klingeln."
+
+#. module: phone_system
+#: model:ir.model.constraint,message:phone_system.constraint_vodia_pilot_connection_gcna_system_unique
+msgid "A purchased phone system has one connection."
+msgstr "Eine gekaufte Telefonanlage hat genau eine Verbindung."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "A trunk with this name already exists on the PBX."
+msgstr "Ein Trunk mit diesem Namen existiert bereits auf der PBX."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"A verification is already pending. Use that code or wait until it expires."
+msgstr ""
+"Eine Verifizierung läuft bereits. Verwenden Sie den Code oder warten Sie, "
+"bis er abläuft."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"Accept the published terms and privacy notice to activate your invitation."
+msgstr ""
+"Akzeptieren Sie die veröffentlichten Bedingungen und Datenschutzhinweise, um "
+"Ihre Einladung zu aktivieren."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Accept the terms and privacy notice to continue."
+msgstr ""
+"Akzeptieren Sie die Bedingungen und die Datenschutzhinweise, um fortzufahren."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__accepted_at
+msgid "Accepted At"
+msgstr "Angenommen am"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Accepted your invitation"
+msgstr "Hat Ihre Einladung angenommen"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__account_id
+msgid "Account"
+msgstr "Konto"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Action required"
+msgstr "Aktion erforderlich"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__active
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__active
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_number__state__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_gcna_account__authorization_phase__mfa_required
+msgid "Administrator second factor"
+msgstr "Zweiter Faktor des Administrators"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_gcna_account__authorization_phase__authorization_required
+msgid "Administrator sign-in"
+msgstr "Administrator-Anmeldung"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Agree and connect"
+msgstr "Zustimmen und verbinden"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "Agree to use your PBX login in Odoo first."
+msgstr ""
+"Stimmen Sie zuerst der Verwendung Ihrer PBX-Anmeldung in Odoo zu."
+
+#. module: phone_system
+#: model:ir.model.fields,help:phone_system.field_vodia_pilot_mapping__external_calling
+msgid "Allow this user to call external numbers through the PBX trunk."
+msgstr ""
+"Diesem Benutzer erlauben, externe Nummern über den PBX-Trunk anzurufen."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "An authorized, disconnected phone session is required."
+msgstr ""
+"Eine autorisierte, noch nicht verbundene Telefonsitzung ist erforderlich."
+
+#. module: phone_system
+#: model:ir.model.constraint,message:phone_system.constraint_vodia_pilot_mapping_extension_connection_unique
+msgid "An extension can be mapped to only one user."
+msgstr "Eine Nebenstelle kann nur einem Benutzer zugeordnet werden."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "An extension cannot belong to different Odoo users."
+msgstr "Eine Nebenstelle darf nicht verschiedenen Odoo-Benutzern gehören."
+
+#. module: phone_system
+#: model:ir.model.constraint,message:phone_system.constraint_vodia_network_invitation_invitation_unique
+msgid "An invitation is recorded once."
+msgstr "Eine Einladung wird nur einmal erfasst."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Answer"
+msgstr "Annehmen"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_call__outcome__answered
+msgid "Answered"
+msgstr "Angenommen"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Answering"
+msgstr "Anruf wird angenommen"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"Approve this Odoo installation to manage Phone Systems for your CORE company."
+msgstr ""
+"Genehmigen Sie dieser Odoo-Installation die Verwaltung von Telefonanlagen "
+"für Ihr CORE-Unternehmen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid ""
+"Ask an administrator to configure exactly one active mapping for your "
+"current company."
+msgstr ""
+"Bitten Sie einen Administrator, genau eine aktive Zuordnung für Ihr "
+"aktuelles Unternehmen einzurichten."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "Ask an administrator to configure your individual PBX web credential."
+msgstr ""
+"Bitten Sie einen Administrator, Ihre persönlichen PBX-Web-Zugangsdaten "
+"einzurichten."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Ask your Phone System administrator to enable your phone access."
+msgstr ""
+"Bitten Sie Ihren Telefonanlagen-Administrator, Ihren Telefonzugriff "
+"freizuschalten."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Audio playback was blocked. Click Enable audio in the phone panel."
+msgstr ""
+"Die Audiowiedergabe wurde blockiert. Klicken Sie im Telefonfenster auf "
+"„Audio aktivieren“."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Authenticating"
+msgstr "Anmeldung läuft"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__authorization_phase
+msgid "Authorization Phase"
+msgstr "Autorisierungsphase"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_network_invitation__clearance__review
+msgid "Awaiting review"
+msgstr "Wartet auf Prüfung"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Back"
+msgstr "Zurück"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Billing period"
+msgstr "Abrechnungszeitraum"
+
+#. module: phone_system
+#: model:ir.model,name:phone_system.model_vodia_pilot_trunk_wizard
+msgid "Bring-your-own SIP trunk setup"
+msgstr "Eigenen SIP-Trunk einrichten"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Call"
+msgstr "Anrufen"
+
+#. module: phone_system
+#: model:ir.actions.act_window,name:phone_system.action_calls
+#: model:ir.ui.menu,name:phone_system.menu_calls
+msgid "Call History"
+msgstr "Anrufliste"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__call_uid
+msgid "Call Uid"
+msgstr "Anrufkennung"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Call a colleague."
+msgstr "Rufen Sie einen Kollegen an."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Call active"
+msgstr "Anruf aktiv"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Call unavailable"
+msgstr "Anrufstatus nicht verfügbar"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/phone_field.xml:0
+msgid "Call with the phone system"
+msgstr "Mit der Telefonanlage anrufen"
+
+#. module: phone_system
+#: model:ir.model.fields,help:phone_system.field_vodia_pilot_connection__outbound_number
+msgid "Caller number of the PBX trunk in E.164 format."
+msgstr "Rufnummer des PBX-Trunks im E.164-Format."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Calling"
+msgstr "Anruf wird aufgebaut"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/employee_calls.py:0
+#: code:addons/phone_system/models/res_partner.py:0
+#: model:ir.model.fields,field_description:phone_system.field_res_partner__vodia_call_count
+#: model:ir.model.fields,field_description:phone_system.field_res_users__vodia_call_count
+#: model_terms:ir.ui.view,arch_db:phone_system.view_partner_form_vodia_calls
+msgid "Calls"
+msgstr "Anrufe"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+msgid "Calls to %(number)s ring extension %(extension)s."
+msgstr "Anrufe an %(number)s klingeln bei Nebenstelle %(extension)s."
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_number_form
+msgid ""
+"Calls to this number ring the chosen user's extension. Odoo adds the number "
+"to the extension's names on the PBX and removes only those names again."
+msgstr ""
+"Anrufe an diese Nummer klingeln bei der Nebenstelle des gewählten Benutzers. "
+"Odoo fügt die Nummer den Namen der Nebenstelle in der Telefonanlage hinzu "
+"und entfernt später nur diese Namen wieder."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Cancelled. The phone system and its data are deleted."
+msgstr "Gekündigt. Die Telefonanlage und ihre Daten sind gelöscht."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Cancelled. The phone system and its data will be deleted on %s."
+msgstr "Gekündigt. Die Telefonanlage und ihre Daten werden am %s gelöscht."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__card_updated_at
+msgid "Card Updated At"
+msgstr "Karte aktualisiert am"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__checkout_id
+msgid "Checkout"
+msgstr "Kaufvorgang"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__checkout_expires_at
+msgid "Checkout Expires At"
+msgstr "Kaufvorgang läuft ab am"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Choose a colleague"
+msgstr "Kollegen auswählen"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Choose a plan."
+msgstr "Wählen Sie einen Tarif."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Link this Odoo database to a GCNA account first."
+msgstr "Verknüpfen Sie diese Odoo-Datenbank zuerst mit einem GCNA-Konto."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Choose the current or the previous month."
+msgstr "Wählen Sie den aktuellen oder den vorherigen Monat."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_call.py:0
+msgid "Only an administrator may download call records."
+msgstr "Nur ein Administrator darf Anrufdaten herunterladen."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Download call records:"
+msgstr "Anrufdaten herunterladen:"
+
+#. module: phone_system
+#: code:addons/phone_system/models/gcna_account.py:0
+#, python-format
+msgid "Call records are kept for the current and the previous month only."
+msgstr "Anrufdaten werden nur für den aktuellen und den vorherigen Monat aufbewahrt."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/employee_calls.py:0
+msgid "The Employees app is not installed."
+msgstr "Die App Mitarbeiter ist nicht installiert."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/employee_calls.py:0
+msgid "Choose an employee."
+msgstr "Wählen Sie einen Mitarbeiter."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Choose a phone system."
+msgstr "Wählen Sie eine Telefonanlage."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+msgid "Choose a user whose extension is linked on this phone system."
+msgstr ""
+"Wählen Sie einen Benutzer, dessen Nebenstelle mit dieser Telefonanlage "
+"verknüpft ist."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+#: code:addons/phone_system/models/pilot_connect_wizard.py:0
+msgid "Choose active internal users of the current company."
+msgstr "Wählen Sie aktive interne Benutzer des aktuellen Unternehmens."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_connect_wizard.py:0
+msgid "Choose at least one user who gets a phone."
+msgstr "Wählen Sie mindestens einen Benutzer, der ein Telefon erhält."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Choose at least one user."
+msgstr "Wählen Sie mindestens einen Benutzer."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.js:0
+msgid ""
+"Choose who gets a phone. Your plan includes up to %s users (%s selected)."
+msgstr ""
+"Wählen Sie, wer ein Telefon erhält. Ihr Tarif umfasst bis zu %s Benutzer (%s "
+"ausgewählt)."
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_mapping_form
+msgid "Clear stored credential"
+msgstr "Gespeicherte Zugangsdaten löschen"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__clearance
+msgid "Clearance"
+msgstr "Freigabe"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_network_invitation__clearance__cleared
+msgid "Cleared"
+msgstr "Freigegeben"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid ""
+"Click the phone icon in the top bar; it signs in to your extension "
+"automatically."
+msgstr ""
+"Klicken Sie auf das Telefonsymbol in der oberen Leiste; es meldet sich "
+"automatisch an Ihrer Nebenstelle an."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+#: model_terms:ir.ui.view,arch_db:phone_system.view_connect_wizard_form
+#: model_terms:ir.ui.view,arch_db:phone_system.view_trunk_wizard_form
+msgid "Close"
+msgstr "Schließen"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__company_id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__company_id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__company_id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__company_id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__company_id
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__company_name
+msgid "Company Name"
+msgstr "Firmenname"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Company domain"
+msgstr "Unternehmensdomain"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"Complete the plan, your name, company, company domain and a valid email "
+"address."
+msgstr ""
+"Geben Sie Tarif, Ihren Namen, Unternehmen, Unternehmensdomain und eine "
+"gültige E-Mail-Adresse an."
+
+#. module: phone_system
+#: model:ir.ui.menu,name:phone_system.menu_configuration
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Confirm and continue to payment"
+msgstr "Bestätigen und weiter zur Zahlung"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Congratulations!"
+msgstr "Herzlichen Glückwunsch!"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Connect an authorized phone session first."
+msgstr "Verbinden Sie zuerst eine autorisierte Telefonsitzung."
+
+#. module: phone_system
+#: model:ir.model,name:phone_system.model_vodia_pilot_connect_wizard
+msgid "Connect an existing PBX"
+msgstr "Vorhandene PBX verbinden"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_connect_wizard.py:0
+#: model:ir.actions.act_window,name:phone_system.action_connect_wizard
+msgid "Connect existing phone system"
+msgstr "Bestehende Telefonanlage verbinden"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Connect existing phone system with Odoo"
+msgstr "Bestehende Telefonanlage mit Odoo verbinden"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Connect mapped extension"
+msgstr "Zugeordnete Nebenstelle verbinden"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+#: model_terms:ir.ui.view,arch_db:phone_system.view_connect_wizard_form
+msgid "Connect phone system"
+msgstr "Telefonanlage verbinden"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.js:0
+msgid "Connect users to %s"
+msgstr "Benutzer mit %s verbinden"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_network_invitation__state__connected
+msgid "Connected"
+msgstr "Verbunden"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Connecting"
+msgstr "Verbindung wird aufgebaut"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__connection_id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__connection_id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__connection_id
+msgid "Connection"
+msgstr "Verbindung"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Connection error"
+msgstr "Verbindungsfehler"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Connection unavailable"
+msgstr "Verbindung nicht verfügbar"
+
+#. module: phone_system
+#: model:ir.model,name:phone_system.model_res_partner
+#: model_terms:ir.ui.view,arch_db:phone_system.view_call_search
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/network.py:0
+msgid "Contact details updated from %s's GCNA business card."
+msgstr "Kontaktdaten aus der GCNA-Visitenkarte von %s aktualisiert."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Continue"
+msgstr "Weiter"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Could not be checked"
+msgstr "Konnte nicht geprüft werden"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.js:0
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Create a new phone system and connect with Odoo"
+msgstr "Neue Telefonanlage erstellen und mit Odoo verbinden"
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_trunk_wizard_form
+msgid "Create and verify trunk"
+msgstr "Trunk anlegen und prüfen"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Create contact"
+msgstr "Kontakt anlegen"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Create phone system"
+msgstr "Telefonanlage erstellen"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__create_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__create_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__create_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__create_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__create_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__create_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__create_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__create_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__create_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__create_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__create_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__create_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__create_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__create_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__credential_ciphertext
+msgid "Credential Ciphertext"
+msgstr "Verschlüsselte Zugangsdaten"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__credential_configured
+msgid "Credential Configured"
+msgstr "Zugangsdaten eingerichtet"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Dial their extension (201, 202, …) to place your first internal call."
+msgstr ""
+"Wählen Sie deren Nebenstelle (201, 202, …), um Ihr erstes internes Gespräch "
+"zu führen."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__direction
+msgid "Direction"
+msgstr "Richtung"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Disconnect"
+msgstr "Trennen"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Disconnected"
+msgstr "Getrennt"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_res_partner__display_name
+#: model:ir.model.fields,field_description:phone_system.field_res_users__display_name
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__display_name
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__display_name
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__display_name
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__display_name
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__display_name
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__display_name
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__display_name
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_connect_wizard__state__done
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_trunk_wizard__state__done
+msgid "Done"
+msgstr "Abgeschlossen"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_connect_wizard__state__draft
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_trunk_wizard__state__draft
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__duration
+msgid "Duration"
+msgstr "Dauer"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__email
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__email
+msgid "Email"
+msgstr "E-Mail"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Email address"
+msgstr "E-Mail-Adresse"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_gcna_account__authorization_phase__verification_pending
+msgid "Email verification"
+msgstr "E-Mail-Verifizierung"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"Email verified. Sign in as the CORE company administrator to authorize this "
+"installation."
+msgstr ""
+"E-Mail verifiziert. Melden Sie sich als CORE-Unternehmensadministrator an, "
+"um diese Installation zu autorisieren."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Enable audio"
+msgstr "Audio aktivieren"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "End call"
+msgstr "Auflegen"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "Enter a valid email address."
+msgstr "Geben Sie eine gültige E-Mail-Adresse ein."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "Enter a valid host name, optionally with a port."
+msgstr "Geben Sie einen gültigen Hostnamen ein, optional mit Port."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_connect_wizard.py:0
+msgid "Enter the PBX tenant address only, for example pbx.example.com."
+msgstr ""
+"Geben Sie nur die PBX-Mandantenadresse ein, zum Beispiel pbx.example.com."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid ""
+"Enter the PBX tenant host name only, for example abc123.pbx.gcn-alliance.com."
+msgstr ""
+"Geben Sie nur den Hostnamen des PBX-Mandanten ein, zum Beispiel "
+"abc123.pbx.gcn-alliance.com."
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_trunk_wizard_form
+msgid ""
+"Enter the access data of your own SIP provider. Odoo sends it to your "
+"PBX and checks that the PBX stored it. You need no PBX login."
+msgstr ""
+"Geben Sie die Zugangsdaten Ihres eigenen SIP-Anbieters ein. Odoo sendet sie "
+"an Ihre PBX und prüft, ob die PBX sie gespeichert hat. Sie benötigen "
+"keine PBX-Anmeldung."
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_connect_wizard_form
+msgid ""
+"Enter the address of your PBX tenant and choose who gets a phone. Odoo "
+"changes nothing on the PBX. Each chosen user links their own extension by "
+"entering it with its web password the first time they open the phone."
+msgstr ""
+"Geben Sie die Adresse Ihres PBX-Mandanten ein und wählen Sie, wer ein "
+"Telefon erhält. Odoo ändert nichts an der PBX. Jeder gewählte Benutzer "
+"verknüpft beim ersten Öffnen des Telefons seine eigene Nebenstelle mit deren "
+"Webpasswort."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Enter the invitation token from your CORE invitation email."
+msgstr "Geben Sie den Einladungstoken aus Ihrer CORE-Einladungs-E-Mail ein."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+msgid "Enter the phone number in international format, e.g. +49 30 1234567."
+msgstr ""
+"Geben Sie die Rufnummer im internationalen Format ein, z. B. +49 30 1234567."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.js:0
+msgid "Enter the six-digit code we sent to %s."
+msgstr "Geben Sie den sechsstelligen Code ein, den wir an %s gesendet haben."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Enter the six-digit verification code."
+msgstr "Geben Sie den sechsstelligen Bestätigungscode ein."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Enter the verification code sent to your email address."
+msgstr "Geben Sie den an Ihre E-Mail-Adresse gesendeten Bestätigungscode ein."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Enter your CORE account password. It is used only for this request."
+msgstr ""
+"Geben Sie Ihr CORE-Kontopasswort ein. Es wird nur für diese Anfrage "
+"verwendet."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Enter your CORE sign-in code from email or your authenticator."
+msgstr ""
+"Geben Sie Ihren CORE-Anmeldecode aus der E-Mail oder Ihrer Authenticator-App "
+"ein."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "Enter your PBX web password."
+msgstr "Geben Sie Ihr PBX-Webpasswort ein."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "Enter your extension number."
+msgstr "Geben Sie Ihre Nebenstellennummer ein."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"Enter your name, a password of at least 12 characters, and review the "
+"current legal notices."
+msgstr ""
+"Geben Sie Ihren Namen und ein Passwort mit mindestens 12 Zeichen ein und "
+"prüfen Sie die aktuellen rechtlichen Hinweise."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Explicit installation approval is required."
+msgstr "Eine ausdrückliche Genehmigung der Installation ist erforderlich."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__extension
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__extension
+msgid "Extension"
+msgstr "Nebenstelle"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+msgid "Extension %(extension)s on the PBX already answers %(number)s."
+msgstr ""
+"Nebenstelle %(extension)s der Telefonanlage nimmt %(number)s bereits an."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "Extension %s is already linked to another Odoo user."
+msgstr ""
+"Die Nebenstelle %s ist bereits mit einem anderen Odoo-Benutzer verknüpft."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__external_calling
+msgid "External Calling"
+msgstr "Externe Anrufe"
+
+#. module: phone_system
+#: model:ir.model.fields,help:phone_system.field_vodia_pilot_call__peer_number
+msgid "External number in E.164 format."
+msgstr "Externe Nummer im E.164-Format."
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_call__outcome__failed
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_number__state__failed
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+#. module: phone_system
+#: model:ir.model,name:phone_system.model_vodia_gcna_account
+msgid "GCNA Installation Authorization"
+msgstr "GCNA-Installationsautorisierung"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid ""
+"GCNA account linking could not be completed. Refresh the status or contact "
+"support."
+msgstr ""
+"Das GCNA-Konto konnte nicht verknüpft werden. Aktualisieren Sie den Status "
+"oder kontaktieren Sie den Support."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "GCNA authorization expired. Verify your account again."
+msgstr ""
+"Die GCNA-Autorisierung ist abgelaufen. Verifizieren Sie Ihr Konto erneut."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"GCNA authorization is stored. Service permissions are checked by GCNA on "
+"each request."
+msgstr ""
+"Die GCNA-Autorisierung ist gespeichert. GCNA prüft die Berechtigungen bei "
+"jeder Dienstanfrage."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_res_partner__vodia_network_connected
+#: model:ir.model.fields,field_description:phone_system.field_res_users__vodia_network_connected
+msgid "GCNA connected"
+msgstr "GCNA verbunden"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "GCNA could not be reached. Retry later or contact support."
+msgstr ""
+"GCNA ist nicht erreichbar. Versuchen Sie es später erneut oder kontaktieren "
+"Sie den Support."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"GCNA could not complete account linking. Check the code, expiry and account "
+"permissions, or contact support."
+msgstr ""
+"GCNA konnte die Kontoverknüpfung nicht abschließen. Prüfen Sie Code, "
+"Gültigkeit und Kontoberechtigungen oder kontaktieren Sie den Support."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"GCNA installation authorization cannot be read. Ask the operator to check "
+"the encryption key."
+msgstr ""
+"Die GCNA-Installationsautorisierung kann nicht gelesen werden. Bitten Sie "
+"den Betreiber, den Verschlüsselungsschlüssel zu prüfen."
+
+#. module: phone_system
+#: model:ir.model,name:phone_system.model_vodia_network_invitation
+msgid "GCNA network invitation"
+msgstr "GCNA-Netzwerkeinladung"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "GCNA no longer accepts this installation's authorization."
+msgstr "GCNA akzeptiert die Autorisierung dieser Installation nicht mehr."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"GCNA no longer accepts this installation's authorization: it was revoked or "
+"the approving administrator lost access. Verify your account again."
+msgstr ""
+"GCNA akzeptiert die Autorisierung dieser Installation nicht mehr: Sie wurde "
+"widerrufen oder der freigebende Administrator hat keinen Zugriff mehr. "
+"Verifizieren Sie Ihr Konto erneut."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "GCNA returned an invalid account-link response. Contact support."
+msgstr ""
+"GCNA hat eine ungültige Antwort zur Kontoverknüpfung geliefert. Kontaktieren "
+"Sie den Support."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"GCNA updated its terms. A company administrator must sign in at app.gcn-"
+"alliance.com and accept the updated terms; the phone system then works again."
+msgstr ""
+"GCNA hat seine Nutzungsbedingungen aktualisiert. Ein Administrator des "
+"Unternehmens muss sich bei app.gcn-alliance.com anmelden und die neuen "
+"Bedingungen annehmen; danach funktioniert die Telefonanlage wieder."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__gcna_system_id
+msgid "Gcna System"
+msgstr "GCNA-System"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Get a new phone system for selected Odoo companies and users."
+msgstr ""
+"Erhalten Sie eine neue Telefonanlage für ausgewählte Odoo-Unternehmen und "
+"-Benutzer."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Give phones to selected users"
+msgstr "Ausgewählten Benutzern Telefone geben"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Hide panel; keep call active"
+msgstr "Telefonfenster ausblenden; Anruf fortsetzen"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.js:0
+msgid "I accept the terms and have read the privacy notice of %s."
+msgstr ""
+"Ich akzeptiere die Bedingungen und habe die Datenschutzhinweise von %s "
+"gelesen."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "I agree that Odoo signs me in to the PBX with this login."
+msgstr ""
+"Ich bin einverstanden, dass Odoo mich mit dieser Anmeldung bei der PBX "
+"anmeldet."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "I'll do it later"
+msgstr "Später erledigen"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_res_partner__id
+#: model:ir.model.fields,field_description:phone_system.field_res_users__id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "In progress"
+msgstr "In Bearbeitung"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_call__direction__incoming
+#: model_terms:ir.ui.view,arch_db:phone_system.view_call_search
+msgid "Incoming"
+msgstr "Eingehend"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Incoming call"
+msgstr "Eingehender Anruf"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__incoming_mapping_id
+msgid "Incoming calls ring"
+msgstr "Eingehende Anrufe klingeln bei"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid ""
+"Incoming calls ring no one until you assign the trunk's number under Phone "
+"Numbers."
+msgstr ""
+"Eingehende Anrufe klingeln nirgends, bis Sie die Nummer des Trunks unter "
+"Rufnummern zuweisen."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__installation_id
+msgid "Installation"
+msgstr "Installation"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_gcna_account__authorization_phase__approval_required
+msgid "Installation approval"
+msgstr "Installationsgenehmigung"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Integration of Odoo and your organization's phone system."
+msgstr ""
+"Integration von Odoo und der Telefonanlage Ihrer Organisation."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid ""
+"Internal colleague calls only. No separate PBX login is required. "
+"Disconnecting closes the phone; the PBX browser session expires separately."
+msgstr ""
+"Nur interne Anrufe unter Kollegen. Eine separate Anmeldung an der "
+"Telefonanlage ist nicht erforderlich. Beim Trennen wird das Telefon "
+"geschlossen; die Browser-Sitzung der Telefonanlage läuft unabhängig davon ab."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_call.py:0
+msgid "Invalid call duration."
+msgstr "Ungültige Gesprächsdauer."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_call.py:0
+msgid "Invalid call entry."
+msgstr "Ungültiger Anrufeintrag."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__invitation_id
+msgid "Invitation"
+msgstr "Einladung"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__write_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__write_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__write_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__write_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__write_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__write_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__write_uid
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__write_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__write_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__write_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__write_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__write_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__write_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__write_date
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: phone_system
+#: model:ir.model.fields,help:phone_system.field_vodia_pilot_trunk_wizard__incoming_number
+msgid "Leave empty when the SIP user name is the number."
+msgstr "Leer lassen, wenn der SIP-Benutzername die Rufnummer ist."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Link your GCNA account to this Odoo installation."
+msgstr "Verknüpfen Sie Ihr GCNA-Konto mit dieser Odoo-Installation."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Loading Phone System setup status…"
+msgstr "Telefonanlagenstatus wird geladen …"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Loading plans…"
+msgstr "Tarife werden geladen…"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "Map only an active internal user belonging to the connection company."
+msgstr ""
+"Ordnen Sie nur einen aktiven internen Benutzer zu, der zum Unternehmen der "
+"Verbindung gehört."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__message
+msgid "Message"
+msgstr "Meldung"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Minimize or restore"
+msgstr "Minimieren oder wiederherstellen"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_call__outcome__missed
+#: model_terms:ir.ui.view,arch_db:phone_system.view_call_search
+msgid "Missed"
+msgstr "Verpasst"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Monthly"
+msgstr "Monatlich"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Mute"
+msgstr "Stummschalten"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__name
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__name
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__name
+msgid "Name"
+msgstr "Name"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "No call"
+msgstr "Kein Anruf"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_connect_wizard.py:0
+msgid "No phone system answers at %s. Check the address."
+msgstr "Unter %s antwortet keine Telefonanlage. Prüfen Sie die Adresse."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "No plans are available right now."
+msgstr "Derzeit sind keine Tarife verfügbar."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Not now"
+msgstr "Jetzt nicht"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_number__state__pending
+msgid "Not on the PBX yet"
+msgstr "Noch nicht in der Telefonanlage"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Not valid"
+msgstr "Nicht gültig"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Number to call"
+msgstr "Zu wählende Nummer"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+msgid "Only an administrator may assign phone numbers."
+msgstr "Nur ein Administrator darf Rufnummern zuweisen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "Only an administrator may clear a PBX credential."
+msgstr "Nur ein Administrator darf PBX-Zugangsdaten löschen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "Only an administrator may configure trunks."
+msgstr "Nur ein Administrator darf Trunks konfigurieren."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_connect_wizard.py:0
+msgid "Only an administrator may connect a phone system."
+msgstr "Nur ein Administrator darf eine Telefonanlage verbinden."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/controllers/pilot_session.py:0
+msgid "Only an administrator may manage Phone System setup."
+msgstr "Nur ein Administrator darf die Telefonanlage einrichten."
+
+#. module: phone_system
+#: model:ir.model.constraint,message:phone_system.constraint_vodia_pilot_mapping_user_company_unique
+msgid "Only one mapping per user and company is permitted."
+msgstr "Pro Benutzer und Unternehmen ist nur eine Zuordnung zulässig."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid ""
+"Open Call History to see placed and received calls, matched to contacts."
+msgstr ""
+"Öffnen Sie den Anrufverlauf, um getätigte und empfangene Anrufe mit "
+"zugeordneten Kontakten zu sehen."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Open phone"
+msgstr "Telefon öffnen"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Open phone panel"
+msgstr "Telefonfenster öffnen"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Open the phone."
+msgstr "Öffnen Sie das Telefon."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__outbound_number
+msgid "Outbound Number"
+msgstr "Ausgehende Nummer"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__outbound_number_checked
+msgid "Outbound Number Checked"
+msgstr "Ausgehende Nummer geprüft"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__outbound_proxy
+msgid "Outbound proxy"
+msgstr "Outbound-Proxy"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__outcome
+#: model_terms:ir.ui.view,arch_db:phone_system.view_call_search
+msgid "Outcome"
+msgstr "Ergebnis"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_call__direction__outgoing
+#: model_terms:ir.ui.view,arch_db:phone_system.view_call_search
+msgid "Outgoing"
+msgstr "Ausgehend"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "PBX connection:"
+msgstr "PBX-Verbindung:"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "PBX license key:"
+msgstr "PBX-Lizenzschlüssel:"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__pbx_host
+msgid "PBX tenant address"
+msgstr "PBX-Mandantenadresse"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__pbx_host
+msgid "PBX tenant host"
+msgstr "Host des PBX-Mandanten"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Paid:"
+msgstr "Bezahlt:"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__partner_id
+msgid "Partner"
+msgstr "Kontakt"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Payments are processed securely by Stripe."
+msgstr "Zahlungen werden sicher von Stripe abgewickelt."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__pbx_aliases
+msgid "Pbx Aliases"
+msgstr "Namen in der Telefonanlage"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__pbx_extension
+msgid "Pbx Extension"
+msgstr "Nebenstelle in der Telefonanlage"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__peer_extension
+msgid "Peer Extension"
+msgstr "Nebenstelle des Gesprächspartners"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__peer_number
+msgid "Peer Number"
+msgstr "Gegenstellennummer"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__peer_partner_id
+msgid "Peer Partner"
+msgstr "Gesprächspartner"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__peer_user_id
+msgid "Peer User"
+msgstr "Gesprächspartner"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Pending"
+msgstr "Ausstehend"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: phone_system
+#: model:ir.actions.act_window,name:phone_system.action_numbers
+#: model:ir.ui.menu,name:phone_system.menu_numbers
+msgid "Phone Numbers"
+msgstr "Rufnummern"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+#: model:ir.actions.client,name:phone_system.action_phone_system
+#: model:ir.ui.menu,name:phone_system.menu_pilot
+msgid "Phone System"
+msgstr "Telefonanlage"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Phone System setup status could not be loaded. Reload and try again."
+msgstr ""
+"Der Einrichtungsstatus konnte nicht geladen werden. Laden Sie die Seite neu "
+"und versuchen Sie es erneut."
+
+#. module: phone_system
+#: model:ir.actions.server,name:phone_system.cron_network_connections_ir_actions_server
+msgid "Phone System: follow accepted GCNA invitations"
+msgstr "Telefonanlage: angenommene GCNA-Einladungen abrufen"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__number
+msgid "Phone number"
+msgstr "Rufnummer"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_connect_wizard.py:0
+msgid ""
+"Phone system connected. %s users will be asked for their extension and "
+"PBX web password the next time they open the phone."
+msgstr ""
+"Telefonanlage verbunden. %s Benutzer werden beim nächsten Öffnen des "
+"Telefons nach Nebenstelle und PBX-Webpasswort gefragt."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Phone system created:"
+msgstr "Telefonanlage erstellt:"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Phone system settings"
+msgstr "Einstellungen der Telefonanlage"
+
+#. module: phone_system
+#: model:ir.actions.act_window,name:phone_system.action_connections
+#: model:ir.ui.menu,name:phone_system.menu_connections
+msgid "Phone System Connections"
+msgstr "Phone-System-Verbindungen"
+
+#. module: phone_system
+#: model:ir.actions.act_window,name:phone_system.action_mappings
+#: model:ir.ui.menu,name:phone_system.menu_mappings
+msgid "Phone System User Mappings"
+msgstr "Phone-System-Benutzerzuordnungen"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Audio playback is unavailable."
+msgstr "Die Audiowiedergabe ist nicht verfügbar."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Call failed. Check microphone permission and the signaling connection."
+msgstr ""
+"Der Anruf ist fehlgeschlagen. Prüfen Sie die Mikrofonberechtigung und die "
+"Signalisierungsverbindung."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid ""
+"Phone connection failed. Check your individual credential, mapping, browser "
+"cookie policy and single-tab ownership."
+msgstr ""
+"Die Telefonverbindung ist fehlgeschlagen. Prüfen Sie Ihre persönlichen "
+"Zugangsdaten, die Zuordnung und die Cookie-Einstellungen des Browsers. Das "
+"Telefon darf nur in einem Odoo-Tab verbunden sein."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Call destination"
+msgstr "Anrufziel"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid ""
+"Dialing failed. Choose an authorized colleague and check microphone access."
+msgstr ""
+"Der Anruf konnte nicht gestartet werden. Wählen Sie einen autorisierten "
+"Kollegen und prüfen Sie den Mikrofonzugriff."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid ""
+"Ending the call failed; disconnect the session if the call remains active."
+msgstr ""
+"Der Anruf konnte nicht beendet werden. Trennen Sie die Sitzung, falls der "
+"Anruf aktiv bleibt."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Muting failed."
+msgstr "Das Telefon konnte nicht stummgeschaltet werden."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid ""
+"Phone signaling disconnected. Reconnecting automatically with a fresh "
+"login."
+msgstr ""
+"Die Signalisierung wurde getrennt. Die Verbindung wird automatisch mit "
+"einer neuen Anmeldung wiederhergestellt."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid ""
+"Phone signaling failed while connecting. Check your mapping and network."
+msgstr ""
+"Die Signalisierung ist beim Verbindungsaufbau fehlgeschlagen. Prüfen Sie "
+"Ihre Zuordnung und die Netzwerkverbindung."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Preparing microphone"
+msgstr "Mikrofon wird vorbereitet"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Prices changed. Review the current plans."
+msgstr "Die Preise haben sich geändert. Prüfen Sie die aktuellen Tarife."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Privacy notice"
+msgstr "Datenschutzhinweise"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__proof_ciphertext
+msgid "Proof Ciphertext"
+msgstr "Verschlüsselter Installationsnachweis"
+
+#. module: phone_system
+#. odoo-javascript
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Purchases open once the provider has published its terms."
+msgstr ""
+"Käufe sind möglich, sobald der Anbieter seine Bedingungen veröffentlicht hat."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Read the terms"
+msgstr "Bedingungen lesen"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Ready"
+msgstr "Bereit"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Refresh account status and complete the current authorization step."
+msgstr ""
+"Aktualisieren Sie den Kontostatus und schließen Sie den aktuellen "
+"Autorisierungsschritt ab."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Registering"
+msgstr "Nebenstelle wird registriert"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Reload & open the phone"
+msgstr "Neu laden und Telefon öffnen"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Reload Odoo."
+msgstr "Laden Sie Odoo neu."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+msgid "Remove the number and add it on the other phone system."
+msgstr ""
+"Entfernen Sie die Nummer und fügen Sie sie bei der anderen Telefonanlage "
+"hinzu."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__result
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__result
+msgid "Result"
+msgstr "Ergebnis"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Review activity."
+msgstr "Prüfen Sie die Aktivität."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__mapping_id
+msgid "Rings"
+msgstr "Klingelt bei"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__sip_password
+msgid "SIP password"
+msgstr "SIP-Passwort"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "SIP server"
+msgstr "SIP-Server"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__registrar
+msgid "SIP server (registrar)"
+msgstr "SIP-Server (Registrar)"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__sip_user
+msgid "SIP user name"
+msgstr "SIP-Benutzername"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Send"
+msgstr "Senden"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Send Contact Info"
+msgstr "Kontaktdaten senden"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Send Contact Info to"
+msgstr "Kontaktdaten senden an"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Send a new code"
+msgstr "Neuen Code senden"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Send code"
+msgstr "Code senden"
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_number_form
+msgid "Send to PBX again"
+msgstr "Erneut an die Telefonanlage senden"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_network_invitation__state__sent
+msgid "Sent"
+msgstr "Gesendet"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "Set the extension before its web password."
+msgstr "Legen Sie die Nebenstelle vor ihrem Webpasswort fest."
+
+#. module: phone_system
+#: model:ir.actions.act_window,name:phone_system.action_trunk_wizard
+#: model:ir.ui.menu,name:phone_system.menu_trunk_wizard
+msgid "Set up SIP trunk"
+msgstr "SIP-Trunk einrichten"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Setting up your phone system…"
+msgstr "Ihre Telefonanlage wird eingerichtet…"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.js:0
+msgid "Something went wrong. Try again or contact support."
+msgstr ""
+"Etwas ist schiefgelaufen. Versuchen Sie es erneut oder wenden Sie sich an "
+"den Support."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__started_at
+msgid "Started At"
+msgstr "Beginn"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__state
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__state
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__state
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__state
+msgid "State"
+msgstr "Status"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Stay in contact with %s? Send your contact info."
+msgstr "Mit %s in Kontakt bleiben? Senden Sie Ihre Kontaktdaten."
+
+#. module: phone_system
+#: model:ir.model.fields,help:phone_system.field_vodia_pilot_call__duration
+msgid "Talk time in seconds."
+msgstr "Gesprächszeit in Sekunden."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "That code has expired."
+msgstr "Dieser Code ist abgelaufen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+msgid "The PBX did not confirm the number on extension %s."
+msgstr "Die Telefonanlage hat die Nummer an Nebenstelle %s nicht bestätigt."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "The PBX did not confirm the trunk (%s); it was removed again."
+msgstr "Die PBX hat den Trunk nicht bestätigt (%s); er wurde wieder entfernt."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+msgid "The PBX did not remove %(number)s from extension %(extension)s."
+msgstr ""
+"Die Telefonanlage hat %(number)s nicht von Nebenstelle %(extension)s "
+"entfernt."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "The PBX did not return a trunk id."
+msgstr "Die PBX hat keine Trunk-ID geliefert."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "The PBX did not return the names of extension %s."
+msgstr "Die Telefonanlage hat die Namen der Nebenstelle %s nicht geliefert."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "The PBX provisioning login failed."
+msgstr "Die Provisionierungs-Anmeldung an der PBX ist fehlgeschlagen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "The PBX rejected the request (HTTP %s)."
+msgstr "Die PBX hat die Anfrage abgelehnt (HTTP %s)."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "The PBX returned an unreadable answer."
+msgstr "Die PBX hat eine unlesbare Antwort geliefert."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "The SIP password must have 1 to 128 printable characters."
+msgstr "Das SIP-Passwort muss aus 1 bis 128 druckbaren Zeichen bestehen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "The SIP server is required."
+msgstr "Der SIP-Server ist erforderlich."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "The SIP user name contains unsupported characters."
+msgstr "Der SIP-Benutzername enthält nicht unterstützte Zeichen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/credentials.py:0
+msgid "The PBX credential encryption key is missing or invalid."
+msgstr ""
+"Der Verschlüsselungsschlüssel für die PBX-Zugangsdaten fehlt oder ist "
+"ungültig."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "The connection belongs to a company you cannot access."
+msgstr ""
+"Die Verbindung gehört zu einem Unternehmen, auf das Sie keinen Zugriff haben."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"The contact card could not be sent. Check the address and your name and "
+"email in your preferences."
+msgstr ""
+"Die Kontaktdaten konnten nicht gesendet werden. Prüfen Sie die Adresse sowie "
+"Ihren Namen und Ihre E-Mail-Adresse in Ihren Einstellungen."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "The contact could not be created."
+msgstr "Der Kontakt konnte nicht angelegt werden."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "The current company is not authorized."
+msgstr "Das aktuelle Unternehmen ist nicht autorisiert."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "The incoming call could not be answered."
+msgstr "Der eingehende Anruf konnte nicht angenommen werden."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid ""
+"The individual PBX credential is invalid; ask an administrator to replace "
+"it."
+msgstr ""
+"Die persönlichen PBX-Zugangsdaten sind ungültig. Bitten Sie einen "
+"Administrator, sie zu ersetzen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+msgid ""
+"The number is on extension %(extension)s, but trunk %(trunk)s sends every "
+"call to one destination; clear its \"Send call to extension\" on the PBX."
+msgstr ""
+"Die Nummer liegt auf Nebenstelle %(extension)s, aber Trunk %(trunk)s leitet "
+"jeden Anruf an ein festes Ziel; leeren Sie dort in der Telefonanlage \"Send "
+"call to extension\"."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "The phone appears in the top bar for everyone you gave a phone to."
+msgstr ""
+"Das Telefon erscheint in der oberen Leiste für alle, denen Sie ein Telefon "
+"gegeben haben."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "The phone credential for %s is missing. Contact support."
+msgstr ""
+"Die Telefon-Zugangsdaten für %s fehlen. Wenden Sie sich an den Support."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_number.py:0
+msgid "The phone system could not be reached."
+msgstr "Die Telefonanlage ist nicht erreichbar."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "The phone system could not be reached. Try again later."
+msgstr "Die Telefonanlage ist nicht erreichbar. Bitte später erneut versuchen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "The phone system did not accept this extension and password."
+msgstr ""
+"Die Telefonanlage hat diese Nebenstelle und dieses Passwort nicht akzeptiert."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "The phone system is already connected in another Odoo tab."
+msgstr "Die Telefonanlage ist bereits in einem anderen Odoo-Tab verbunden."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "The phone system is not ready yet."
+msgstr "Die Telefonanlage ist noch nicht bereit."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "The purchase expired. Start again."
+msgstr "Der Kaufvorgang ist abgelaufen. Beginnen Sie erneut."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/controllers/pilot_session.py:0
+msgid "The selected company is not authorized for your phone."
+msgstr "Das ausgewählte Unternehmen ist nicht für Ihr Telefon autorisiert."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "The terms or privacy notice changed. Review them again."
+msgstr ""
+"Die Bedingungen oder Datenschutzhinweise haben sich geändert. Prüfen Sie sie "
+"erneut."
+
+#. module: phone_system
+#: model:ir.model.fields,help:phone_system.field_vodia_pilot_trunk_wizard__incoming_mapping_id
+msgid "The user whose extension rings when the trunk's number is called."
+msgstr ""
+"Der Benutzer, dessen Nebenstelle klingelt, wenn die Nummer des Trunks "
+"angerufen wird."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "The verification code is not correct."
+msgstr "Der Bestätigungscode ist nicht korrekt."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "The verification expired. Request a new code."
+msgstr "Die Verifizierung ist abgelaufen. Fordern Sie einen neuen Code an."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "This Odoo database already belongs to an account."
+msgstr "Diese Odoo-Datenbank gehört bereits zu einem Konto."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "This account operation is not supported."
+msgstr "Diese Kontoaktion wird nicht unterstützt."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "This browser cannot enforce single-tab phone ownership."
+msgstr ""
+"Dieser Browser kann die Beschränkung des Telefons auf einen einzelnen Tab "
+"nicht sicherstellen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"This company already has an account. Its administrator must connect this "
+"Odoo database."
+msgstr ""
+"Dieses Unternehmen hat bereits ein Konto. Dessen Administrator muss diese "
+"Odoo-Datenbank verbinden."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/network.py:0
+msgid "This connection has no contact to create any more."
+msgstr "Für diese Verbindung ist kein Kontakt mehr anzulegen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid ""
+"This email address already belongs to an account. Use a different address or "
+"contact support."
+msgstr ""
+"Diese E-Mail-Adresse gehört bereits zu einem Konto. Verwenden Sie eine "
+"andere Adresse oder wenden Sie sich an den Support."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "This email address is already verified. Continue to payment."
+msgstr ""
+"Diese E-Mail-Adresse ist bereits bestätigt. Fahren Sie mit der Zahlung fort."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "This installation already has GCNA authorization."
+msgstr "Diese Installation verfügt bereits über eine GCNA-Autorisierung."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "This number cannot be dialed."
+msgstr "Diese Nummer kann nicht gewählt werden."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "This usually takes less than a minute."
+msgstr "Das dauert in der Regel weniger als eine Minute."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__token_ciphertext
+msgid "Token Ciphertext"
+msgstr "Verschlüsseltes Token"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__token_expires_at
+msgid "Token Expires At"
+msgstr "Token gültig bis"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Too many attempts. Retry later."
+msgstr "Zu viele Versuche. Versuchen Sie es später erneut."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Too many wrong codes. Start the purchase again."
+msgstr "Zu viele falsche Codes. Beginnen Sie den Kauf erneut."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid ""
+"Trunk created and read back from the PBX.\n"
+"Registration status: %s"
+msgstr ""
+"Trunk angelegt und von der PBX zurückgelesen.\n"
+"Registrierungsstatus: %s"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__name
+msgid "Trunk name"
+msgstr "Trunk-Name"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__incoming_number
+msgid "Trunk phone number"
+msgstr "Rufnummer des Trunks"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Unmute"
+msgstr "Stummschaltung aufheben"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "Up to %s users"
+msgstr "Bis zu %s Benutzer"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Use a phone system you already have with Odoo."
+msgstr "Nutzen Sie Ihre vorhandene Telefonanlage mit Odoo."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "Use an individual web password containing at least 16 characters."
+msgstr "Verwenden Sie ein persönliches Web-Passwort mit mindestens 16 Zeichen."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "Use an internal numeric extension containing two to six digits."
+msgstr ""
+"Verwenden Sie eine interne numerische Nebenstelle mit zwei bis sechs Ziffern."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid ""
+"Use up to 40 letters, digits, spaces, dots, dashes or underscores for the "
+"trunk name."
+msgstr ""
+"Verwenden Sie für den Trunk-Namen bis zu 40 Buchstaben, Ziffern, "
+"Leerzeichen, Punkte, Bindestriche oder Unterstriche."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid ""
+"Use your PBX login in Odoo. Enter your extension and PBX web "
+"password once: Odoo checks them with the phone system, keeps the login "
+"encrypted and signs you in automatically from now on."
+msgstr ""
+"Verwenden Sie Ihre PBX-Anmeldung in Odoo. Geben Sie einmal Ihre "
+"Nebenstelle und Ihr PBX-Webpasswort ein: Odoo prüft beides bei der "
+"Telefonanlage, speichert die Anmeldung verschlüsselt und meldet Sie ab jetzt "
+"automatisch an."
+
+#. module: phone_system
+#: model:ir.model,name:phone_system.model_res_users
+#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__user_id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__user_id
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__user_id
+msgid "User"
+msgstr "Benutzer"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Users connected:"
+msgstr "Benutzer verbunden:"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__linked_count
+msgid "Users signed in"
+msgstr "Angemeldete Benutzer"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Users signed in:"
+msgstr "Angemeldete Benutzer:"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__user_ids
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__user_count
+msgid "Users with a phone"
+msgstr "Benutzer mit Telefon"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Users with a phone:"
+msgstr "Benutzer mit Telefon:"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Valid"
+msgstr "Gültig"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__verification_id
+msgid "Verification"
+msgstr "Verifizierung"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__verification_expires_at
+msgid "Verification Expires At"
+msgstr "Verifizierung gültig bis"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Verification code"
+msgstr "Bestätigungscode"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "PBX web password"
+msgstr "PBX-Webpasswort"
+
+#. module: phone_system
+#: model:res.groups,name:phone_system.group_pilot
+msgid "Phone System User"
+msgstr "Phone-System-Benutzer"
+
+#. module: phone_system
+#: model:ir.model,name:phone_system.model_vodia_pilot_connection
+msgid "Phone System Connection"
+msgstr "Phone-System-Verbindung"
+
+#. module: phone_system
+#: model:ir.model,name:phone_system.model_vodia_pilot_call
+msgid "Phone System Internal Call"
+msgstr "Interner Phone-System-Anruf"
+
+#. module: phone_system
+#: model:ir.model,name:phone_system.model_vodia_pilot_mapping
+msgid "Phone System User Mapping"
+msgstr "Phone-System-Benutzerzuordnung"
+
+#. module: phone_system
+#: model:ir.model,name:phone_system.model_vodia_pilot_number
+msgid "Incoming phone number"
+msgstr "Rufnummer für eingehende Anrufe"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid ""
+"PBX login failed. Ask an administrator to check the PBX and your mapping."
+msgstr ""
+"Die PBX-Anmeldung ist fehlgeschlagen. Bitten Sie einen Administrator, die "
+"Telefonanlage und Ihre Zuordnung zu prüfen."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Wait for the connection attempt to finish."
+msgstr "Warten Sie, bis der Verbindungsversuch abgeschlossen ist."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "We send a code to this address to confirm your purchase."
+msgstr "Wir senden einen Code an diese Adresse, um Ihren Kauf zu bestätigen."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__web_password
+msgid "Web Password"
+msgstr "Web-Passwort"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "What's next"
+msgstr "Nächste Schritte"
+
+#. module: phone_system
+#: model:ir.model.fields,help:phone_system.field_vodia_pilot_mapping__web_password
+msgid ""
+"Write-only individual extension web password. An empty value clears the "
+"stored credential."
+msgstr ""
+"Persönliches Web-Passwort der Nebenstelle; nach dem Speichern nicht lesbar. "
+"Ein leerer Wert löscht die gespeicherten Zugangsdaten."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Yearly"
+msgstr "Jährlich"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_configuration.py:0
+msgid "You are not authorized for the Phone System."
+msgstr "Sie sind nicht für das Phone System autorisiert."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid ""
+"You are now ready for productive communication. Explore your features now!"
+msgstr ""
+"Sie sind jetzt bereit für produktive Kommunikation. Entdecken Sie jetzt Ihre "
+"Funktionen!"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid ""
+"You may not call outside numbers yet. Ask an administrator to allow external "
+"calling."
+msgstr ""
+"Sie dürfen noch keine externen Nummern anrufen. Bitten Sie einen "
+"Administrator, externe Anrufe zu erlauben."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid ""
+"Your Odoo phone authorization expired or changed. Sign in again or check "
+"your mapping."
+msgstr ""
+"Ihre Odoo-Telefonberechtigung ist abgelaufen oder wurde geändert. Melden Sie "
+"sich erneut an oder prüfen Sie Ihre Zuordnung."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Your PBX login could not be confirmed. Try again."
+msgstr ""
+"Ihre PBX-Anmeldung konnte nicht bestätigt werden. Bitte erneut "
+"versuchen."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Your contact info could not be sent. Retry later."
+msgstr ""
+"Ihre Kontaktdaten konnten nicht gesendet werden. Versuchen Sie es später "
+"erneut."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Your contact info is on its way."
+msgstr "Ihre Kontaktdaten sind unterwegs."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Your email"
+msgstr "Ihre E-Mail-Adresse"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Your name"
+msgstr "Ihr Name"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid ""
+"Your name, company, email and phone number, sent by GCNA on your behalf."
+msgstr ""
+"Ihr Name, Ihre Firma, E-Mail-Adresse und Telefonnummer, von GCNA in Ihrem "
+"Namen gesendet."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__has_own_phone
+msgid "Your phone"
+msgstr "Ihr Telefon"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Your phone stays available while you navigate between Odoo apps."
+msgstr "Ihr Telefon bleibt verfügbar, während Sie zwischen Odoo-Apps wechseln."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "Your phone system is ready."
+msgstr "Ihre Telefonanlage ist bereit."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Your phone systems"
+msgstr "Ihre Telefonanlagen"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Your plan does not include that many users."
+msgstr "Ihr Tarif umfasst nicht so viele Benutzer."
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_trunk_wizard_form
+msgid "e.g. Provider Main"
+msgstr "z. B. Provider Main"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.xml:0
+msgid "example.com"
+msgstr "beispiel.de"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "name@example.com"
+msgstr "name@beispiel.de"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "not reported yet"
+msgstr "noch nicht gemeldet"
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_connect_wizard_form
+msgid "pbx.example.com"
+msgstr "pbx.example.com"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/res_partner.py:0
+msgid "peer_partner_id"
+msgstr "peer_partner_id"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.js:0
+msgid "per month · up to %s users"
+msgstr "pro Monat · bis zu %s Benutzer"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.js:0
+msgid "per year · up to %s users"
+msgstr "pro Jahr · bis zu %s Benutzer"
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_trunk_wizard.py:0
+msgid "reg_user"
+msgstr "reg_user"
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_trunk_wizard_form
+msgid "sip.provider.example"
+msgstr "sip.provider.example"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/checkout.js:0
+msgid "your phone system"
+msgstr "Ihre Telefonanlage"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__storage_endpoint
+msgid "Storage URL"
+msgstr "Speicher-URL"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__storage_bucket
+msgid "Bucket"
+msgstr "Bucket"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__storage_region
+msgid "Region"
+msgstr "Region"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__storage_access_key
+msgid "Access key"
+msgstr "Zugriffsschlüssel"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__storage_secret
+msgid "Secret key"
+msgstr "Geheimer Schlüssel"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__storage_state
+msgid "Storage status"
+msgstr "Speicherstatus"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__storage_message
+msgid "Storage message"
+msgstr "Speichermeldung"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__storage_checked_at
+msgid "Last storage check"
+msgstr "Letzte Speicherprüfung"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__storage_exported_on
+msgid "Calls saved through"
+msgstr "Anrufe gesichert bis"
+
+#. module: phone_system
+#: model:ir.model.fields.selection,name:phone_system.selection__vodia_pilot_connection__storage_state__ok
+msgid "Working"
+msgstr "Funktioniert"
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_connection_form
+msgid "Your storage"
+msgstr "Ihr Speicher"
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_connection_form
+msgid "Test storage"
+msgstr "Speicher testen"
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_connection_form
+msgid "Call records and backups are saved every night to your own S3-compatible storage."
+msgstr "Anrufdaten und Sicherungen werden jede Nacht in Ihrem eigenen S3-kompatiblen Speicher abgelegt."
+
+#. module: phone_system
+#: code:addons/phone_system/models/customer_storage.py:0
+#, python-format
+msgid "Enter the storage URL with https:// and no path, for example https://s3.example.com."
+msgstr "Geben Sie die Speicher-URL mit https:// und ohne Pfad ein, zum Beispiel https://s3.example.com."
+
+#. module: phone_system
+#: code:addons/phone_system/models/customer_storage.py:0
+#, python-format
+msgid "Enter the bucket name only, in lowercase letters, digits, dots or dashes."
+msgstr "Geben Sie nur den Bucket-Namen ein, in Kleinbuchstaben, Ziffern, Punkten oder Bindestrichen."
+
+#. module: phone_system
+#: code:addons/phone_system/models/customer_storage.py:0
+#, python-format
+msgid "Enter the storage region, for example eu-central-1."
+msgstr "Geben Sie die Speicherregion ein, zum Beispiel eu-central-1."
+
+#. module: phone_system
+#: code:addons/phone_system/models/customer_storage.py:0
+#, python-format
+msgid "The storage refused the upload (HTTP %s). Check the URL, bucket and keys."
+msgstr "Der Speicher hat das Hochladen abgelehnt (HTTP %s). Prüfen Sie URL, Bucket und Schlüssel."
+
+#. module: phone_system
+#: code:addons/phone_system/models/customer_storage.py:0
+#, python-format
+msgid "The storage could not be reached. Check the URL."
+msgstr "Der Speicher ist nicht erreichbar. Prüfen Sie die URL."
+
+#. module: phone_system
+#: code:addons/phone_system/models/customer_storage.py:0
+#, python-format
+msgid "Only an administrator may configure storage."
+msgstr "Nur ein Administrator darf den Speicher einrichten."
+
+#. module: phone_system
+#: code:addons/phone_system/models/customer_storage.py:0
+#, python-format
+msgid "Enter the storage URL, bucket, region, access key and secret key first."
+msgstr "Geben Sie zuerst Speicher-URL, Bucket, Region, Zugriffsschlüssel und geheimen Schlüssel ein."
+
+#. module: phone_system
+#: model:ir.model.fields,help:phone_system.field_vodia_pilot_connection__storage_endpoint
+msgid "For example https://s3.eu-central-1.amazonaws.com"
+msgstr "Zum Beispiel https://s3.eu-central-1.amazonaws.com"
+
+#. module: phone_system
+#: model:ir.model.fields,help:phone_system.field_vodia_pilot_connection__storage_secret
+msgid "Write-only. Leave empty to keep the stored key."
+msgstr "Nur schreibbar. Leer lassen, um den gespeicherten Schlüssel zu behalten."
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__pbx_admin_user
+msgid "PBX administrator login"
+msgstr "PBX-Administrator-Login"
+
+#. module: phone_system
+#: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__pbx_admin_password
+msgid "PBX administrator password"
+msgstr "PBX-Administratorpasswort"
+
+#. module: phone_system
+#: model:ir.model.fields,help:phone_system.field_vodia_pilot_connection__pbx_admin_password
+msgid "Write-only. Leave empty to keep the stored password."
+msgstr "Nur schreibbar. Leer lassen, um das gespeicherte Passwort zu behalten."
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_connection_form
+msgid "PBX administrator"
+msgstr "PBX-Administrator"
+
+#. module: phone_system
+#: model_terms:ir.ui.view,arch_db:phone_system.view_connection_form
+msgid "Needed to set up SIP trunks and phone numbers on your own PBX."
+msgstr "Wird benötigt, um SIP-Trunks und Rufnummern auf Ihrer eigenen PBX einzurichten."
+
+#. module: phone_system
+#: code:addons/phone_system/models/pilot_configuration.py:0
+#, python-format
+msgid "The stored administrator login cannot be read. Enter it again."
+msgstr "Der gespeicherte Administrator-Login kann nicht gelesen werden. Geben Sie ihn erneut ein."
+
+#. module: phone_system
+#: code:addons/phone_system/models/pilot_configuration.py:0
+#, python-format
+msgid "Enter the PBX administrator login in this phone system's settings."
+msgstr "Geben Sie den PBX-Administrator-Login in den Einstellungen dieser Telefonanlage ein."
+
+#. module: phone_system
+#: code:addons/phone_system/models/pilot_configuration.py:0
+#, python-format
+msgid "Enter the PBX administrator login before its password."
+msgstr "Geben Sie den PBX-Administrator-Login vor dem Passwort ein."
+
+#. module: phone_system
+#: code:addons/phone_system/models/gcna_account.py:0
+#, python-format
+msgid "This phone system is cancelled."
+msgstr "Diese Telefonanlage ist gekündigt."
+
+#. module: phone_system
+#: code:addons/phone_system/models/gcna_account.py:0
+#, python-format
+msgid "The phone system rejected the request."
+msgstr "Die Telefonanlage hat die Anfrage abgelehnt."
+
+#. module: phone_system
+#: code:addons/phone_system/models/gcna_account.py:0
+#, python-format
+msgid "The phone system could not accept these settings."
+msgstr "Die Telefonanlage konnte diese Einstellungen nicht annehmen."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Manage subscription"
+msgstr "Abonnement verwalten"
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.js:0
+msgid "The subscription page could not be opened."
+msgstr "Die Abonnementseite konnte nicht geöffnet werden."
+
+#. module: phone_system
+#: code:addons/phone_system/models/gcna_account.py:0
+#, python-format
+msgid "Subscription management is not available for this phone system."
+msgstr "Die Abonnementverwaltung ist für diese Telefonanlage nicht verfügbar."
+
+#. module: phone_system
+#: code:addons/phone_system/models/gcna_account.py:0
+#, python-format
+msgid "This Odoo site must use HTTPS to manage subscriptions."
+msgstr "Diese Odoo-Website muss HTTPS verwenden, um Abonnements zu verwalten."

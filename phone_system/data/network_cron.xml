@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cron_network_connections" model="ir.cron">
+        <field name="name">Phone System: follow accepted GCNA invitations</field>
+        <field name="model_id" ref="model_vodia_network_invitation"/>
+        <field name="state">code</field>
+        <field name="code">model._sync_connections()</field>
+        <field name="interval_number">15</field>
+        <field name="interval_type">minutes</field>
+    </record>
+    <record id="cron_customer_storage" model="ir.cron">
+        <field name="name">Phone System: save call records and backups to customer storage</field>
+        <field name="model_id" ref="model_vodia_pilot_connection"/>
+        <field name="state">code</field>
+        <field name="code">model._storage_export_all()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+</odoo>
