@@ -50,6 +50,7 @@ GCNA_CONFLICTS = {
     "SYSTEM_NOT_READY": _lt("The phone system is not ready yet."),
     "SYSTEM_CANCELLED": _lt("This phone system is cancelled."),
     "BILLING_UNAVAILABLE": _lt("Subscription management is not available for this phone system."),
+    "INVALID_MONTH": _lt("Call records are kept for the current and the previous month only."),
     "INVALID_RETURN_URL": _lt("This Odoo site must use HTTPS to manage subscriptions."),
     "PBX_REJECTED": _lt("The phone system rejected the request."),
     "PBX_REQUEST_INVALID": _lt("The phone system could not accept these settings."),

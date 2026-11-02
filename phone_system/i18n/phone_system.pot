@@ -399,6 +399,12 @@ msgid "Download call records:"
 msgstr ""
 
 #. module: phone_system
+#: code:addons/phone_system/models/gcna_account.py:0
+#, python-format
+msgid "Call records are kept for the current and the previous month only."
+msgstr ""
+
+#. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
 msgid "Choose a phone system."

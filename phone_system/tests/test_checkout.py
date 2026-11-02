@@ -304,6 +304,10 @@ class TestCheckout(TransactionCase):
         with self.assertRaises(UserError):
             self.controller.phone_system_call_records(system_id="system_test_12345678", month="October")
         self.assertEqual(len(self.sent), before, "an invalid month never reaches GCNA")
+        self.responses["/call-records"] = (422, {"error": {"code": "INVALID_MONTH"}})
+        with self.assertRaises(UserError) as older:
+            self.env["vodia.pilot.call"].with_user(self.manager).phone_system_call_records("system_test_12345678", "2026-08")
+        self.assertIn("current and the previous month", str(older.exception))
         with self.assertRaises(AccessError):
             self.env["vodia.pilot.call"].with_user(self.caller).phone_system_call_records("system_test_12345678", "2026-10")
         self.request.env = self.env(user=self.caller.id)
