@@ -2614,3 +2614,21 @@ msgstr ""
 #, python-format
 msgid "This Odoo site must use HTTPS to manage subscriptions."
 msgstr ""
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Your phone system is created and its secure address is being certified. This usually takes about a minute; you can leave this page and come back."
+msgstr ""
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Your phone system is created and is waiting for its license. You can leave this page and come back."
+msgstr ""
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "The phone system could not be created yet. It is retried automatically; contact support if this persists."
+msgstr ""

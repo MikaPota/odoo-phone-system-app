@@ -2777,3 +2777,21 @@ msgstr "Die Abonnementverwaltung ist für diese Telefonanlage nicht verfügbar."
 #, python-format
 msgid "This Odoo site must use HTTPS to manage subscriptions."
 msgstr "Diese Odoo-Website muss HTTPS verwenden, um Abonnements zu verwalten."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Your phone system is created and its secure address is being certified. This usually takes about a minute; you can leave this page and come back."
+msgstr "Ihre Telefonanlage ist angelegt, und ihre sichere Adresse wird zertifiziert. Das dauert meist etwa eine Minute; Sie können diese Seite verlassen und später zurückkehren."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "Your phone system is created and is waiting for its license. You can leave this page and come back."
+msgstr "Ihre Telefonanlage ist angelegt und wartet auf ihre Lizenz. Sie können diese Seite verlassen und später zurückkehren."
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
+msgid "The phone system could not be created yet. It is retried automatically; contact support if this persists."
+msgstr "Die Telefonanlage konnte noch nicht angelegt werden. Es wird automatisch erneut versucht; wenden Sie sich an den Support, falls das anhält."

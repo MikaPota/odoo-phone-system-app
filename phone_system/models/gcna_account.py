@@ -57,6 +57,15 @@ GCNA_CONFLICTS = {
     "RATE_LIMITED": _lt("Too many attempts. Retry later."),
     "INVALID_CONTACT_CARD": _lt("The contact card could not be sent. Check the address and your name and email in your preferences."),
 }
+# GCNA writes setup progress in English; the ones known here are shown in the user's language.
+GCNA_STAGE_MESSAGES = {
+    "Your phone system is created and its secure address is being certified. This usually takes about a minute; you can leave this page and come back.":
+        _lt("Your phone system is created and its secure address is being certified. This usually takes about a minute; you can leave this page and come back."),
+    "Your phone system is created and is waiting for its license. You can leave this page and come back.":
+        _lt("Your phone system is created and is waiting for its license. You can leave this page and come back."),
+    "The phone system could not be created yet. It is retried automatically; contact support if this persists.":
+        _lt("The phone system could not be created yet. It is retried automatically; contact support if this persists."),
+}
 
 
 class GCNAAccount(models.Model):
@@ -586,7 +595,8 @@ class GCNAAccount(models.Model):
                 if (not re.fullmatch(r"[A-Za-z0-9_-]{8,128}", system["id"]) or not re.fullmatch(r"[A-Z0-9]{6}", system["code"])
                         or not re.fullmatch(r"[a-z0-9.-]{4,253}", system["hostname"]) or type(system["capacity"]) is not int):
                     raise ValueError()
-                stages = {name: {"state": stage["state"], **({"message": stage["message"]} if isinstance(stage.get("message"), str) else {})}
+                stages = {name: {"state": stage["state"], **({"message": str(GCNA_STAGE_MESSAGES.get(stage["message"], stage["message"]))}
+                                                         if isinstance(stage.get("message"), str) else {})}
                           for name, stage in system["stages"].items() if name in ("paid", "provisioned", "users")}
                 entry = {"id": system["id"], "code": system["code"], "hostname": system["hostname"],
                          "name": system.get("name") or system["code"], "capacity": system["capacity"], "stages": stages}
