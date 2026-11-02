@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 
 from odoo import _, api, fields, models
 from odoo.addons.phone_validation.tools import phone_validation
-from odoo.exceptions import ValidationError
+from odoo.exceptions import AccessError, ValidationError
 
 OUTCOMES = [("answered", "Answered"), ("missed", "Missed"), ("failed", "Failed")]
 
@@ -102,3 +102,11 @@ class PilotCall(models.Model):
             "outcome": outcome, "duration": duration,
             "started_at": datetime.fromtimestamp(started / 1000, timezone.utc).replace(tzinfo=None),
         }).id
+
+    @api.model
+    def phone_system_call_records(self, system_id, month):
+        """For administrators through Odoo's external API: a phone system's call records of the current or
+        previous month (YYYY-MM, UTC) as GCNA keeps them on the phone system."""
+        if not self.env.user.has_group("base.group_system"):
+            raise AccessError(_("Only an administrator may download call records."))
+        return self.env["vodia.gcna.account"].sudo()._call_records(system_id, month)

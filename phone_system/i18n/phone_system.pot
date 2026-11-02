@@ -383,6 +383,24 @@ msgstr ""
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
+msgid "Choose the current or the previous month."
+msgstr ""
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/pilot_call.py:0
+msgid "Only an administrator may download call records."
+msgstr ""
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_panel.xml:0
+msgid "Download call records:"
+msgstr ""
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/gcna_account.py:0
 msgid "Choose a phone system."
 msgstr ""
 

@@ -219,6 +219,22 @@ export class PhoneSystemAction extends Component {
         this.ui.checkout = true;
     }
 
+    // Call records are kept for the current and the previous calendar month (UTC), then deleted for good.
+    get callRecordMonths() {
+        const now = new Date();
+        return [0, -1].map((offset) => {
+            const month = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + offset, 1));
+            return {
+                month: month.toISOString().slice(0, 7),
+                label: month.toLocaleDateString(user.lang || undefined, { month: "long", year: "numeric", timeZone: "UTC" }),
+            };
+        });
+    }
+
+    callRecordsUrl(system, month) {
+        return `/vodia/systems/call-records?system_id=${encodeURIComponent(system.id)}&month=${month}`;
+    }
+
     async openBilling(system) {
         try {
             const { url } = await rpc("/vodia/systems/billing", { system_id: system.id });

@@ -6,6 +6,7 @@ from unittest.mock import Mock, patch
 from cryptography.fernet import Fernet
 from odoo import fields
 from odoo.exceptions import AccessError, UserError
+from odoo.http import Response
 from odoo.tests import TransactionCase, tagged
 
 from odoo.addons.phone_system.controllers.pilot_session import PilotSessionController
@@ -277,3 +278,34 @@ class TestCheckout(TransactionCase):
         self.responses["/status"] = (400, {"error": {"code": "CHECKOUT_EXPIRED"}})
         self.assertEqual(self.controller.checkout_resume(), {"state": "none"})
         self.assertFalse(self.env.ref("phone_system.gcna_installation").checkout_id)
+
+    def test_administrators_download_call_records_as_csv_and_through_the_api(self):
+        self._start()
+        self.controller.checkout_confirm(code="123456")
+        self.responses["/call-records"] = (200, {"month": "2026-10", "records": [
+            {"id": "c1", "callId": "x1", "start": "2026-10-18T09:00:00.000Z", "answered": "2026-10-18T09:00:05.000Z",
+             "end": "2026-10-18T09:03:00.000Z", "from": "=HYPERLINK(\"x\")", "to": "<sip:+4930123@t>", "abandoned": False},
+            {"id": "c2", "callId": "x2", "start": "2026-10-19T10:00:00Z", "answered": None,
+             "end": "2026-10-19T10:00:20Z", "from": "<sip:202@t>", "to": "<sip:201@t>", "abandoned": True},
+        ]})
+        self.request.make_response = lambda data, headers: Response(data, headers=headers)
+        response = self.controller.phone_system_call_records(system_id="system_test_12345678", month="2026-10")
+        self.assertEqual(response.headers["Content-Disposition"], 'attachment; filename="call-records-2026-10.csv"')
+        lines = response.get_data(as_text=True).splitlines()
+        self.assertEqual(lines[0], "start_utc,answered_utc,end_utc,duration_s,talk_s,from,to,abandoned,call_id,record_id")
+        self.assertIn(",180,175,", lines[1])
+        self.assertIn("'=HYPERLINK", lines[1], "a formula from the PBX stays text in a spreadsheet")
+        self.assertTrue(lines[2].endswith(",20,,<sip:202@t>,<sip:201@t>,yes,x2,c2"))
+        self.assertEqual(self.sent[-1][1]["json"], {"month": "2026-10"})
+        self.assertEqual(self.sent[-1][1]["headers"]["Authorization"], "Bearer " + TOKEN)
+        api = self.env["vodia.pilot.call"].with_user(self.manager).phone_system_call_records("system_test_12345678", "2026-10")
+        self.assertEqual([row["id"] for row in api], ["c1", "c2"])
+        before = len(self.sent)
+        with self.assertRaises(UserError):
+            self.controller.phone_system_call_records(system_id="system_test_12345678", month="October")
+        self.assertEqual(len(self.sent), before, "an invalid month never reaches GCNA")
+        with self.assertRaises(AccessError):
+            self.env["vodia.pilot.call"].with_user(self.caller).phone_system_call_records("system_test_12345678", "2026-10")
+        self.request.env = self.env(user=self.caller.id)
+        with self.assertRaises(AccessError):
+            self.controller.phone_system_call_records(system_id="system_test_12345678", month="2026-10")

@@ -1,6 +1,8 @@
 import base64
+import csv
 import hashlib
 import hmac
+import io
 import json
 import logging
 import os
@@ -607,6 +609,44 @@ class GCNAAccount(models.Model):
         except (KeyError, TypeError, ValueError, AttributeError):
             self._invalid_response()
         return {"systems": systems}
+
+    @api.model
+    def _call_records(self, system_id, month):
+        """A phone system's call records of the current or the previous month, as GCNA keeps them."""
+        if not isinstance(system_id, str) or not re.fullmatch(r"[A-Za-z0-9_-]{8,128}", system_id):
+            raise UserError(_("Choose a phone system."))
+        if not isinstance(month, str) or not re.fullmatch(r"[0-9]{4}-(0[1-9]|1[0-2])", month):
+            raise UserError(_("Choose the current or the previous month."))
+        record = self.env.ref("phone_system.gcna_installation")
+        payload = record._post(f"/v1/phone-systems/{system_id}/call-records", {"month": month}, 200, record._authorization())
+        try:
+            records = []
+            for item in payload["records"]:
+                row = {key: item[key] for key in ("id", "callId", "start", "answered", "end", "from", "to", "abandoned")}
+                if (not all(isinstance(row[k], str) and len(row[k]) <= 300 for k in ("id", "callId", "from", "to"))
+                        or not ISO_TIME.fullmatch(row["start"]) or type(row["abandoned"]) is not bool
+                        or not all(row[k] is None or ISO_TIME.fullmatch(row[k]) for k in ("answered", "end"))):
+                    raise ValueError()
+                records.append(row)
+        except (KeyError, TypeError, ValueError):
+            self._invalid_response()
+        return records
+
+    @api.model
+    def _call_records_csv(self, system_id, month):
+        def seconds(a, b):
+            return str(round((datetime.fromisoformat(b[:-1]) - datetime.fromisoformat(a[:-1])).total_seconds())) if a and b else ""
+        def text(value):
+            # A leading = + - @ would run as a formula in a spreadsheet, so such a cell stays text.
+            return "'" + value if value[:1] in ("=", "+", "-", "@") else value
+        out = io.StringIO()
+        writer = csv.writer(out)
+        writer.writerow(["start_utc", "answered_utc", "end_utc", "duration_s", "talk_s", "from", "to", "abandoned", "call_id", "record_id"])
+        for row in self._call_records(system_id, month):
+            writer.writerow([row["start"], row["answered"] or "", row["end"] or "", seconds(row["start"], row["end"]),
+                             seconds(row["answered"], row["end"]), text(row["from"]), text(row["to"]),
+                             "yes" if row["abandoned"] else "no", row["callId"], row["id"]])
+        return out.getvalue()
 
     @api.model
     def _billing_portal(self, system_id):

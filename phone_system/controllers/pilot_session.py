@@ -88,6 +88,15 @@ class PilotSessionController(http.Controller):
     def phone_system_billing(self, system_id=None):
         return self._account_model()._billing_portal(system_id)
 
+    @http.route("/vodia/systems/call-records", type="http", auth="user", methods=["GET"])
+    def phone_system_call_records(self, system_id=None, month=None):
+        data = self._account_model()._call_records_csv(system_id, month)
+        return request.make_response(data, headers=[
+            ("Content-Type", "text/csv; charset=utf-8"),
+            ("Content-Disposition", f'attachment; filename="call-records-{month}.csv"'),
+            ("Cache-Control", "no-store"),
+        ])
+
     @http.route("/vodia/systems/users", type="jsonrpc", auth="user", methods=["POST"])
     def phone_system_users(self, system_id=None, user_ids=None):
         return self._account_model()._sync_users(system_id, user_ids)

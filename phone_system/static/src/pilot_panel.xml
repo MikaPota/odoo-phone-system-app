@@ -58,6 +58,12 @@
                                                 t-on-click="() => pilot.toggle()">Open phone</button>
                                         <button t-if="card.system" type="button" class="btn btn-sm btn-outline-secondary mt-2 ms-2"
                                                 t-on-click="() => this.openBilling(card.system)">Manage subscription</button>
+                                        <div t-if="card.system and card.system.stages.provisioned?.state === 'complete' and !card.deleted" class="small text-muted mt-2">
+                                            Download call records:
+                                            <t t-foreach="callRecordMonths" t-as="period" t-key="period.month">
+                                                <a t-att-href="callRecordsUrl(card.system, period.month)" class="ms-1" t-esc="period.label"/>
+                                            </t>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
