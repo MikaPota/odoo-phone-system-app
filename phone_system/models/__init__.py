@@ -7,3 +7,4 @@ from . import res_partner
 from . import network
 from . import pilot_number
 from . import customer_storage
+from . import employee_calls

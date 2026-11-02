@@ -9,3 +9,4 @@ from . import test_pilot_contact
 from . import test_network
 from . import test_pilot_number
 from . import test_customer_storage
+from . import test_employee_calls

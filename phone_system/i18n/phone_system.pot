@@ -315,7 +315,9 @@ msgstr ""
 
 #. module: phone_system
 #. odoo-python
+#: code:addons/phone_system/models/employee_calls.py:0
 #: code:addons/phone_system/models/res_partner.py:0
+#: model:ir.actions.server,name:phone_system.action_employee_calls
 #: model:ir.model.fields,field_description:phone_system.field_res_partner__vodia_call_count
 #: model:ir.model.fields,field_description:phone_system.field_res_users__vodia_call_count
 #: model_terms:ir.ui.view,arch_db:phone_system.view_partner_form_vodia_calls
@@ -402,6 +404,18 @@ msgstr ""
 #: code:addons/phone_system/models/gcna_account.py:0
 #, python-format
 msgid "Call records are kept for the current and the previous month only."
+msgstr ""
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/employee_calls.py:0
+msgid "The Employees app is not installed."
+msgstr ""
+
+#. module: phone_system
+#. odoo-python
+#: code:addons/phone_system/models/employee_calls.py:0
+msgid "Choose an employee."
 msgstr ""
 
 #. module: phone_system
