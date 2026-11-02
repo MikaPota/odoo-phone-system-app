@@ -102,7 +102,7 @@
             <form>
                 <field name="state" invisible="1"/>
                 <group invisible="state == 'done'">
-                    <p colspan="2" class="text-muted">Enter the access data of your own SIP provider. Odoo sends it to your Vodia PBX and checks that the PBX stored it. You need no PBX login.</p>
+                    <p colspan="2" class="text-muted">Enter the access data of your own SIP provider. Odoo sends it to your PBX and checks that the PBX stored it. You need no PBX login.</p>
                     <field name="connection_id" options="{'no_create': True}"/>
                     <field name="name" placeholder="e.g. Provider Main"/>
                     <field name="registrar" placeholder="sip.provider.example"/>
@@ -128,7 +128,7 @@
             <form>
                 <field name="state" invisible="1"/>
                 <group invisible="state == 'done'">
-                    <p colspan="2" class="text-muted">Enter the address of your Vodia PBX tenant and choose who gets a phone. Odoo changes nothing on the PBX. Each chosen user links their own extension by entering it with its web password the first time they open the phone.</p>
+                    <p colspan="2" class="text-muted">Enter the address of your PBX tenant and choose who gets a phone. Odoo changes nothing on the PBX. Each chosen user links their own extension by entering it with its web password the first time they open the phone.</p>
                     <field name="name"/>
                     <field name="pbx_host" placeholder="pbx.example.com"/>
                     <field name="user_ids" widget="many2many_tags" options="{'no_create': True}" required="1"/>

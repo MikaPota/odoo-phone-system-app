@@ -30,4 +30,4 @@ def credential_cipher(env):
         return Fernet(installation_key(env).encode("ascii"))
     except (ValueError, UnicodeError):
         _logger.warning("Vodia credential encryption key is unavailable.")
-        raise UserError(_("The Vodia credential encryption key is missing or invalid.")) from None
+        raise UserError(_("The PBX credential encryption key is missing or invalid.")) from None

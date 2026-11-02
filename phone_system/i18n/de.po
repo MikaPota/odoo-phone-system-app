@@ -155,9 +155,9 @@ msgstr "Zustimmen und verbinden"
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/pilot_configuration.py:0
-msgid "Agree to use your Vodia PBX login in Odoo first."
+msgid "Agree to use your PBX login in Odoo first."
 msgstr ""
-"Stimmen Sie zuerst der Verwendung Ihrer Vodia-PBX-Anmeldung in Odoo zu."
+"Stimmen Sie zuerst der Verwendung Ihrer PBX-Anmeldung in Odoo zu."
 
 #. module: phone_system
 #: model:ir.model.fields,help:phone_system.field_vodia_pilot_mapping__external_calling
@@ -227,9 +227,9 @@ msgstr ""
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/pilot_configuration.py:0
-msgid "Ask an administrator to configure your individual Vodia web credential."
+msgid "Ask an administrator to configure your individual PBX web credential."
 msgstr ""
-"Bitten Sie einen Administrator, Ihre persönlichen Vodia-Web-Zugangsdaten "
+"Bitten Sie einen Administrator, Ihre persönlichen PBX-Web-Zugangsdaten "
 "einzurichten."
 
 #. module: phone_system
@@ -319,8 +319,8 @@ msgstr "Anrufstatus nicht verfügbar"
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/phone_field.xml:0
-msgid "Call with Vodia PBX"
-msgstr "Mit Vodia PBX anrufen"
+msgid "Call with the phone system"
+msgstr "Mit der Telefonanlage anrufen"
 
 #. module: phone_system
 #: model:ir.model.fields,help:phone_system.field_vodia_pilot_connection__outbound_number
@@ -535,8 +535,8 @@ msgstr "Verbinden Sie zuerst eine autorisierte Telefonsitzung."
 
 #. module: phone_system
 #: model:ir.model,name:phone_system.model_vodia_pilot_connect_wizard
-msgid "Connect an existing Vodia PBX"
-msgstr "Vorhandene Vodia PBX verbinden"
+msgid "Connect an existing PBX"
+msgstr "Vorhandene PBX verbinden"
 
 #. module: phone_system
 #. odoo-python
@@ -811,21 +811,21 @@ msgstr ""
 #. module: phone_system
 #: model_terms:ir.ui.view,arch_db:phone_system.view_trunk_wizard_form
 msgid ""
-"Enter the access data of your own SIP provider. Odoo sends it to your Vodia "
+"Enter the access data of your own SIP provider. Odoo sends it to your "
 "PBX and checks that the PBX stored it. You need no PBX login."
 msgstr ""
 "Geben Sie die Zugangsdaten Ihres eigenen SIP-Anbieters ein. Odoo sendet sie "
-"an Ihre Vodia-PBX und prüft, ob die PBX sie gespeichert hat. Sie benötigen "
+"an Ihre PBX und prüft, ob die PBX sie gespeichert hat. Sie benötigen "
 "keine PBX-Anmeldung."
 
 #. module: phone_system
 #: model_terms:ir.ui.view,arch_db:phone_system.view_connect_wizard_form
 msgid ""
-"Enter the address of your Vodia PBX tenant and choose who gets a phone. Odoo "
+"Enter the address of your PBX tenant and choose who gets a phone. Odoo "
 "changes nothing on the PBX. Each chosen user links their own extension by "
 "entering it with its web password the first time they open the phone."
 msgstr ""
-"Geben Sie die Adresse Ihres Vodia-PBX-Mandanten ein und wählen Sie, wer ein "
+"Geben Sie die Adresse Ihres PBX-Mandanten ein und wählen Sie, wer ein "
 "Telefon erhält. Odoo ändert nichts an der PBX. Jeder gewählte Benutzer "
 "verknüpft beim ersten Öffnen des Telefons seine eigene Nebenstelle mit deren "
 "Webpasswort."
@@ -880,8 +880,8 @@ msgstr ""
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/pilot_configuration.py:0
-msgid "Enter your Vodia PBX web password."
-msgstr "Geben Sie Ihr Vodia-PBX-Webpasswort ein."
+msgid "Enter your PBX web password."
+msgstr "Geben Sie Ihr PBX-Webpasswort ein."
 
 #. module: phone_system
 #. odoo-python
@@ -1086,9 +1086,9 @@ msgstr ""
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "I agree that Odoo signs me in to the Vodia PBX with this login."
+msgid "I agree that Odoo signs me in to the PBX with this login."
 msgstr ""
-"Ich bin einverstanden, dass Odoo mich mit dieser Anmeldung bei der Vodia PBX "
+"Ich bin einverstanden, dass Odoo mich mit dieser Anmeldung bei der PBX "
 "anmeldet."
 
 #. module: phone_system
@@ -1157,9 +1157,9 @@ msgstr "Installationsgenehmigung"
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "Integration of Odoo and organization's Vodia PBX phone system."
+msgid "Integration of Odoo and your organization's phone system."
 msgstr ""
-"Integration von Odoo und der Vodia PBX Telefonanlage Ihrer Organisation."
+"Integration von Odoo und der Telefonanlage Ihrer Organisation."
 
 #. module: phone_system
 #. odoo-javascript
@@ -1330,8 +1330,8 @@ msgstr "Nur ein Administrator darf Rufnummern zuweisen."
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/pilot_configuration.py:0
-msgid "Only an administrator may clear a Vodia credential."
-msgstr "Nur ein Administrator darf Vodia-Zugangsdaten löschen."
+msgid "Only an administrator may clear a PBX credential."
+msgstr "Nur ein Administrator darf PBX-Zugangsdaten löschen."
 
 #. module: phone_system
 #. odoo-python
@@ -1529,11 +1529,11 @@ msgstr "Rufnummer"
 #. odoo-python
 #: code:addons/phone_system/models/pilot_connect_wizard.py:0
 msgid ""
-"Phone system connected. %s users will be asked for their extension and Vodia "
+"Phone system connected. %s users will be asked for their extension and "
 "PBX web password the next time they open the phone."
 msgstr ""
 "Telefonanlage verbunden. %s Benutzer werden beim nächsten Öffnen des "
-"Telefons nach Nebenstelle und Vodia-PBX-Webpasswort gefragt."
+"Telefons nach Nebenstelle und PBX-Webpasswort gefragt."
 
 #. module: phone_system
 #. odoo-javascript
@@ -1919,9 +1919,9 @@ msgstr "Der SIP-Benutzername enthält nicht unterstützte Zeichen."
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/credentials.py:0
-msgid "The Vodia credential encryption key is missing or invalid."
+msgid "The PBX credential encryption key is missing or invalid."
 msgstr ""
-"Der Verschlüsselungsschlüssel für die Vodia-Zugangsdaten fehlt oder ist "
+"Der Verschlüsselungsschlüssel für die PBX-Zugangsdaten fehlt oder ist "
 "ungültig."
 
 #. module: phone_system
@@ -1963,10 +1963,10 @@ msgstr "Der eingehende Anruf konnte nicht angenommen werden."
 #. odoo-python
 #: code:addons/phone_system/models/pilot_configuration.py:0
 msgid ""
-"The individual Vodia credential is invalid; ask an administrator to replace "
+"The individual PBX credential is invalid; ask an administrator to replace "
 "it."
 msgstr ""
-"Die persönlichen Vodia-Zugangsdaten sind ungültig. Bitten Sie einen "
+"Die persönlichen PBX-Zugangsdaten sind ungültig. Bitten Sie einen "
 "Administrator, sie zu ersetzen."
 
 #. module: phone_system
@@ -2223,12 +2223,12 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_panel.xml:0
 msgid ""
-"Use your Vodia PBX login in Odoo. Enter your extension and Vodia PBX web "
+"Use your PBX login in Odoo. Enter your extension and PBX web "
 "password once: Odoo checks them with the phone system, keeps the login "
 "encrypted and signs you in automatically from now on."
 msgstr ""
-"Verwenden Sie Ihre Vodia-PBX-Anmeldung in Odoo. Geben Sie einmal Ihre "
-"Nebenstelle und Ihr Vodia-PBX-Webpasswort ein: Odoo prüft beides bei der "
+"Verwenden Sie Ihre PBX-Anmeldung in Odoo. Geben Sie einmal Ihre "
+"Nebenstelle und Ihr PBX-Webpasswort ein: Odoo prüft beides bei der "
 "Telefonanlage, speichert die Anmeldung verschlüsselt und meldet Sie ab jetzt "
 "automatisch an."
 
@@ -2294,14 +2294,8 @@ msgstr "Bestätigungscode"
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "Vodia PBX Phone System"
-msgstr "Vodia PBX Telefonanlage"
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "Vodia PBX web password"
-msgstr "Vodia-PBX-Webpasswort"
+msgid "PBX web password"
+msgstr "PBX-Webpasswort"
 
 #. module: phone_system
 #: model:res.groups,name:phone_system.group_pilot
@@ -2325,16 +2319,16 @@ msgstr "Phone-System-Benutzerzuordnung"
 
 #. module: phone_system
 #: model:ir.model,name:phone_system.model_vodia_pilot_number
-msgid "Vodia incoming phone number"
-msgstr "Vodia-Rufnummer für eingehende Anrufe"
+msgid "Incoming phone number"
+msgstr "Rufnummer für eingehende Anrufe"
 
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/pilot_configuration.py:0
 msgid ""
-"Vodia login failed. Ask an administrator to check the PBX and your mapping."
+"PBX login failed. Ask an administrator to check the PBX and your mapping."
 msgstr ""
-"Die Vodia-Anmeldung ist fehlgeschlagen. Bitten Sie einen Administrator, die "
+"Die PBX-Anmeldung ist fehlgeschlagen. Bitten Sie einen Administrator, die "
 "Telefonanlage und Ihre Zuordnung zu prüfen."
 
 #. module: phone_system
@@ -2413,9 +2407,9 @@ msgstr ""
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_service.js:0
-msgid "Your Vodia PBX login could not be confirmed. Try again."
+msgid "Your PBX login could not be confirmed. Try again."
 msgstr ""
-"Ihre Vodia-PBX-Anmeldung konnte nicht bestätigt werden. Bitte erneut "
+"Ihre PBX-Anmeldung konnte nicht bestätigt werden. Bitte erneut "
 "versuchen."
 
 #. module: phone_system

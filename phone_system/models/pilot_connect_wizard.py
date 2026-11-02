@@ -11,11 +11,11 @@ _logger = logging.getLogger(__name__)
 
 
 class PilotConnectWizard(models.TransientModel):
-    """Connects an existing Vodia PBX tenant without changing it. The administrator only names the tenant and
+    """Connects an existing PBX tenant without changing it. The administrator only names the tenant and
     the users who get a phone; each user then links their own extension by signing in with its web password."""
 
     _name = "vodia.pilot.connect.wizard"
-    _description = "Connect an existing Vodia PBX"
+    _description = "Connect an existing PBX"
 
     name = fields.Char("Name", required=True, default=lambda self: self.env.company.name)
     pbx_host = fields.Char("PBX tenant address", required=True)
@@ -58,7 +58,7 @@ class PilotConnectWizard(models.TransientModel):
                 user.sudo().write({"group_ids": [(4, group.id)]})
         _logger.info("Vodia existing PBX connected for %s users.", len(self.user_ids))
         self.write({"pbx_host": host, "state": "done", "result": _(
-            "Phone system connected. %s users will be asked for their extension and Vodia PBX web password "
+            "Phone system connected. %s users will be asked for their extension and PBX web password "
             "the next time they open the phone.", len(self.user_ids))})
         return {"type": "ir.actions.act_window", "name": _("Connect existing phone system"), "res_model": self._name,
                 "res_id": self.id, "view_mode": "form", "views": [[False, "form"]], "target": "new"}

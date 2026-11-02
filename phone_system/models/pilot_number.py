@@ -16,7 +16,7 @@ class PilotNumber(models.Model):
     The PBX routes a call by the extension names (aliases) that match the called number, so Odoo adds the
     number's spellings to the extension's names and removes only those again; other names stay untouched."""
     _name = "vodia.pilot.number"
-    _description = "Vodia incoming phone number"
+    _description = "Incoming phone number"
     _rec_name = "number"
     _order = "number"
 

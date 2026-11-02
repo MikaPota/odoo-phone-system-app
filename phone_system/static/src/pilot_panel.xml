@@ -7,7 +7,7 @@
                     <span class="o_vodia_ps_mark" aria-hidden="true"><i class="fa fa-phone"/></span>
                     <div>
                         <h1 class="o_vodia_ps_title mb-1">Phone System</h1>
-                        <p class="text-muted mb-0">Integration of Odoo and organization's Vodia PBX phone system.</p>
+                        <p class="text-muted mb-0">Integration of Odoo and your organization's phone system.</p>
                     </div>
                 </header>
                 <t t-if="state.canManage">
@@ -23,7 +23,7 @@
                                 <div class="o_vodia_ps_option card h-100">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="fw-semibold">Vodia PBX Phone System</div>
+                                            <div class="fw-semibold">Phone System</div>
                                             <div class="d-flex align-items-center gap-2">
                                                 <span class="o_vodia_ps_status badge rounded-pill"><t t-esc="card.badge"/></span>
                                                 <button type="button" class="btn btn-link text-muted p-1" title="Phone system settings"
@@ -191,18 +191,18 @@
                 </p>
                 <form t-if="state.consentRequired and !state.minimized" class="d-flex flex-column gap-2"
                       t-on-submit.prevent="() => this.submitConsent()">
-                    <p class="small mb-0">Use your Vodia PBX login in Odoo. Enter your extension and Vodia PBX web password once: Odoo checks them with the phone system, keeps the login encrypted and signs you in automatically from now on.</p>
+                    <p class="small mb-0">Use your PBX login in Odoo. Enter your extension and PBX web password once: Odoo checks them with the phone system, keeps the login encrypted and signs you in automatically from now on.</p>
                     <div t-if="state.error" class="alert alert-danger py-2 mb-0" role="alert"><t t-esc="state.error"/></div>
                     <label for="vodia_pilot_extension" class="visually-hidden">Extension</label>
                     <input id="vodia_pilot_extension" type="text" inputmode="numeric" class="form-control" autocomplete="username"
                            placeholder="Extension" t-att-value="form.extension || state.consentExtension"
                            t-on-input="(ev) => this.form.extension = ev.target.value.trim()"/>
-                    <label for="vodia_pilot_password" class="visually-hidden">Vodia PBX web password</label>
+                    <label for="vodia_pilot_password" class="visually-hidden">PBX web password</label>
                     <input id="vodia_pilot_password" type="password" class="form-control" autocomplete="current-password"
-                           placeholder="Vodia PBX web password" t-model="form.password"/>
+                           placeholder="PBX web password" t-model="form.password"/>
                     <div class="form-check">
                         <input id="vodia_pilot_consent" type="checkbox" class="form-check-input" t-model="form.agreed"/>
-                        <label for="vodia_pilot_consent" class="form-check-label small">I agree that Odoo signs me in to the Vodia PBX with this login.</label>
+                        <label for="vodia_pilot_consent" class="form-check-label small">I agree that Odoo signs me in to the PBX with this login.</label>
                     </div>
                     <div>
                         <button type="submit" class="btn btn-primary"

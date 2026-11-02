@@ -16,7 +16,7 @@ TIMEOUT = (3, 10)
 
 
 class PilotTrunkClient:
-    """Minimal tenant-admin client for the Vodia REST API; the digest never leaves the server."""
+    """Minimal tenant-admin client for the PBX REST API; the digest never leaves the server."""
 
     def __init__(self, username, digest, origin=PBX_ORIGIN, tenant=PBX_TENANT, http=None):
         self.origin, self.tenant = origin, tenant

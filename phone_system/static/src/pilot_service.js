@@ -400,7 +400,7 @@ export const pilotService = {
                 } catch (error) {
                     state.error = error.data?.name === "odoo.exceptions.UserError" && typeof error.data.message === "string"
                         ? error.data.message
-                        : _t("Your Vodia PBX login could not be confirmed. Try again.");
+                        : _t("Your PBX login could not be confirmed. Try again.");
                     return;
                 } finally {
                     state.consentBusy = false;

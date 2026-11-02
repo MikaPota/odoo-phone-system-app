@@ -216,7 +216,7 @@ class PilotMapping(models.Model):
 
     def action_clear_credential(self):
         if not self.env.user.has_group("base.group_system"):
-            raise AccessError(_("Only an administrator may clear a Vodia credential."))
+            raise AccessError(_("Only an administrator may clear a PBX credential."))
         self.write({"credential_ciphertext": False})
         return True
 
@@ -249,7 +249,7 @@ class PilotMapping(models.Model):
     def _password_digest(self):
         self.ensure_one()
         if not self.credential_ciphertext:
-            raise UserError(_("Ask an administrator to configure your individual Vodia web credential."))
+            raise UserError(_("Ask an administrator to configure your individual PBX web credential."))
         try:
             value = json.loads(self._credential_cipher().decrypt(
                 self.credential_ciphertext.encode("ascii")
@@ -262,7 +262,7 @@ class PilotMapping(models.Model):
             return digest
         except (InvalidToken, ValueError, KeyError, TypeError, UnicodeError):
             _logger.warning("Vodia stored individual credential validation failed.")
-            raise UserError(_("The individual Vodia credential is invalid; ask an administrator to replace it.")) from None
+            raise UserError(_("The individual PBX credential is invalid; ask an administrator to replace it.")) from None
 
     def _caller_mapping(self):
         user = self.env.user
@@ -358,11 +358,11 @@ class PilotMapping(models.Model):
         encrypted and scoped like any other individual credential."""
         mapping = self._caller_mapping()
         if consent is not True:
-            raise UserError(_("Agree to use your Vodia PBX login in Odoo first."))
+            raise UserError(_("Agree to use your PBX login in Odoo first."))
         if not isinstance(extension, str) or not re.fullmatch(r"[0-9]{2,6}", extension):
             raise UserError(_("Enter your extension number."))
         if not isinstance(password, str) or not 1 <= len(password) <= 128 or re.search(r"[\x00-\x1f]", password):
-            raise UserError(_("Enter your Vodia PBX web password."))
+            raise UserError(_("Enter your PBX web password."))
         if self.sudo().search_count([("connection_id.pbx_host", "=", mapping.connection_id.pbx_host),
                                      ("extension", "=", extension), ("user_id", "!=", mapping.user_id.id)]):
             raise UserError(_("Extension %s is already linked to another Odoo user.", extension))
@@ -410,7 +410,7 @@ class PilotMapping(models.Model):
                 raise ValueError("Invalid PBX password challenge.")
         except (requests.RequestException, ValueError):
             _logger.warning("Vodia password challenge delivery failed for an authorized mapping.")
-            raise UserError(_("Vodia login failed. Ask an administrator to check the PBX and your mapping.")) from None
+            raise UserError(_("PBX login failed. Ask an administrator to check the PBX and your mapping.")) from None
         proof = hashlib.sha256(
             (mapping.extension + ":" + digest + ":" + payload["challenge"]).encode("utf-8")
         ).hexdigest()
