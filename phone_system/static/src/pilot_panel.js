@@ -142,7 +142,7 @@ export class PhoneSystemAction extends Component {
         }
         // Existing systems connected in Odoo; purchased ones are listed from their own status below.
         this.ui.connections = await this.orm.searchRead("vodia.pilot.connection",
-            [["gcna_system_id", "=", false], ["company_id", "=", user.activeCompany.id]],
+            [["gcna_system_id", "=", false], ["company_id", "=", (user.activeCompany?.id ?? user.context.allowed_company_ids[0])]],
             ["name", "pbx_host", "user_count", "linked_count", "has_own_phone"]);
         if (!this.state.dashboard?.managed_setup.available) {
             return;

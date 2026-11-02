@@ -234,7 +234,7 @@ export class PhoneSystemCheckout extends Component {
 
     async loadUsers() {
         this.state.users = await this.orm.searchRead(
-            "res.users", [["share", "=", false], ["company_ids", "in", [user.activeCompany.id]]], ["name"], { order: "name" },
+            "res.users", [["share", "=", false], ["company_ids", "in", [(user.activeCompany?.id ?? user.context.allowed_company_ids[0])]]], ["name"], { order: "name" },
         );
     }
 

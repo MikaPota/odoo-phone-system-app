@@ -317,7 +317,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/phone_system/models/employee_calls.py:0
 #: code:addons/phone_system/models/res_partner.py:0
-#: model:ir.actions.server,name:phone_system.action_employee_calls
 #: model:ir.model.fields,field_description:phone_system.field_res_partner__vodia_call_count
 #: model:ir.model.fields,field_description:phone_system.field_res_users__vodia_call_count
 #: model_terms:ir.ui.view,arch_db:phone_system.view_partner_form_vodia_calls

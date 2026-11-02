@@ -33,10 +33,22 @@ class TestEmployeeCalls(TransactionCase):
 
     def test_employee_cards_get_the_calls_button_without_a_separate_app(self):
         view = self.env.ref("phone_system.view_employee_form_calls")
-        action = self.env.ref("phone_system.action_employee_calls")
+        action = self.env.ref("phone_system.employee_calls_action")
         self.assertEqual(view.inherit_id, self.env.ref("hr.view_employee_form"))
         self.assertIn(f'name="{action.id}"', view.arch_db)
+        self.assertEqual(action.model_id.model, "hr.employee", "an action on the read-only call model is refused")
+        # The button sits on the HR form, so it runs for HR users with their own access to calls.
+        officer = self.env["res.users"].create({
+            "name": "Officer", "login": "phone-hr-officer", "company_id": self.env.company.id,
+            "company_ids": [(6, 0, [self.env.company.id])],
+            "group_ids": [(6, 0, [self.env.ref("phone_system.group_pilot").id, self.env.ref("hr.group_hr_user").id])]})
+        result = action.with_user(officer).with_context(active_model="hr.employee", active_id=self.bob_employee.id,
+                                                           active_ids=self.bob_employee.ids).sudo(False).run()
+        self.assertEqual(result["res_model"], "vodia.pilot.call")
         self.assertIn("Calls", self.env["hr.employee"].get_views([(False, "form")])["views"]["form"]["arch"])
+        if "de_DE" in dict(self.env["res.lang"].get_installed()):
+            german = self.env["hr.employee"].with_context(lang="de_DE").get_views([(False, "form")])["views"]["form"]["arch"]
+            self.assertIn("Anrufe", german)
         # Removed with the Employees app's form, the button comes back on the next registry load.
         view.unlink()
         self.env["vodia.pilot.call"]._ensure_employee_calls_button()

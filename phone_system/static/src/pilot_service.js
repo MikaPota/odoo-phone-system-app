@@ -110,7 +110,7 @@ export const pilotService = {
                 callLog = {
                     call_id: detail.id, direction: detail.direction, started_at: Date.now(),
                     peer: detail.direction === "outgoing" ? pendingPeer : detail.remote, answeredAt: null,
-                    company_id: user.activeCompany.id,
+                    company_id: (user.activeCompany?.id ?? user.context.allowed_company_ids[0]),
                 };
             }
             if (callLog && detail.state === "active" && !callLog.answeredAt) {
@@ -256,7 +256,7 @@ export const pilotService = {
                 state.connecting = true;
                 state.error = "";
                 try {
-                    const companyId = user.activeCompany.id;
+                    const companyId = (user.activeCompany?.id ?? user.context.allowed_company_ids[0]);
                     const mapping = await rpc("/vodia/pilot/configuration", { company_id: companyId });
                     if (mapping?.credential_required === true) {
                         // The user has not shared their PBX login yet; ask for consent instead of failing.
@@ -365,7 +365,7 @@ export const pilotService = {
                         if (attempt !== generation) {
                             return;
                         }
-                        if (user.activeCompany.id !== companyId || !isValidMapping(current) ||
+                        if ((user.activeCompany?.id ?? user.context.allowed_company_ids[0]) !== companyId || !isValidMapping(current) ||
                             current.extension !== extension || current.tenant !== tenant) {
                             revoke();
                             return;
@@ -395,7 +395,7 @@ export const pilotService = {
                 state.consentBusy = true;
                 state.error = "";
                 try {
-                    await rpc("/vodia/pilot/consent", { company_id: user.activeCompany.id, extension, password, consent: true });
+                    await rpc("/vodia/pilot/consent", { company_id: (user.activeCompany?.id ?? user.context.allowed_company_ids[0]), extension, password, consent: true });
                     state.consentRequired = false;
                 } catch (error) {
                     state.error = error.data?.name === "odoo.exceptions.UserError" && typeof error.data.message === "string"
@@ -453,7 +453,7 @@ export const pilotService = {
             },
             async contactCardRecipient() {
                 try {
-                    const { email } = await rpc("/vodia/pilot/contact_card/recipient", { company_id: user.activeCompany.id });
+                    const { email } = await rpc("/vodia/pilot/contact_card/recipient", { company_id: (user.activeCompany?.id ?? user.context.allowed_company_ids[0]) });
                     return typeof email === "string" ? email : "";
                 } catch {
                     return "";
@@ -461,7 +461,7 @@ export const pilotService = {
             },
             async sendContactCard(email) {
                 try {
-                    await rpc("/vodia/pilot/contact_card", { company_id: user.activeCompany.id, email });
+                    await rpc("/vodia/pilot/contact_card", { company_id: (user.activeCompany?.id ?? user.context.allowed_company_ids[0]), email });
                     notification.add(_t("Your contact info is on its way."), { type: "success" });
                     return true;
                 } catch (error) {
@@ -472,7 +472,7 @@ export const pilotService = {
             // Accepted GCNA invitations whose recipient is not yet a contact; the user creates it on purpose.
             async networkPending() {
                 try {
-                    const { connections } = await rpc("/vodia/pilot/network/pending", { company_id: user.activeCompany.id });
+                    const { connections } = await rpc("/vodia/pilot/network/pending", { company_id: (user.activeCompany?.id ?? user.context.allowed_company_ids[0]) });
                     return Array.isArray(connections) ? connections : [];
                 } catch {
                     return [];
@@ -480,7 +480,7 @@ export const pilotService = {
             },
             async createNetworkContact(invitationId) {
                 try {
-                    const contact = await rpc("/vodia/pilot/network/contact", { company_id: user.activeCompany.id, invitation_id: invitationId });
+                    const contact = await rpc("/vodia/pilot/network/contact", { company_id: (user.activeCompany?.id ?? user.context.allowed_company_ids[0]), invitation_id: invitationId });
                     notification.add(_t("%s was added to your contacts.", contact.name), { type: "success" });
                     return true;
                 } catch (error) {
