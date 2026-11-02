@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="phone_system.PhoneField" t-inherit="web.PhoneField" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_phone_content')]" position="inside">
+            <button t-if="vodiaCanDial" type="button" class="btn btn-link p-0 ms-2 o_vodia_dial"
+                    title="Call with Vodia PBX" aria-label="Call with Vodia PBX" t-on-click.stop.prevent="vodiaDial">
+                <i class="fa fa-phone" aria-hidden="true"/>
+            </button>
+        </xpath>
+    </t>
+</templates>

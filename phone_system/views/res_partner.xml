@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_vodia_calls" model="ir.ui.view">
+        <field name="name">res.partner.form.vodia.calls</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_vodia_calls" type="object" class="oe_stat_button" icon="fa-phone"
+                        groups="phone_system.group_pilot,base.group_system">
+                    <field name="vodia_call_count" widget="statinfo" string="Calls"/>
+                </button>
+            </div>
+            <div name="button_box" position="after">
+                <field name="vodia_network_connected" invisible="1"/>
+                <span class="badge text-bg-success mb-2" invisible="not vodia_network_connected">GCNA connected</span>
+            </div>
+        </field>
+    </record>
+</odoo>

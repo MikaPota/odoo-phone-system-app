@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="phone_system.App">
+        <div class="o_vodia_phone_system_dashboard">
+            <div class="o_vodia_ps_page">
+                <header class="o_vodia_ps_header d-flex align-items-center gap-3">
+                    <span class="o_vodia_ps_mark" aria-hidden="true"><i class="fa fa-phone"/></span>
+                    <div>
+                        <h1 class="o_vodia_ps_title mb-1">Phone System</h1>
+                        <p class="text-muted mb-0">Integration of Odoo and organization's Vodia PBX phone system.</p>
+                    </div>
+                </header>
+                <t t-if="state.canManage">
+                    <div t-if="state.dashboardError" class="alert alert-danger" role="alert">
+                        <t t-esc="state.dashboardError"/>
+                    </div>
+                    <PhoneSystemCheckout t-elif="ui.checkout" system="ui.system || undefined" onClose="() => this.closeCheckout()"/>
+                    <t t-elif="state.dashboard">
+                    <section t-if="ui.systems.length or ui.connections.length" class="mb-4" aria-labelledby="vodia_ps_systems">
+                        <h2 id="vodia_ps_systems" class="h6 text-uppercase text-muted mb-3">Your phone systems</h2>
+                        <div class="row g-3">
+                            <div t-foreach="cards" t-as="card" t-key="card.key" class="col-12 col-lg-6">
+                                <div class="o_vodia_ps_option card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <div class="fw-semibold">Vodia PBX Phone System</div>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <span class="o_vodia_ps_status badge rounded-pill"><t t-esc="card.badge"/></span>
+                                                <button type="button" class="btn btn-link text-muted p-1" title="Phone system settings"
+                                                        aria-label="Phone system settings" t-on-click="() => card.openSettings()">
+                                                    <i class="fa fa-cog fa-lg" aria-hidden="true"/>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="text-muted small mb-3"><t t-esc="card.subtitle"/></div>
+                                        <div t-if="card.cancelled" class="alert alert-warning small py-2 mb-3" role="status"><t t-esc="card.cancelled"/></div>
+                                        <ul class="list-unstyled small mb-0">
+                                            <t t-if="card.system and !card.setupDone and !card.cancelled">
+                                                <li>Paid: <t t-esc="stageLabel(card.system.stages.paid)"/></li>
+                                                <li>Phone system created: <t t-esc="stageLabel(card.system.stages.provisioned)"/></li>
+                                                <li>Users connected: <t t-esc="stageLabel(card.system.stages.users)"/></li>
+                                            </t>
+                                            <li>Users with a phone: <t t-esc="card.user_count"/></li>
+                                            <li>Users signed in: <t t-esc="card.linked_count"/></li>
+                                            <li t-if="card.license">PBX license key: <t t-esc="card.license.key || '—'"/>
+                                                <i t-if="card.license.valid === true" class="fa fa-check-circle text-success ms-1" role="img" aria-label="Valid" title="Valid"/>
+                                                <i t-elif="card.license.valid === false" class="fa fa-times-circle text-danger ms-1" role="img" aria-label="Not valid" title="Not valid"/>
+                                                <i t-else="" class="fa fa-question-circle text-muted ms-1" role="img" aria-label="Could not be checked" title="Could not be checked"/>
+                                            </li>
+                                            <li t-if="state.tenant === card.host">PBX connection: <t t-esc="connectionLabel"/></li>
+                                        </ul>
+                                        <div t-if="state.connection === 'ready' and state.tenant === card.host" class="alert alert-success mt-3 mb-0" role="status">
+                                            <div class="fw-semibold">Congratulations!</div>
+                                            <p class="mb-2">You are now ready for productive communication. Explore your features now!</p>
+                                            <button type="button" class="btn btn-sm btn-success" t-on-click="() => pilot.toggle()">Open phone</button>
+                                        </div>
+                                        <button t-elif="card.has_own_phone and !card.deleted" type="button" class="btn btn-sm btn-outline-primary mt-3"
+                                                t-on-click="() => pilot.toggle()">Open phone</button>
+                                        <button t-if="card.system" type="button" class="btn btn-sm btn-outline-secondary mt-2 ms-2"
+                                                t-on-click="() => this.openBilling(card.system)">Manage subscription</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="row g-4">
+                        <div class="col-12 col-lg-6">
+                            <section class="o_vodia_ps_option card h-100" aria-labelledby="vodia_ps_create">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex align-items-start justify-content-between mb-4">
+                                        <span class="o_vodia_ps_icon" aria-hidden="true"><i class="fa fa-plus"/></span>
+                                        <span t-if="!state.dashboard.managed_setup.available"
+                                              class="o_vodia_ps_status badge rounded-pill" role="status">
+                                            <t t-esc="state.dashboard.managed_setup.message"/>
+                                        </span>
+                                    </div>
+                                    <h2 id="vodia_ps_create" class="h5 mb-2">Create a new phone system and connect with Odoo</h2>
+                                    <p class="text-muted flex-grow-1 mb-4">Get a new phone system for selected Odoo companies and users.</p>
+                                    <div>
+                                        <button type="button" class="btn btn-primary" t-att-disabled="!purchasable"
+                                                t-on-click="() => this.openCheckout()">
+                                            Create phone system
+                                        </button>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <section class="o_vodia_ps_option card h-100" aria-labelledby="vodia_ps_connect">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex align-items-start justify-content-between mb-4">
+                                        <span class="o_vodia_ps_icon" aria-hidden="true"><i class="fa fa-plug"/></span>
+                                        <span t-if="!state.dashboard.existing_setup.available"
+                                              class="o_vodia_ps_status badge rounded-pill" role="status">
+                                            <t t-esc="state.dashboard.existing_setup.message"/>
+                                        </span>
+                                    </div>
+                                    <h2 id="vodia_ps_connect" class="h5 mb-2">Connect existing phone system with Odoo</h2>
+                                    <p class="text-muted flex-grow-1 mb-4">Use a phone system you already have with Odoo.</p>
+                                    <div>
+                                        <button type="button" class="btn btn-primary" t-att-disabled="!state.dashboard.existing_setup.available"
+                                                t-on-click="() => this.openConnect()">
+                                            Connect phone system
+                                        </button>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    </t>
+                    <div t-else="" class="d-flex align-items-center gap-2 text-muted" role="status">
+                        <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"/>
+                        <span>Loading Phone System setup status…</span>
+                    </div>
+                </t>
+                <section t-else="" class="o_vodia_ps_option card">
+                    <div class="card-body d-flex flex-column flex-sm-row align-items-sm-center gap-3">
+                        <p class="text-muted flex-grow-1 mb-0">Your phone stays available while you navigate between Odoo apps.</p>
+                        <button t-if="state.authorized" type="button" class="btn btn-primary"
+                                t-on-click="() => pilot.toggle()">Open phone panel</button>
+                        <span t-else="" class="text-muted" role="status">
+                            Ask your Phone System administrator to enable your phone access.
+                        </span>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+    <t t-name="phone_system.Systray">
+        <div t-if="state.authorized" class="o_vodia_pilot_systray d-flex align-items-center">
+            <button type="button" class="o_nav_entry border-0 bg-transparent" title="Phone System"
+                    aria-label="Phone System" t-on-click="() => pilot.toggle()">
+                <i class="fa fa-lg fa-phone" aria-hidden="true"/>
+                <span t-if="state.call !== 'idle'" class="badge text-bg-success ms-1">1</span>
+            </button>
+        </div>
+    </t>
+    <t t-name="phone_system.Panel">
+        <section t-if="state.authorized and state.visible" class="o_vodia_pilot_panel card shadow"
+                 aria-label="Phone" aria-live="polite">
+            <header class="card-header d-flex align-items-center gap-2">
+                <strong>Phone</strong>
+                <span t-if="state.number" class="o_vodia_own_number text-muted small me-auto" t-esc="state.number"/>
+                <span t-else="" class="me-auto"/>
+                <button t-if="state.connection === 'ready'" type="button" class="btn btn-sm btn-light"
+                        title="Send Contact Info" aria-label="Send Contact Info" t-on-click="() => this.openContactCard()">
+                    <i class="fa fa-address-card-o" aria-hidden="true"/>
+                </button>
+                <button type="button" class="btn btn-sm btn-light" title="Minimize or restore"
+                        aria-label="Minimize or restore" t-on-click="() => pilot.minimize()">
+                    <i class="fa fa-minus" aria-hidden="true"/>
+                </button>
+                <button type="button" class="btn btn-sm btn-light" title="Hide panel; keep call active"
+                        aria-label="Hide panel; keep call active" t-on-click="() => pilot.toggle()">
+                    <i class="fa fa-times" aria-hidden="true"/>
+                </button>
+            </header>
+            <div class="card-body">
+                <form t-if="state.followUp and !card.open" class="o_vodia_follow_up alert alert-info mb-3 py-2" t-on-submit.prevent="() => this.sendFollowUp()">
+                    <p class="small mb-2" t-esc="followUpPrompt"/>
+                    <label for="vodia_follow_up_to" class="visually-hidden">Email address</label>
+                    <div class="d-flex gap-2">
+                        <input id="vodia_follow_up_to" type="email" class="form-control form-control-sm" required="1" autocomplete="off"
+                               placeholder="name@example.com" t-att-value="form.followUpEmail ?? state.followUp.email"
+                               t-on-input="(ev) => this.form.followUpEmail = ev.target.value.trim()"/>
+                        <button type="submit" class="btn btn-sm btn-primary" t-att-disabled="card.busy or !(form.followUpEmail ?? state.followUp.email)">Send</button>
+                        <button type="button" class="btn btn-sm btn-light" t-on-click="() => this.dismissFollowUp()">Not now</button>
+                    </div>
+                </form>
+                <form t-if="card.open" class="o_vodia_contact_card mb-3" t-on-submit.prevent="() => this.sendContactCard()">
+                    <label for="vodia_contact_card_to" class="form-label small">Send Contact Info to</label>
+                    <div class="d-flex gap-2">
+                        <input id="vodia_contact_card_to" type="email" class="form-control form-control-sm" required="1"
+                               autocomplete="email" placeholder="name@example.com" t-model="card.email"/>
+                        <button type="submit" class="btn btn-sm btn-primary" t-att-disabled="card.busy or !card.email">Send</button>
+                    </div>
+                    <p class="small text-muted mb-0 mt-1">Your name, company, email and phone number, sent by GCNA on your behalf.</p>
+                    <div t-if="card.connections.length" class="o_vodia_network_pending mt-2">
+                        <p class="small fw-bold mb-1">Accepted your invitation</p>
+                        <div t-foreach="card.connections" t-as="connection" t-key="connection.invitation_id"
+                             class="d-flex align-items-center justify-content-between gap-2 small mb-1">
+                            <span class="text-truncate"><t t-esc="connection.name"/>
+                                <span t-if="connection.company" class="text-muted"> · <t t-esc="connection.company"/></span></span>
+                            <button type="button" class="btn btn-sm btn-outline-primary text-nowrap"
+                                    t-on-click="() => this.createNetworkContact(connection)">Create contact</button>
+                        </div>
+                    </div>
+                </form>
+                <p class="mb-2"><t t-esc="connectionLabel"/> / <t t-esc="callLabel"/>
+                    <span t-if="state.extension" class="ms-1">(<t t-esc="state.extension"/>)</span>
+                </p>
+                <form t-if="state.consentRequired and !state.minimized" class="d-flex flex-column gap-2"
+                      t-on-submit.prevent="() => this.submitConsent()">
+                    <p class="small mb-0">Use your Vodia PBX login in Odoo. Enter your extension and Vodia PBX web password once: Odoo checks them with the phone system, keeps the login encrypted and signs you in automatically from now on.</p>
+                    <div t-if="state.error" class="alert alert-danger py-2 mb-0" role="alert"><t t-esc="state.error"/></div>
+                    <label for="vodia_pilot_extension" class="visually-hidden">Extension</label>
+                    <input id="vodia_pilot_extension" type="text" inputmode="numeric" class="form-control" autocomplete="username"
+                           placeholder="Extension" t-att-value="form.extension || state.consentExtension"
+                           t-on-input="(ev) => this.form.extension = ev.target.value.trim()"/>
+                    <label for="vodia_pilot_password" class="visually-hidden">Vodia PBX web password</label>
+                    <input id="vodia_pilot_password" type="password" class="form-control" autocomplete="current-password"
+                           placeholder="Vodia PBX web password" t-model="form.password"/>
+                    <div class="form-check">
+                        <input id="vodia_pilot_consent" type="checkbox" class="form-check-input" t-model="form.agreed"/>
+                        <label for="vodia_pilot_consent" class="form-check-label small">I agree that Odoo signs me in to the Vodia PBX with this login.</label>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary"
+                                t-att-disabled="!form.agreed or !form.password or !(form.extension || state.consentExtension) or state.consentBusy">Agree and connect</button>
+                    </div>
+                </form>
+                <t t-elif="!state.minimized">
+                    <p t-if="!state.externalCalling" class="small text-muted">Internal colleague calls only. No separate PBX login is required. Disconnecting closes the phone; the PBX browser session expires separately.</p>
+                    <div t-if="state.error" class="alert alert-danger py-2" role="alert"><t t-esc="state.error"/></div>
+                    <div t-if="state.connection === 'disconnected'">
+                        <button type="button" class="btn btn-primary" t-on-click="() => pilot.connect()"
+                                t-att-disabled="state.connecting">Connect mapped extension</button>
+                    </div>
+                    <div t-else="">
+                        <div t-if="state.connection === 'ready' and state.call === 'idle'" class="d-flex gap-2 mb-2">
+                            <label for="vodia_pilot_destination" class="visually-hidden">Call destination</label>
+                            <select id="vodia_pilot_destination" class="form-select" t-model="form.destination">
+                                <option value="">Choose a colleague</option>
+                                <option t-foreach="state.directory" t-as="contact" t-key="contact.extension"
+                                        t-att-value="contact.extension"><t t-esc="contact.name"/> (<t t-esc="contact.extension"/>)</option>
+                            </select>
+                            <button type="button" class="btn btn-primary" t-on-click="() => pilot.dial(form.destination)">Call</button>
+                        </div>
+                        <div t-if="state.externalCalling and state.connection === 'ready' and state.call === 'idle'" class="o_vodia_dialpad mb-2">
+                            <div class="d-flex gap-2 mb-2">
+                                <label for="vodia_pilot_number" class="visually-hidden">Number to call</label>
+                                <input id="vodia_pilot_number" type="tel" class="form-control" placeholder="Number to call"
+                                       autocomplete="off" t-model="form.number" t-on-keydown="(ev) => ev.key === 'Enter' and pilot.dialNumber(form.number)"/>
+                                <button type="button" class="btn btn-success" t-on-click="() => pilot.dialNumber(form.number)"
+                                        t-att-disabled="!form.number">Call</button>
+                            </div>
+                            <div class="o_vodia_dialpad_keys">
+                                <button t-foreach="['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '#', '+']" t-as="key" t-key="key"
+                                        type="button" class="btn btn-light" t-on-click="() => this.form.number += key"><t t-esc="key"/></button>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button t-if="state.call === 'ringing' and state.direction === 'incoming'"
+                                    type="button" class="btn btn-success" t-on-click="() => pilot.answer()">Answer</button>
+                            <button t-if="state.call !== 'idle'" type="button" class="btn btn-danger"
+                                    t-on-click="() => pilot.hangup()">End call</button>
+                            <button t-if="state.call === 'active'" type="button" class="btn btn-secondary"
+                                    t-att-aria-pressed="state.muted" t-on-click="() => pilot.mute()">
+                                <t t-if="state.muted">Unmute</t><t t-else="">Mute</t>
+                            </button>
+                            <button t-if="state.playbackBlocked" type="button" class="btn btn-warning"
+                                    t-on-click="() => pilot.play()">Enable audio</button>
+                            <button type="button" class="btn btn-outline-secondary" t-att-disabled="state.connecting"
+                                    t-on-click="() => pilot.disconnect()">Disconnect</button>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </section>
+    </t>
+</templates>

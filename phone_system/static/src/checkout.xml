@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="phone_system.Checkout">
+        <section class="o_vodia_ps_option o_vodia_ps_checkout card" aria-labelledby="vodia_checkout_title">
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between gap-3 mb-4">
+                    <h2 id="vodia_checkout_title" class="h5 mb-0"><t t-esc="title"/></h2>
+                    <button type="button" class="btn btn-link text-muted p-0" t-on-click="() => props.onClose()"
+                            t-att-disabled="state.busy">Close</button>
+                </div>
+                <ol class="o_vodia_ps_steps list-unstyled d-flex flex-wrap gap-2 mb-4">
+                    <li t-foreach="[['plan', 'Plan'], ['details', 'Details'], ['verify', 'Email'], ['payment', 'Payment'], ['setup', 'Setup'], ['users', 'Users']]"
+                        t-as="item" t-key="item[0]"
+                        t-att-class="{'o_vodia_ps_step badge rounded-pill': true, 'is-active': item[0] === state.step, 'is-done': item_index &lt; stepIndex}">
+                        <t t-esc="item[1]"/>
+                    </li>
+                </ol>
+                <div t-if="state.error" class="alert alert-danger" role="alert"><t t-esc="state.error"/></div>
+
+                <t t-if="state.step === 'plan'">
+                    <div t-if="!state.catalog" class="d-flex align-items-center gap-2 text-muted" role="status">
+                        <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"/><span>Loading plans…</span>
+                    </div>
+                    <t t-else="">
+                        <div t-if="hasAnnual" class="btn-group mb-3" role="group" aria-label="Billing period">
+                            <button type="button" t-att-class="'btn ' + (state.term === 'monthly' ? 'btn-primary' : 'btn-outline-primary')"
+                                    t-on-click="() => this.setTerm('monthly')">Monthly</button>
+                            <button type="button" t-att-class="'btn ' + (state.term === 'annual' ? 'btn-primary' : 'btn-outline-primary')"
+                                    t-on-click="() => this.setTerm('annual')">Yearly</button>
+                        </div>
+                        <div class="row g-3 mb-4">
+                            <div t-foreach="plans" t-as="option" t-key="option.planId" class="col-12 col-md-4">
+                                <label t-att-class="{'o_vodia_ps_plan card h-100 mb-0': true, 'is-selected': option.planId === state.planId}">
+                                    <div class="card-body">
+                                        <input type="radio" class="visually-hidden" name="vodia_plan" t-att-value="option.planId"
+                                               t-att-checked="option.planId === state.planId" t-on-change="() => this.selectPlan(option.planId)"/>
+                                        <div class="fw-semibold mb-1"><t t-esc="option.name"/></div>
+                                        <div class="o_vodia_ps_price"><t t-esc="price(option)"/></div>
+                                        <div class="text-muted small"><t t-esc="planTerms(option)"/></div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <p t-if="!plans.length" class="text-muted">No plans are available right now.</p>
+                        <button type="button" class="btn btn-primary" t-att-disabled="!plan or state.busy" t-on-click="choosePlan">Continue</button>
+                    </t>
+                </t>
+
+                <form t-elif="state.step === 'details'" t-on-submit.prevent="startCheckout" class="o_vodia_ps_form">
+                    <div class="row g-3 mb-3">
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="vodia_co_company">Company</label>
+                            <input id="vodia_co_company" class="form-control" required="required" maxlength="100" t-model="state.form.company_name"/>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="vodia_co_domain">Company domain</label>
+                            <input id="vodia_co_domain" class="form-control" required="required" maxlength="253" placeholder="example.com" t-model="state.form.domain"/>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="vodia_co_name">Your name</label>
+                            <input id="vodia_co_name" class="form-control" required="required" maxlength="100" autocomplete="name" t-model="state.form.admin_name"/>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="vodia_co_email">Your email</label>
+                            <input id="vodia_co_email" type="email" class="form-control" required="required" maxlength="254" autocomplete="email" t-model="state.form.email"/>
+                            <div class="form-text">We send a code to this address to confirm your purchase.</div>
+                        </div>
+                    </div>
+                    <div t-if="state.catalog.legal" class="o_vodia_ps_legal mb-3">
+                        <div class="form-check">
+                            <input id="vodia_co_terms" type="checkbox" class="form-check-input" required="required" t-model="state.form.accept_terms"/>
+                            <label class="form-check-label" for="vodia_co_terms"><t t-esc="consentLabel"/></label>
+                            <a class="ms-2" t-att-href="state.catalog.legal.terms.url" target="_blank" rel="noopener noreferrer">Read the terms</a>
+                        </div>
+                        <details class="mt-2 small">
+                            <summary>Privacy notice</summary>
+                            <section t-foreach="state.catalog.legal.privacy.sections" t-as="section" t-key="section.id" class="mt-2">
+                                <div class="fw-semibold"><t t-esc="section.title"/></div>
+                                <p t-foreach="section.text" t-as="line" t-key="line_index" class="mb-1"><t t-esc="line"/></p>
+                            </section>
+                        </details>
+                    </div>
+                    <div t-else="" class="alert alert-warning" role="status">Purchases open once the provider has published its terms.</div>
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-secondary" t-on-click="() => this.goTo('plan')" t-att-disabled="state.busy">Back</button>
+                        <button type="submit" class="btn btn-primary" t-att-disabled="state.busy or !state.catalog.legal">Send code</button>
+                    </div>
+                </form>
+
+                <form t-elif="state.step === 'verify'" t-on-submit.prevent="confirmCode" class="o_vodia_ps_form">
+                    <p class="text-muted"><t t-esc="codeHint"/></p>
+                    <div class="d-flex flex-wrap gap-2 align-items-end">
+                        <div>
+                            <label class="form-label" for="vodia_co_code">Verification code</label>
+                            <input id="vodia_co_code" class="form-control o_vodia_ps_code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6"
+                                   required="required" autocomplete="one-time-code" t-model="state.code"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary" t-att-disabled="state.busy">Confirm and continue to payment</button>
+                    </div>
+                    <div t-if="canResend" class="mt-3 d-flex align-items-center gap-2">
+                        <span t-if="codeExpired" class="text-muted small">That code has expired.</span>
+                        <button type="button" class="btn btn-link p-0" t-att-disabled="state.busy" t-on-click="resend">Send a new code</button>
+                    </div>
+                </form>
+
+                <div t-elif="state.step === 'payment'">
+                    <p class="text-muted">Payments are processed securely by Stripe.</p>
+                    <div t-ref="payment" class="o_vodia_ps_payment"/>
+                </div>
+
+                <div t-elif="state.step === 'setup'" class="d-flex align-items-center gap-3" role="status">
+                    <i class="fa fa-circle-o-notch fa-spin fa-lg text-primary" aria-hidden="true"/>
+                    <div>
+                        <div class="fw-semibold">Setting up your phone system…</div>
+                        <div t-if="state.system?.stages.provisioned?.message" class="text-muted">
+                            <t t-esc="state.system.stages.provisioned.message"/>
+                        </div>
+                        <div t-else="" class="text-muted">This usually takes less than a minute.</div>
+                    </div>
+                </div>
+
+                <div t-elif="state.step === 'users'">
+                    <p class="text-muted"><t t-esc="usersHint"/></p>
+                    <div class="o_vodia_ps_users list-group mb-3">
+                        <label t-foreach="state.users" t-as="person" t-key="person.id" class="list-group-item d-flex align-items-center gap-2">
+                            <input type="checkbox" class="form-check-input mt-0" t-att-checked="state.selected.includes(person.id)"
+                                   t-att-disabled="!state.selected.includes(person.id) and state.selected.length >= state.system.capacity"
+                                   t-on-change="() => this.toggleUser(person.id)"/>
+                            <span><t t-esc="person.name"/></span>
+                        </label>
+                    </div>
+                    <button type="button" class="btn btn-primary" t-att-disabled="state.busy or !state.selected.length" t-on-click="syncUsers">
+                        Give phones to selected users
+                    </button>
+                </div>
+
+                <div t-elif="state.step === 'done'" class="d-flex align-items-start gap-3">
+                    <span class="o_vodia_ps_icon" aria-hidden="true"><i class="fa fa-check"/></span>
+                    <div class="flex-grow-1">
+                        <div class="fw-semibold mb-1">Your phone system is ready.</div>
+                        <p class="text-muted mb-3"><t t-esc="doneSummary"/></p>
+                        <div class="fw-semibold mb-2">What's next</div>
+                        <ol class="o_vodia_ps_next ps-3 mb-3">
+                            <li class="mb-2">
+                                <span class="fw-semibold">Reload Odoo.</span>
+                                <span>The phone appears in the top bar for everyone you gave a phone to.</span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="fw-semibold">Open the phone.</span>
+                                <span>Click the phone icon in the top bar; it signs in to your extension automatically.</span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="fw-semibold">Call a colleague.</span>
+                                <span>Dial their extension (201, 202, …) to place your first internal call.</span>
+                            </li>
+                            <li>
+                                <span class="fw-semibold">Review activity.</span>
+                                <span>Open Call History to see placed and received calls, matched to contacts.</span>
+                            </li>
+                        </ol>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" t-on-click="reload">Reload &amp; open the phone</button>
+                            <button type="button" class="btn btn-link" t-on-click="() => props.onClose()">I'll do it later</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </t>
+</templates>

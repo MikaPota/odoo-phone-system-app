@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_connection_list" model="ir.ui.view">
+        <field name="name">vodia.pilot.connection.list</field>
+        <field name="model">vodia.pilot.connection</field>
+        <field name="arch" type="xml">
+            <list><field name="name"/><field name="pbx_host"/><field name="company_id"/><field name="active"/></list>
+        </field>
+    </record>
+    <record id="view_connection_form" model="ir.ui.view">
+        <field name="name">vodia.pilot.connection.form</field>
+        <field name="model">vodia.pilot.connection</field>
+        <field name="arch" type="xml">
+            <form><sheet><group>
+                <field name="name"/><field name="pbx_host"/><field name="company_id"/>
+                <field name="active"/>
+            </group>
+            <field name="gcna_system_id" invisible="1"/>
+            <group string="PBX administrator" invisible="gcna_system_id">
+                <p class="text-muted" colspan="2">Needed to set up SIP trunks and phone numbers on your own PBX.</p>
+                <field name="pbx_admin_user"/>
+                <field name="pbx_admin_password" password="True"/>
+            </group>
+            <group string="Your storage">
+                <p class="text-muted" colspan="2">Call records and backups are saved every night to your own S3-compatible storage.</p>
+                <field name="storage_endpoint" placeholder="https://s3.example.com"/>
+                <field name="storage_bucket"/><field name="storage_region"/>
+                <field name="storage_access_key"/>
+                <field name="storage_secret" password="True"/>
+                <button name="action_storage_test" type="object" string="Test storage" class="btn-secondary" colspan="2"/>
+                <field name="storage_state" invisible="not storage_state"/>
+                <field name="storage_message" invisible="not storage_message"/>
+                <field name="storage_checked_at" invisible="not storage_checked_at"/>
+                <field name="storage_exported_on" invisible="not storage_exported_on"/>
+            </group></sheet></form>
+        </field>
+    </record>
+    <record id="view_mapping_list" model="ir.ui.view">
+        <field name="name">vodia.pilot.mapping.list</field>
+        <field name="model">vodia.pilot.mapping</field>
+        <field name="arch" type="xml">
+            <list><field name="user_id"/><field name="company_id"/><field name="connection_id"/>
+                <field name="extension"/><field name="credential_configured"/><field name="external_calling"/><field name="active"/></list>
+        </field>
+    </record>
+    <record id="view_mapping_form" model="ir.ui.view">
+        <field name="name">vodia.pilot.mapping.form</field>
+        <field name="model">vodia.pilot.mapping</field>
+        <field name="arch" type="xml">
+            <form><sheet><group>
+                <field name="user_id" domain="[('share', '=', False), ('active', '=', True)]"/>
+                <field name="connection_id"/><field name="company_id" readonly="1"/>
+                <field name="extension"/><field name="external_calling"/><field name="active"/>
+                <field name="credential_configured" readonly="1"/>
+                <field name="web_password" password="True"/>
+                <button name="action_clear_credential" type="object" string="Clear stored credential"
+                        groups="base.group_system" invisible="not credential_configured"/>
+            </group></sheet></form>
+        </field>
+    </record>
+    <record id="view_number_list" model="ir.ui.view">
+        <field name="name">vodia.pilot.number.list</field>
+        <field name="model">vodia.pilot.number</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state == 'failed'" decoration-muted="state == 'pending'">
+                <field name="number"/><field name="mapping_id" options="{'no_create': True}"/><field name="extension"/>
+                <field name="connection_id" optional="hide"/><field name="state"/><field name="message"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_number_form" model="ir.ui.view">
+        <field name="name">vodia.pilot.number.form</field>
+        <field name="model">vodia.pilot.number</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_sync" type="object" string="Send to PBX again" invisible="state == 'active'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <p class="text-muted">Calls to this number ring the chosen user's extension. Odoo adds the number to the extension's names on the PBX and removes only those names again.</p>
+                    <group>
+                        <field name="connection_id" options="{'no_create': True}"/>
+                        <field name="number" placeholder="+49 30 1234567"/>
+                        <field name="mapping_id" options="{'no_create': True}"/>
+                        <field name="extension"/>
+                        <field name="message" invisible="not message"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_numbers" model="ir.actions.act_window">
+        <field name="name">Phone Numbers</field>
+        <field name="res_model">vodia.pilot.number</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="view_trunk_wizard_form" model="ir.ui.view">
+        <field name="name">vodia.pilot.trunk.wizard.form</field>
+        <field name="model">vodia.pilot.trunk.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="state" invisible="1"/>
+                <group invisible="state == 'done'">
+                    <p colspan="2" class="text-muted">Enter the access data of your own SIP provider. Odoo sends it to your Vodia PBX and checks that the PBX stored it. You need no PBX login.</p>
+                    <field name="connection_id" options="{'no_create': True}"/>
+                    <field name="name" placeholder="e.g. Provider Main"/>
+                    <field name="registrar" placeholder="sip.provider.example"/>
+                    <field name="outbound_proxy"/>
+                    <field name="sip_user"/>
+                    <field name="sip_password" password="True"/>
+                    <field name="incoming_mapping_id" options="{'no_create': True}"/>
+                    <field name="incoming_number" placeholder="+49 30 1234567" invisible="not incoming_mapping_id"/>
+                </group>
+                <group invisible="state != 'done'"><field name="result" nolabel="1" colspan="2"/></group>
+                <footer>
+                    <button name="action_create" type="object" string="Create and verify trunk"
+                            class="btn-primary" invisible="state == 'done'"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="view_connect_wizard_form" model="ir.ui.view">
+        <field name="name">vodia.pilot.connect.wizard.form</field>
+        <field name="model">vodia.pilot.connect.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="state" invisible="1"/>
+                <group invisible="state == 'done'">
+                    <p colspan="2" class="text-muted">Enter the address of your Vodia PBX tenant and choose who gets a phone. Odoo changes nothing on the PBX. Each chosen user links their own extension by entering it with its web password the first time they open the phone.</p>
+                    <field name="name"/>
+                    <field name="pbx_host" placeholder="pbx.example.com"/>
+                    <field name="user_ids" widget="many2many_tags" options="{'no_create': True}" required="1"/>
+                </group>
+                <group invisible="state != 'done'"><field name="result" nolabel="1" colspan="2"/></group>
+                <footer>
+                    <button name="action_connect" type="object" string="Connect phone system"
+                            class="btn-primary" invisible="state == 'done'"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_connect_wizard" model="ir.actions.act_window">
+        <field name="name">Connect existing phone system</field>
+        <field name="res_model">vodia.pilot.connect.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="action_trunk_wizard" model="ir.actions.act_window">
+        <field name="name">Set up SIP trunk</field>
+        <field name="res_model">vodia.pilot.trunk.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="action_connections" model="ir.actions.act_window">
+        <field name="name">Phone System Connections</field>
+        <field name="res_model">vodia.pilot.connection</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mappings" model="ir.actions.act_window">
+        <field name="name">Phone System User Mappings</field>
+        <field name="res_model">vodia.pilot.mapping</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_phone_system" model="ir.actions.client">
+        <field name="name">Phone System</field>
+        <field name="tag">phone_system.open</field>
+    </record>
+    <record id="view_call_list" model="ir.ui.view">
+        <field name="name">vodia.pilot.call.list</field>
+        <field name="model">vodia.pilot.call</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="started_at"/><field name="user_id" groups="base.group_system"/>
+                <field name="direction"/><field name="peer_extension"/><field name="peer_number"/>
+                <field name="peer_partner_id"/><field name="outcome"/><field name="duration"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_call_search" model="ir.ui.view">
+        <field name="name">vodia.pilot.call.search</field>
+        <field name="model">vodia.pilot.call</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="peer_partner_id"/><field name="peer_extension"/><field name="peer_number"/>
+                <filter name="missed" string="Missed" domain="[('outcome', '=', 'missed')]"/>
+                <filter name="incoming" string="Incoming" domain="[('direction', '=', 'incoming')]"/>
+                <filter name="outgoing" string="Outgoing" domain="[('direction', '=', 'outgoing')]"/>
+                <group>
+                    <filter name="by_colleague" string="Contact" context="{'group_by': 'peer_partner_id'}"/>
+                    <filter name="by_outcome" string="Outcome" context="{'group_by': 'outcome'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_calls" model="ir.actions.act_window">
+        <field name="name">Call History</field>
+        <field name="res_model">vodia.pilot.call</field>
+        <field name="view_mode">list</field>
+    </record>
+    <menuitem id="menu_pilot" name="Phone System" action="action_phone_system"
+              groups="phone_system.group_pilot,base.group_system"
+              web_icon="phone_system,static/description/icon.svg"/>
+    <menuitem id="menu_calls" name="Call History" parent="menu_pilot" action="action_calls" sequence="1"
+              groups="phone_system.group_pilot"/>
+    <menuitem id="menu_configuration" name="Configuration" parent="menu_pilot" groups="base.group_system"/>
+    <menuitem id="menu_trunk_wizard" parent="menu_configuration" action="action_trunk_wizard" groups="base.group_system"/>
+    <menuitem id="menu_connections" parent="menu_configuration" action="action_connections" groups="base.group_system"/>
+    <menuitem id="menu_mappings" parent="menu_configuration" action="action_mappings" groups="base.group_system"/>
+    <menuitem id="menu_numbers" parent="menu_configuration" action="action_numbers" groups="base.group_system"/>
+</odoo>

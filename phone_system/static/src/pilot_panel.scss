@@ -1,0 +1,143 @@
+.o_vodia_pilot_panel {
+    position: fixed;
+    inset-inline-end: 1rem;
+    bottom: 1rem;
+    width: 24rem;
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100dvh - 5rem);
+    overflow-y: auto;
+    z-index: 1050;
+}
+
+.o_vodia_phone_system_dashboard {
+    height: 100%;
+    overflow-y: auto;
+    background-color: $o-webclient-background-color;
+
+    .o_vodia_ps_page {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem;
+    }
+
+    .o_vodia_ps_header {
+        margin-bottom: 2rem;
+    }
+
+    .o_vodia_ps_title {
+        font-size: 1.75rem;
+        font-weight: 600;
+    }
+
+    .o_vodia_ps_mark,
+    .o_vodia_ps_icon {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        color: $o-action;
+        background-color: rgba($o-action, 0.1);
+    }
+
+    .o_vodia_ps_mark {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.5rem;
+        color: $white;
+        background-color: $o-brand-primary;
+    }
+
+    .o_vodia_ps_icon {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.25rem;
+    }
+
+    .o_vodia_ps_option {
+        border-color: $border-color;
+        border-radius: 0.75rem;
+        box-shadow: 0 1px 2px rgba($black, 0.05);
+        transition: box-shadow 0.15s ease-in-out;
+
+        &:hover {
+            box-shadow: 0 0.5rem 1.25rem rgba($black, 0.08);
+        }
+
+        .card-body {
+            padding: 1.75rem;
+        }
+    }
+
+    .o_vodia_ps_status {
+        padding: 0.4em 0.85em;
+        font-weight: 500;
+        color: $o-gray-700;
+        background-color: $o-gray-100;
+        border: 1px solid $border-color;
+    }
+}
+
+.o_vodia_phone_system_dashboard {
+    .o_vodia_ps_step {
+        padding: 0.45em 0.9em;
+        font-weight: 500;
+        color: $o-gray-600;
+        background-color: $o-gray-100;
+        border: 1px solid $border-color;
+
+        &.is-done {
+            color: $o-action;
+            background-color: rgba($o-action, 0.08);
+            border-color: rgba($o-action, 0.25);
+        }
+
+        &.is-active {
+            color: $white;
+            background-color: $o-action;
+            border-color: $o-action;
+        }
+    }
+
+    .o_vodia_ps_plan {
+        cursor: pointer;
+        border-radius: 0.75rem;
+        border: 1px solid $border-color;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+        &:hover {
+            border-color: rgba($o-action, 0.5);
+        }
+
+        &.is-selected {
+            border-color: $o-action;
+            box-shadow: 0 0 0 2px rgba($o-action, 0.2);
+        }
+    }
+
+    .o_vodia_ps_price {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .o_vodia_ps_code {
+        max-width: 10rem;
+        letter-spacing: 0.3em;
+        font-size: 1.25rem;
+    }
+
+    .o_vodia_ps_payment {
+        min-height: 24rem;
+    }
+
+    .o_vodia_ps_users {
+        max-height: 22rem;
+        overflow-y: auto;
+    }
+}
+
+.o_vodia_dialpad_keys {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.25rem;
+}

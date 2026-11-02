@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pilot_connection_system,Vodia broker configuration administrators,model_vodia_pilot_connection,base.group_system,1,1,1,1
+access_pilot_mapping_system,Vodia pilot mapping administrators,model_vodia_pilot_mapping,base.group_system,1,1,1,1
+access_pilot_call_user,Vodia pilot call history owners,model_vodia_pilot_call,phone_system.group_pilot,1,0,0,0
+access_pilot_call_system,Vodia pilot call history administrators,model_vodia_pilot_call,base.group_system,1,0,0,0
+access_pilot_trunk_wizard_system,Vodia trunk wizard administrators,model_vodia_pilot_trunk_wizard,base.group_system,1,1,1,1
+access_pilot_connect_wizard_system,Vodia connect wizard administrators,model_vodia_pilot_connect_wizard,base.group_system,1,1,1,1
+access_network_invitation_user,GCNA network invitation senders,model_vodia_network_invitation,phone_system.group_pilot,1,0,0,0
+access_network_invitation_system,GCNA network invitation administrators,model_vodia_network_invitation,base.group_system,1,0,0,0
+access_pilot_number_system,Vodia incoming number administrators,model_vodia_pilot_number,base.group_system,1,1,1,1
