@@ -65,8 +65,9 @@ export class PilotSession extends EventTarget {
             throw new Error("Disconnect the existing phone session before connecting.");
         }
         const url = new URL(origin);
-        if (url.protocol !== "https:" || url.username || url.password ||
-            url.pathname !== "/" || url.search || url.hash) {
+        // A tenant on GCNA's PBX is reached under GCNA's relay path; any other PBX at its own root.
+        if (url.protocol !== "https:" || url.username || url.password || url.search || url.hash ||
+            (url.pathname !== "/" && !(url.host === "gcn-alliance.com" && url.pathname === `/phone/${tenant}/`))) {
             throw new Error("Provide an HTTPS PBX origin without credentials or a path.");
         }
         if (typeof tenant !== "string" || !/^[a-z0-9.-]+$/i.test(tenant) ||
@@ -88,7 +89,7 @@ export class PilotSession extends EventTarget {
                     abort.abort();
                     reject(failed("Session exchange timed out.", "unreachable"));
                 }, timeoutMs);
-                this.#fetch(new URL("/rest/system/login", url), {
+                this.#fetch(new URL("rest/system/login", url), {
                     method: "POST",
                     credentials: "include",
                     body: JSON.stringify(login),
@@ -99,7 +100,7 @@ export class PilotSession extends EventTarget {
                     if (!response.ok || (await response.json()).success !== true) {
                         throw failed("Individual login was rejected.", "refused");
                     }
-                    const identityResponse = await this.#fetch(new URL("/rest/system/session", url), {
+                    const identityResponse = await this.#fetch(new URL("rest/system/session", url), {
                         credentials: "include", cache: "no-store", signal: abort.signal,
                     }).catch(() => {
                         throw failed("The phone system could not be reached.", "unreachable");
@@ -122,7 +123,7 @@ export class PilotSession extends EventTarget {
             }
             clearTimeout(this.#deadline);
             this.#transition("connecting");
-            const socketUrl = new URL("/websocket", url);
+            const socketUrl = new URL("websocket", url);
             socketUrl.protocol = "wss:";
             socketUrl.searchParams.set("domain", tenant);
             socketUrl.searchParams.set("user", extension);

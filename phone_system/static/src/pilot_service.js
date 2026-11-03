@@ -12,10 +12,15 @@ const HOSTNAME = /^(?=.{4,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,6
 // Server answers that mean the caller's Odoo phone authorization is gone, not a transient failure.
 const DENIALS = ["odoo.exceptions.AccessError", "odoo.exceptions.UserError", "odoo.http.SessionExpiredException"];
 
+function isTenantOrigin(origin, tenant) {
+    return origin === `https://${tenant}` ||
+        (tenant.endsWith(".pbx.gcn-alliance.com") && origin === `https://gcn-alliance.com/phone/${tenant}/`);
+}
+
 function isValidMapping(mapping) {
-    // The phone talks only to its tenant's own HTTPS host.
+    // The phone talks only to its tenant: directly, or for tenants on GCNA's PBX through GCNA's relay.
     return typeof mapping?.tenant === "string" && HOSTNAME.test(mapping.tenant) &&
-        mapping.origin === `https://${mapping.tenant}` &&
+        isTenantOrigin(mapping.origin, mapping.tenant) &&
         typeof mapping.extension === "string" && /^[0-9]{2,6}$/.test(mapping.extension) &&
         Array.isArray(mapping.directory) && mapping.directory.length > 0 &&
         mapping.directory.every(item => typeof item?.extension === "string" &&

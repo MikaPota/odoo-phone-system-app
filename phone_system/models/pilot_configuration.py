@@ -16,6 +16,10 @@ from .credentials import credential_cipher
 _logger = logging.getLogger(__name__)
 PBX_TENANT = "odoo-pilot.pbx.gcn-alliance.com"
 PBX_ORIGIN = "https://" + PBX_TENANT
+# Tenants on GCNA's PBX reach the browser through GCNA's relay, which returns the PBX's sign-in cookie partitioned so
+# that browsers blocking third-party cookies (Safari) keep it. Odoo's own server calls go to the tenant directly.
+GCNA_PBX_DOMAIN = ".pbx.gcn-alliance.com"
+GCNA_PHONE_RELAY = "https://gcn-alliance.com/phone/"
 HOSTNAME = re.compile(r"(?=.{4,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}")
 EMAIL = re.compile(r"[^\s@<>()\",;:\\]{1,64}@[A-Za-z0-9.-]{1,253}\.[A-Za-z]{2,63}")
 
@@ -92,6 +96,13 @@ class PilotConnection(models.Model):
     def _pbx_origin(self):
         self.ensure_one()
         return "https://" + self.pbx_host
+
+    def _browser_origin(self):
+        """Where the user's browser signs in to the tenant and opens its signalling socket."""
+        self.ensure_one()
+        if self.pbx_host.endswith(GCNA_PBX_DOMAIN):
+            return GCNA_PHONE_RELAY + self.pbx_host + "/"
+        return self._pbx_origin()
 
     def _outbound_number(self):
         self.ensure_one()
@@ -294,9 +305,9 @@ class PilotMapping(models.Model):
         connection = mapping.connection_id
         if not mapping.sudo().credential_ciphertext:
             # The user has not shared their PBX login yet; the phone asks for consent before anything else.
-            return {"origin": connection._pbx_origin(), "tenant": connection.pbx_host, "extension": mapping.extension or "",
+            return {"origin": connection._browser_origin(), "tenant": connection.pbx_host, "extension": mapping.extension or "",
                     "credential_required": True, "directory": []}
-        return {"origin": connection._pbx_origin(), "tenant": connection.pbx_host, "extension": mapping.extension,
+        return {"origin": connection._browser_origin(), "tenant": connection.pbx_host, "extension": mapping.extension,
                 "directory": list(contacts.values()), "external_calling": mapping.external_calling,
                 "number": connection._number_label(connection._outbound_number())}
 
@@ -414,6 +425,6 @@ class PilotMapping(models.Model):
         proof = hashlib.sha256(
             (mapping.extension + ":" + digest + ":" + payload["challenge"]).encode("utf-8")
         ).hexdigest()
-        return {"origin": mapping.connection_id._pbx_origin(), "tenant": mapping.connection_id.pbx_host, "extension": mapping.extension,
+        return {"origin": mapping.connection_id._browser_origin(), "tenant": mapping.connection_id.pbx_host, "extension": mapping.extension,
                 "login": {"method": "login-password", "username": mapping.extension,
                           "id": payload["id"], "hash": proof}}

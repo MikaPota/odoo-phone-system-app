@@ -46,7 +46,8 @@ class TestPilotMapping(TransactionCase):
 
     def test_configuration_returns_only_caller_scope(self):
         payload = self.env["vodia.pilot.mapping"].with_user(self.caller)._browser_configuration()
-        self.assertEqual(payload, {"origin": "https://odoo-pilot.pbx.gcn-alliance.com",
+        # Browsers reach a tenant on GCNA's PBX through GCNA's relay, which keeps the sign-in working in Safari.
+        self.assertEqual(payload, {"origin": "https://gcn-alliance.com/phone/odoo-pilot.pbx.gcn-alliance.com/",
                                    "tenant": "odoo-pilot.pbx.gcn-alliance.com", "extension": "201",
                                    "directory": [{"extension": "201", "name": self.caller.name}],
                                    "external_calling": False, "number": ""})
@@ -165,7 +166,7 @@ class TestPilotMapping(TransactionCase):
         self.assertEqual(self.connection.pbx_host, "odoo-pilot.pbx.gcn-alliance.com")
         user, connection = self._tenant("sd5tz7.pbx.gcn-alliance.com", "Second tenant caller", "vodia-second-tenant")
         payload = self.env["vodia.pilot.mapping"].with_user(user)._browser_configuration()
-        self.assertEqual(payload["origin"], "https://sd5tz7.pbx.gcn-alliance.com")
+        self.assertEqual(payload["origin"], "https://gcn-alliance.com/phone/sd5tz7.pbx.gcn-alliance.com/")
         self.assertEqual(payload["tenant"], "sd5tz7.pbx.gcn-alliance.com")
         result = {"id": "synthetic-challenge-id", "challenge": "synthetic-random-challenge", "timeout": 60000}
         response = Mock(status_code=200)
@@ -173,8 +174,10 @@ class TestPilotMapping(TransactionCase):
         with patch("odoo.addons.phone_system.models.pilot_configuration.requests.post",
                    return_value=response) as post:
             session = self.env["vodia.pilot.mapping"].with_user(user)._mint_browser_session()
+        # Odoo asks the tenant for the challenge directly; only the browser goes through the relay.
         self.assertEqual(post.call_args.args[0], "https://sd5tz7.pbx.gcn-alliance.com/rest/system/login")
         self.assertEqual(session["tenant"], "sd5tz7.pbx.gcn-alliance.com")
+        self.assertEqual(session["origin"], "https://gcn-alliance.com/phone/sd5tz7.pbx.gcn-alliance.com/")
 
     def test_tenants_share_extension_numbers_without_sharing_colleagues(self):
         user, _connection = self._tenant("sd5tz7.pbx.gcn-alliance.com", "Second tenant caller", "vodia-second-tenant")
