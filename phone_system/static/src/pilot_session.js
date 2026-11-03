@@ -1,5 +1,10 @@
 /** @odoo-module **/
 
+/** An error that names the connection step that failed, so the panel can say what to fix. */
+function failed(message, step) {
+    return Object.assign(new Error(message), { step });
+}
+
 export class PilotSession extends EventTarget {
     #fetch;
     #WebSocket;
@@ -81,27 +86,35 @@ export class PilotSession extends EventTarget {
                 this.#rejectOpen = reject;
                 this.#deadline = setTimeout(() => {
                     abort.abort();
-                    reject(new Error("Session exchange timed out."));
+                    reject(failed("Session exchange timed out.", "unreachable"));
                 }, timeoutMs);
                 this.#fetch(new URL("/rest/system/login", url), {
                     method: "POST",
                     credentials: "include",
                     body: JSON.stringify(login),
                     signal: abort.signal,
+                }).catch(() => {
+                    throw failed("The phone system could not be reached.", "unreachable");
                 }).then(async response => {
                     if (!response.ok || (await response.json()).success !== true) {
-                        throw new Error("Individual login was rejected.");
+                        throw failed("Individual login was rejected.", "refused");
                     }
                     const identityResponse = await this.#fetch(new URL("/rest/system/session", url), {
                         credentials: "include", cache: "no-store", signal: abort.signal,
+                    }).catch(() => {
+                        throw failed("The phone system could not be reached.", "unreachable");
                     });
                     const identity = await identityResponse.json();
-                    if (!identityResponse.ok || identity.type !== "user" ||
-                        identity.cuser !== extension || identity.cdomain !== tenant) {
-                        throw new Error("Authenticated identity does not match the mapping.");
+                    // An accepted login followed by an anonymous session means the browser dropped the cookie.
+                    if (!identityResponse.ok || !["user", "admin"].includes(identity.type)) {
+                        throw failed("Individual login or identity verification failed: the browser kept no session.", "cookies");
+                    }
+                    if (identity.type !== "user" || identity.cuser !== extension || identity.cdomain !== tenant) {
+                        throw failed("Individual login or identity verification failed: another identity.", "identity");
                     }
                     resolve();
-                }).catch(() => reject(new Error("Individual login or identity verification failed.")));
+                }).catch(error => reject(error.step ? error
+                    : failed("Individual login or identity verification failed.", "refused")));
             });
             login = null;
             if (generation !== this.#generation) {
@@ -118,7 +131,7 @@ export class PilotSession extends EventTarget {
                 const socket = new this.#WebSocket(socketUrl.href);
                 this.#socket = socket;
                 this.#deadline = setTimeout(() => {
-                    reject(new Error("Registration timed out."));
+                    reject(failed("Registration timed out.", "signaling"));
                 }, timeoutMs);
                 socket.onopen = () => {
                     try {
@@ -126,7 +139,7 @@ export class PilotSession extends EventTarget {
                         this.#send({ action: "own-calls", subscribe: true });
                         this.#send({ action: "sip-register", useragent: this.#useragent });
                     } catch {
-                        reject(new Error("Bootstrap failed."));
+                        reject(failed("Bootstrap failed.", "signaling"));
                     }
                 };
                 socket.onmessage = event => {
@@ -165,16 +178,16 @@ export class PilotSession extends EventTarget {
                         }
                     } catch {
                         this.#fail(new Error("Invalid signaling message."));
-                        reject(new Error("Invalid signaling message."));
+                        reject(failed("Invalid signaling message.", "signaling"));
                     }
                 };
                 socket.onerror = () => {
-                    const error = new Error("WebSocket failed; check session authorization and browser cookie policy.");
+                    const error = failed("WebSocket failed; check session authorization and browser cookie policy.", "signaling");
                     this.#fail(error);
                     reject(error);
                 };
                 socket.onclose = () => {
-                    const error = new Error("Signaling disconnected; a fresh session is required.");
+                    const error = failed("Signaling disconnected; a fresh session is required.", "signaling");
                     this.#fail(error);
                     reject(error);
                 };

@@ -2795,3 +2795,39 @@ msgstr "Ihre Telefonanlage ist angelegt und wartet auf ihre Lizenz. Sie können 
 #: code:addons/phone_system/models/gcna_account.py:0
 msgid "The phone system could not be created yet. It is retried automatically; contact support if this persists."
 msgstr "Die Telefonanlage konnte noch nicht angelegt werden. Es wird automatisch erneut versucht; wenden Sie sich an den Support, falls das anhält."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Your phone assignment is incomplete. Ask an administrator to check your extension."
+msgstr "Ihre Telefonzuordnung ist unvollständig. Bitten Sie einen Administrator, Ihre Nebenstelle zu prüfen."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "The phone system could not be reached. Check your internet connection and try again."
+msgstr "Die Telefonanlage ist nicht erreichbar. Prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "The phone system refused your sign-in. Connect your extension again or ask an administrator to check it."
+msgstr "Die Telefonanlage hat Ihre Anmeldung abgelehnt. Verbinden Sie Ihre Nebenstelle erneut oder bitten Sie einen Administrator, sie zu prüfen."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "Your browser blocked the phone system's sign-in. Allow cookies for %s and try again."
+msgstr "Ihr Browser hat die Anmeldung an der Telefonanlage blockiert. Erlauben Sie Cookies für %s und versuchen Sie es erneut."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "The phone system signed you in as a different extension. Ask an administrator to check your assignment."
+msgstr "Die Telefonanlage hat Sie mit einer anderen Nebenstelle angemeldet. Bitten Sie einen Administrator, Ihre Zuordnung zu prüfen."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/pilot_service.js:0
+msgid "You are signed in, but the call connection could not be opened. Check that your network allows secure WebSocket connections."
+msgstr "Sie sind angemeldet, aber die Gesprächsverbindung konnte nicht geöffnet werden. Prüfen Sie, ob Ihr Netzwerk sichere WebSocket-Verbindungen erlaubt."
