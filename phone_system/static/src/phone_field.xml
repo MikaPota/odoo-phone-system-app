@@ -22,7 +22,7 @@
     <t t-name="phone_system.DialButton">
         <button t-if="vodiaCanDial" type="button" class="btn btn-link p-0 ms-2 o_vodia_dial"
                 title="Call with the phone system" aria-label="Call with the phone system" t-on-click.stop.prevent="vodiaDial">
-            <i class="fa fa-phone" aria-hidden="true"/>
+            <i class="fa fa-phone" aria-hidden="true"/><small class="fw-bold ms-1">Dial</small>
         </button>
     </t>
 </templates>

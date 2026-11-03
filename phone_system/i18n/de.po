@@ -2831,3 +2831,9 @@ msgstr "Die Telefonanlage hat Sie mit einer anderen Nebenstelle angemeldet. Bitt
 #: code:addons/phone_system/static/src/pilot_service.js:0
 msgid "You are signed in, but the call connection could not be opened. Check that your network allows secure WebSocket connections."
 msgstr "Sie sind angemeldet, aber die Gesprächsverbindung konnte nicht geöffnet werden. Prüfen Sie, ob Ihr Netzwerk sichere WebSocket-Verbindungen erlaubt."
+
+#. module: phone_system
+#. odoo-javascript
+#: code:addons/phone_system/static/src/phone_field.xml:0
+msgid "Dial"
+msgstr "Wählen"
