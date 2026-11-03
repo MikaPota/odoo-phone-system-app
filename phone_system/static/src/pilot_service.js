@@ -23,6 +23,27 @@ function isValidMapping(mapping) {
         mapping.directory.some(item => item.extension === mapping.extension);
 }
 
+/** What the user can do about a failed connection, by the step that failed. */
+function connectionFailure(error, tenant) {
+    switch (error?.step) {
+        case "tab":
+            return error.message;
+        case "mapping":
+            return _t("Your phone assignment is incomplete. Ask an administrator to check your extension.");
+        case "unreachable":
+            return _t("The phone system could not be reached. Check your internet connection and try again.");
+        case "refused":
+            return _t("The phone system refused your sign-in. Connect your extension again or ask an administrator to check it.");
+        case "cookies":
+            return _t("Your browser blocked the phone system's sign-in. Allow cookies for %s and try again.", tenant);
+        case "identity":
+            return _t("The phone system signed you in as a different extension. Ask an administrator to check your assignment.");
+        case "signaling":
+            return _t("You are signed in, but the call connection could not be opened. Check that your network allows secure WebSocket connections.");
+    }
+    return _t("Phone connection failed. Check your individual credential, mapping, browser cookie policy and single-tab ownership.");
+}
+
 export const pilotService = {
     dependencies: ["notification"],
     async start(env, { notification }) {
@@ -188,7 +209,7 @@ export const pilotService = {
 
         async function acquireLock(tenant) {
             if (!navigator.locks) {
-                throw new Error(_t("This browser cannot enforce single-tab phone ownership."));
+                throw Object.assign(new Error(_t("This browser cannot enforce single-tab phone ownership.")), { step: "tab" });
             }
             await new Promise((resolve, reject) => {
                 navigator.locks.request(
@@ -196,7 +217,7 @@ export const pilotService = {
                     { ifAvailable: true },
                     async lock => {
                         if (!lock) {
-                            reject(new Error(_t("The phone system is already connected in another Odoo tab.")));
+                            reject(Object.assign(new Error(_t("The phone system is already connected in another Odoo tab.")), { step: "tab" }));
                             return;
                         }
                         const held = new Promise(resolve => { releaseLock = resolve; });
@@ -255,6 +276,7 @@ export const pilotService = {
                 const attempt = ++generation;
                 state.connecting = true;
                 state.error = "";
+                let tenantHost = "";
                 try {
                     const companyId = (user.activeCompany?.id ?? user.context.allowed_company_ids[0]);
                     const mapping = await rpc("/vodia/pilot/configuration", { company_id: companyId });
@@ -267,10 +289,11 @@ export const pilotService = {
                         return;
                     }
                     if (!isValidMapping(mapping)) {
-                        throw new Error("Invalid mapping.");
+                        throw Object.assign(new Error("Invalid mapping."), { step: "mapping" });
                     }
                     const extension = mapping.extension;
                     const { origin, tenant } = mapping;
+                    tenantHost = tenant;
                     await acquireLock(tenant);
                     if (attempt !== generation) {
                         throw new Error("Connection was cancelled.");
@@ -281,7 +304,7 @@ export const pilotService = {
                     }
                     if (credential.origin !== origin || credential.tenant !== tenant ||
                         credential.extension !== extension || !credential.login) {
-                        throw new Error("Invalid scoped session.");
+                        throw Object.assign(new Error("Invalid scoped session."), { step: "mapping" });
                     }
                     session = new PilotSession();
                     const ownedSession = session;
@@ -380,9 +403,9 @@ export const pilotService = {
                             phone.setExternalCalling(state.externalCalling);
                         }
                     }, 60000);
-                } catch {
+                } catch (error) {
                     disconnect();
-                    report(_t("Phone connection failed. Check your individual credential, mapping, browser cookie policy and single-tab ownership."));
+                    report(connectionFailure(error, tenantHost));
                 } finally {
                     busy = false;
                     state.connecting = false;
