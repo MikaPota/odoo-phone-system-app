@@ -432,7 +432,7 @@ class GCNAAccount(models.Model):
 
     @api.model
     def _checkout_catalog(self):
-        payload = self._post("/v1/catalog", {}, 200)
+        payload = self._post("/v1/catalog", self._country(), 200)
         try:
             plans = []
             for plan in payload["plans"]:
@@ -463,6 +463,12 @@ class GCNAAccount(models.Model):
         }
 
     @api.model
+    def _country(self):
+        """The company's country; GCNA shows and charges euro prices, with SEPA Direct Debit, in DE, AT and CH."""
+        code = self.env.company.country_id.code
+        return {"country": code} if code else {}
+
+    @api.model
     def _linked(self):
         record = self.env.ref("phone_system.gcna_installation")
         return bool(record.account_id and record.token_ciphertext and record.token_expires_at
@@ -479,7 +485,7 @@ class GCNAAccount(models.Model):
             raise UserError(_("Link this Odoo database to a GCNA account first."))
         payload = record._post("/v1/phone-systems/orders", {
             "planId": values["plan_id"], "term": values["term"], "catalogVersion": values["catalog_version"],
-            "name": self.env.company.name,
+            "name": self.env.company.name, **self._country(),
         }, 200, record._authorization())
         order_id = payload.get("orderId")
         if not isinstance(order_id, str) or not re.fullmatch(r"[A-Za-z0-9_-]{8,128}", order_id):
@@ -505,6 +511,7 @@ class GCNAAccount(models.Model):
             "email": email, "adminName": values["admin_name"].strip(), "companyName": values["company_name"].strip(),
             "domain": domain, "planId": values["plan_id"], "term": values["term"], "catalogVersion": values["catalog_version"],
             "acceptTerms": True, "termsVersion": values["terms_version"], "privacyVersion": values["privacy_version"],
+            **self._country(),
         }, 202)
         try:
             checkout_id = payload["checkoutId"]

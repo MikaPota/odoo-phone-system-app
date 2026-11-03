@@ -93,12 +93,26 @@ class TestCheckout(TransactionCase):
         self.post.start()
         self.addCleanup(self.post.stop)
 
+    def controller_country(self):
+        code = self.env.company.country_id.code
+        return {"country": code} if code else {}
+
     def _start(self, **values):
         return self.controller.checkout_start(**{
             "plan_id": "prod_5", "term": "monthly", "catalog_version": "0123456789abcdef",
             "email": "ada@lovelace.test", "admin_name": "Ada Lovelace", "company_name": "Lovelace Analytics",
             "domain": "lovelace.test", "accept_terms": True, "terms_version": "2", "privacy_version": "3", **values,
         })
+
+    def test_the_company_country_reaches_gcna_so_dach_buyers_see_euro_prices(self):
+        self.env.company.country_id = self.env.ref("base.de")
+        self.controller.checkout_catalog()
+        self.assertEqual(self.sent[-1][1]["json"], {"country": "DE"})
+        self._start()
+        self.assertEqual(self.sent[-1][1]["json"]["country"], "DE")
+        self.env.company.country_id = False
+        self.controller.checkout_catalog()
+        self.assertEqual(self.sent[-1][1]["json"], {})
 
     def test_catalog_offers_plans_and_prefills_the_buyer_from_odoo(self):
         result = self.controller.checkout_catalog()
@@ -262,7 +276,7 @@ class TestCheckout(TransactionCase):
         self.assertTrue(url.endswith("/v1/phone-systems/orders"))
         self.assertEqual(request["headers"]["Authorization"], "Bearer " + TOKEN)
         self.assertEqual(request["json"], {"planId": "prod_5", "term": "monthly", "catalogVersion": "0123456789abcdef",
-                                           "name": self.env.company.name})
+                                           "name": self.env.company.name, **self.controller_country()})
         for values in ({"term": "weekly"}, {"plan_id": ""}):
             with self.assertRaises(UserError):
                 self.controller.checkout_order(**{"plan_id": "prod_5", "term": "monthly", "catalog_version": "0123456789abcdef", **values})
