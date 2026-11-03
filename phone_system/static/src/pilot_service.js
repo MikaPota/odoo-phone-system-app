@@ -41,6 +41,10 @@ function connectionFailure(error, tenant) {
         case "signaling":
             return _t("You are signed in, but the call connection could not be opened. Check that your network allows secure WebSocket connections.");
     }
+    // Odoo's own refusal (no assignment, no access) already says what to do.
+    if (["odoo.exceptions.UserError", "odoo.exceptions.AccessError"].includes(error?.data?.name) && typeof error.data.message === "string") {
+        return error.data.message;
+    }
     return _t("Phone connection failed. Check your individual credential, mapping, browser cookie policy and single-tab ownership.");
 }
 

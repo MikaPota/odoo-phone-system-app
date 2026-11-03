@@ -141,3 +141,14 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 0.25rem;
 }
+
+// On a plain phone text field the call button sits right after the number, as on Odoo's own phone fields.
+.o_field_widget:has(> .o_vodia_dial) {
+    display: flex;
+    align-items: center;
+
+    > .o_input {
+        flex: 0 1 14rem;
+        min-width: 0;
+    }
+}
