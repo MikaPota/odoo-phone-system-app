@@ -1,7 +1,8 @@
 <section class="oe_container">
   <div class="oe_row oe_spaced">
     <h1 class="oe_slogan" style="color:#714b67">Phone System</h1>
-    <h3 class="oe_slogan">Make and take calls inside Odoo, with no server setup.</h3>
+    <h3 class="oe_slogan">A complete phone system inside Odoo, powered by Vodia. Free to install; the cloud PBX comes with the plan.</h3>
+    <p class="oe_mt32 text-center">No PBX to run, no license to buy up front, no separate VoIP app. Choose a plan in Odoo, pay with Stripe, and your team calls from Odoo in about a minute.</p>
     <div class="oe_demo oe_picture oe_screenshot">
       <img src="screenshot_setup.png" alt="The Phone System page in Odoo with cards to create or connect a phone system">
     </div>
@@ -14,6 +15,7 @@
     <div class="oe_span6">
       <ul>
         <li>A phone in Odoo's top bar for every user you choose</li>
+        <li>Click-to-call on every phone number in Odoo</li>
         <li>Calls keep running while you move between Odoo apps</li>
         <li>Call colleagues by name, or any number through your SIP trunk</li>
         <li>Each phone number rings the extension you pick</li>
@@ -38,16 +40,45 @@
 
 <section class="oe_container oe_dark">
   <div class="oe_row oe_spaced">
-    <h2 class="oe_slogan">Two ways to start</h2>
-    <div class="oe_span6">
-      <h3>Create a new phone system</h3>
-      <p>Choose a plan by number of users, monthly or yearly, and pay securely with Stripe. Your phone system is usually ready in under a minute.</p>
-    </div>
-    <div class="oe_span6">
-      <h3>Connect an existing phone system</h3>
-      <p>Already running a PBX? Connect it and give your Odoo users their extensions.</p>
-    </div>
-    <p class="oe_mt32 text-center">The app is free to install. A new phone system needs a paid subscription; plans and prices appear in the app before you pay.</p>
+    <h2 class="oe_slogan">Start in four steps</h2>
+    <ol>
+      <li>Install Phone System from the Odoo Apps Store.</li>
+      <li>Open Phone System and choose a plan, or connect a PBX you already run.</li>
+      <li>Pay with Stripe; the new phone system is set up automatically.</li>
+      <li>Pick the users who get a phone. To call outside numbers, add your SIP trunk and choose which extension each number rings.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Plans</h2>
+    <table class="table table-striped">
+      <thead><tr><th>Users</th><th>Monthly</th><th>Yearly</th></tr></thead>
+      <tbody>
+        <tr><td>Up to 5</td><td>USD 29</td><td>USD 290</td></tr>
+        <tr><td>Up to 10</td><td>USD 49</td><td>USD 490</td></tr>
+        <tr><td>Up to 25</td><td>USD 99</td><td>USD 990</td></tr>
+        <tr><td>Up to 50</td><td>USD 179</td><td>USD 1,790</td></tr>
+      </tbody>
+    </table>
+    <p class="text-center">Prices exclude applicable taxes. Companies in Germany, Austria and Switzerland see euro prices and can pay by SEPA Direct Debit. Calls to outside numbers are billed by your SIP provider. Connecting a PBX you already run needs no plan.</p>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Questions</h2>
+    <h3>Do I need Odoo's VoIP app or Odoo Enterprise?</h3>
+    <p>No. Phone System uses only Odoo Community modules and brings its own phone and phone system.</p>
+    <h3>Which phone system powers Phone System?</h3>
+    <p>A cloud PBX powered by Vodia, set up for you when you choose a plan. You can also connect a PBX you already run.</p>
+    <h3>Do I need a VoIP provider?</h3>
+    <p>Not for calls between colleagues. To call outside numbers, connect any SIP trunk in Odoo.</p>
+    <h3>Can users see other people's contacts through the call history?</h3>
+    <p>No. Calls are matched only to the contacts each user is allowed to see in Odoo.</p>
+    <h3>What happens if I stop the plan?</h3>
+    <p>Cancel any time with Manage subscription in Odoo. The plan runs to the end of the paid period; the phone system and its data are deleted 30 days later, so you can save your data or undo a mistaken cancellation.</p>
   </div>
 </section>
 
@@ -55,8 +86,8 @@
   <div class="oe_row oe_spaced">
     <h2 class="oe_slogan">Compatibility</h2>
     <ul>
-      <li><strong>Tested:</strong> Odoo 19 Community, self-hosted.</li>
-      <li><strong>Not tested yet:</strong> Odoo Enterprise and Odoo.sh.</li>
+      <li><strong>Tested:</strong> Odoo 19 Community, self-hosted. Built for Odoo 18 and 19.</li>
+      <li><strong>No Enterprise module needed;</strong> Odoo Enterprise and Odoo.sh are not tested yet.</li>
       <li><strong>Not supported:</strong> Odoo Online, because it does not allow third-party apps.</li>
       <li><strong>You need:</strong> HTTPS on your Odoo site, a current desktop browser and a microphone. External calls need a SIP trunk.</li>
     </ul>
