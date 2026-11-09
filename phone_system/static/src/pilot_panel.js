@@ -211,7 +211,7 @@ export class PhoneSystemAction extends Component {
             return this.openConnection(connectionId);
         }
         if (system.stages.users?.state === "complete") {
-            this.notification.add(_t("%s has connected users but no Odoo connection. Contact support.", system.code), { type: "danger" });
+            this.notification.add(_t("%s has connected users but no Odoo connection. Contact your service provider.", system.code), { type: "danger" });
             return;
         }
         // The connection is created when users are connected, so its setup continues there.

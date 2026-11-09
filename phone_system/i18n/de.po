@@ -22,10 +22,8 @@ msgstr "%(count)s Nebenstellen sind auf %(name)s aktiv."
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_panel.js:0
-msgid "%s has connected users but no Odoo connection. Contact support."
-msgstr ""
-"%s hat verbundene Benutzer, aber keine Odoo-Verbindung. Wenden Sie sich an "
-"den Support."
+msgid "%s has connected users but no Odoo connection. Contact your service provider."
+msgstr "%s hat verbundene Benutzer, aber keine Odoo-Verbindung. Wenden Sie sich an Ihren Serviceprovider."
 
 #. module: phone_system
 #. odoo-python
@@ -988,12 +986,8 @@ msgstr "GCNA-Installationsautorisierung"
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_service.js:0
-msgid ""
-"GCNA account linking could not be completed. Refresh the status or contact "
-"support."
-msgstr ""
-"Das GCNA-Konto konnte nicht verknüpft werden. Aktualisieren Sie den Status "
-"oder kontaktieren Sie den Support."
+msgid "GCNA account linking could not be completed. Refresh the status or contact your service provider."
+msgstr "Das GCNA-Konto konnte nicht verknüpft werden. Aktualisieren Sie den Status oder kontaktieren Sie Ihren Serviceprovider."
 
 #. module: phone_system
 #. odoo-python
@@ -1021,20 +1015,14 @@ msgstr "GCNA verbunden"
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid "GCNA could not be reached. Retry later or contact support."
-msgstr ""
-"GCNA ist nicht erreichbar. Versuchen Sie es später erneut oder kontaktieren "
-"Sie den Support."
+msgid "GCNA could not be reached. Retry later or contact your service provider."
+msgstr "GCNA ist nicht erreichbar. Versuchen Sie es später erneut oder kontaktieren Sie Ihren Serviceprovider."
 
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid ""
-"GCNA could not complete account linking. Check the code, expiry and account "
-"permissions, or contact support."
-msgstr ""
-"GCNA konnte die Kontoverknüpfung nicht abschließen. Prüfen Sie Code, "
-"Gültigkeit und Kontoberechtigungen oder kontaktieren Sie den Support."
+msgid "GCNA could not complete account linking. Check the code, expiry and account permissions, or contact your service provider."
+msgstr "GCNA konnte die Kontoverknüpfung nicht abschließen. Prüfen Sie Code, Gültigkeit und Kontoberechtigungen oder kontaktieren Sie Ihren Serviceprovider."
 
 #. module: phone_system
 #. odoo-python
@@ -1071,10 +1059,8 @@ msgstr ""
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid "GCNA returned an invalid account-link response. Contact support."
-msgstr ""
-"GCNA hat eine ungültige Antwort zur Kontoverknüpfung geliefert. Kontaktieren "
-"Sie den Support."
+msgid "GCNA returned an invalid account-link response. Contact your service provider."
+msgstr "GCNA hat eine ungültige Antwort zur Kontoverknüpfung geliefert. Kontaktieren Sie Ihren Serviceprovider."
 
 #. module: phone_system
 #. odoo-python
@@ -1849,10 +1835,8 @@ msgstr "Ihre Telefonanlage wird eingerichtet…"
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/checkout.js:0
-msgid "Something went wrong. Try again or contact support."
-msgstr ""
-"Etwas ist schiefgelaufen. Versuchen Sie es erneut oder wenden Sie sich an "
-"den Support."
+msgid "Something went wrong. Try again or contact your service provider."
+msgstr "Etwas ist schiefgelaufen. Versuchen Sie es erneut oder wenden Sie sich an Ihren Serviceprovider."
 
 #. module: phone_system
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__started_at
@@ -2028,9 +2012,8 @@ msgstr ""
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid "The phone credential for %s is missing. Contact support."
-msgstr ""
-"Die Telefon-Zugangsdaten für %s fehlen. Wenden Sie sich an den Support."
+msgid "The phone credential for %s is missing. Contact your service provider."
+msgstr "Die Telefon-Zugangsdaten für %s fehlen. Wenden Sie sich an Ihren Serviceprovider."
 
 #. module: phone_system
 #. odoo-python
@@ -2141,12 +2124,8 @@ msgstr "Für diese Verbindung ist kein Kontakt mehr anzulegen."
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid ""
-"This email address already belongs to an account. Use a different address or "
-"contact support."
-msgstr ""
-"Diese E-Mail-Adresse gehört bereits zu einem Konto. Verwenden Sie eine "
-"andere Adresse oder wenden Sie sich an den Support."
+msgid "This email address already belongs to an account. Use a different address or contact your service provider."
+msgstr "Diese E-Mail-Adresse gehört bereits zu einem Konto. Verwenden Sie eine andere Adresse oder wenden Sie sich an Ihren Serviceprovider."
 
 #. module: phone_system
 #. odoo-python
@@ -2793,8 +2772,8 @@ msgstr "Ihre Telefonanlage ist angelegt und wartet auf ihre Lizenz. Sie können 
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid "The phone system could not be created yet. It is retried automatically; contact support if this persists."
-msgstr "Die Telefonanlage konnte noch nicht angelegt werden. Es wird automatisch erneut versucht; wenden Sie sich an den Support, falls das anhält."
+msgid "The phone system could not be created yet. It is retried automatically; contact your service provider if this persists."
+msgstr "Die Telefonanlage konnte noch nicht angelegt werden. Es wird automatisch erneut versucht; wenden Sie sich an Ihren Serviceprovider, falls das anhält."
 
 #. module: phone_system
 #. odoo-javascript

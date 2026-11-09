@@ -129,7 +129,7 @@ export const pilotService = {
                 state.accountError = error.data?.name === "odoo.exceptions.UserError" &&
                     typeof error.data.message === "string"
                     ? error.data.message
-                    : _t("GCNA account linking could not be completed. Refresh the status or contact support.");
+                    : _t("GCNA account linking could not be completed. Refresh the status or contact your service provider.");
             } finally {
                 state.accountBusy = false;
             }

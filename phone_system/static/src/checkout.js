@@ -111,7 +111,7 @@ export class PhoneSystemCheckout extends Component {
             await fn();
         } catch (error) {
             this.state.error = error.data?.name === "odoo.exceptions.UserError" && typeof error.data.message === "string"
-                ? error.data.message : _t("Something went wrong. Try again or contact support.");
+                ? error.data.message : _t("Something went wrong. Try again or contact your service provider.");
         } finally {
             this.state.busy = false;
         }
