@@ -37,7 +37,7 @@ class GCNATermsPending(UserError):
 # GCNA answers the customer can act on; anything else stays a generic, detail-free error.
 GCNA_CONFLICTS = {
     "COMPANY_EXISTS": _lt("This company already has an account. Its administrator must connect this Odoo database."),
-    "ALREADY_A_USER": _lt("This email address already belongs to an account. Use a different address or contact support."),
+    "ALREADY_A_USER": _lt("This email address already belongs to an account. Use a different address or contact your service provider."),
     "ALREADY_LINKED": _lt("This Odoo database already belongs to an account."),
     "CATALOG_CHANGED": _lt("Prices changed. Review the current plans."),
     "LEGAL_CHANGED": _lt("The terms or privacy notice changed. Review them again."),
@@ -63,8 +63,11 @@ GCNA_STAGE_MESSAGES = {
         _lt("Your phone system is created and its secure address is being certified. This usually takes about a minute; you can leave this page and come back."),
     "Your phone system is created and is waiting for its license. You can leave this page and come back.":
         _lt("Your phone system is created and is waiting for its license. You can leave this page and come back."),
+    "The phone system could not be created yet. It is retried automatically; contact your service provider if this persists.":
+        _lt("The phone system could not be created yet. It is retried automatically; contact your service provider if this persists."),
+    # GCNA platform releases before 2026-11-09 still send the old wording.
     "The phone system could not be created yet. It is retried automatically; contact support if this persists.":
-        _lt("The phone system could not be created yet. It is retried automatically; contact support if this persists."),
+        _lt("The phone system could not be created yet. It is retried automatically; contact your service provider if this persists."),
 }
 
 
@@ -378,7 +381,7 @@ class GCNAAccount(models.Model):
     @api.model
     def _invalid_response(self):
         _logger.warning("GCNA account linking returned an invalid response.")
-        raise UserError(_("GCNA returned an invalid account-link response. Contact support."))
+        raise UserError(_("GCNA returned an invalid account-link response. Contact your service provider."))
 
     @api.model
     def _error_code(self, response):
@@ -397,7 +400,7 @@ class GCNAAccount(models.Model):
             )
         except requests.RequestException:
             _logger.warning("GCNA account-link request could not be delivered.")
-            raise UserError(_("GCNA could not be reached. Retry later or contact support.")) from None
+            raise UserError(_("GCNA could not be reached. Retry later or contact your service provider.")) from None
         if token and response.status_code == 403 and self._error_code(response) == "TERMS_ACCEPTANCE_REQUIRED":
             raise GCNATermsPending(_("GCNA updated its terms. A company administrator must sign in at app.gcn-alliance.com and accept the updated terms; the phone system then works again."))
         if token and response.status_code in (401, 403):
@@ -408,7 +411,7 @@ class GCNAAccount(models.Model):
                 raise UserError(str(GCNA_CONFLICTS[code]))
         if response.status_code != expected_status:
             _logger.warning("GCNA account-link request rejected (HTTP %s).", response.status_code)
-            raise UserError(_("GCNA could not complete account linking. Check the code, expiry and account permissions, or contact support."))
+            raise UserError(_("GCNA could not complete account linking. Check the code, expiry and account permissions, or contact your service provider."))
         try:
             payload = response.json()
             if not isinstance(payload, dict):
@@ -729,7 +732,7 @@ class GCNAAccount(models.Model):
                     mapping = Mapping.create({"user_id": user.id, "connection_id": connection.id, "extension": extension})
                 mapping.write({"web_password": password})
             elif not mapping or mapping.connection_id.id != connection.id or mapping.extension != extension or not mapping.credential_ciphertext:
-                raise UserError(_("The phone credential for %s is missing. Contact support.", user.name))
+                raise UserError(_("The phone credential for %s is missing. Contact your service provider.", user.name))
             if group not in user.group_ids:
                 user.sudo().write({"group_ids": [(4, group.id)]})
             extensions[user.id] = extension

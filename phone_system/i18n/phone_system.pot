@@ -24,7 +24,7 @@ msgstr ""
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_panel.js:0
-msgid "%s has connected users but no Odoo connection. Contact support."
+msgid "%s has connected users but no Odoo connection. Contact your service provider."
 msgstr ""
 
 #. module: phone_system
@@ -935,9 +935,7 @@ msgstr ""
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_service.js:0
-msgid ""
-"GCNA account linking could not be completed. Refresh the status or contact "
-"support."
+msgid "GCNA account linking could not be completed. Refresh the status or contact your service provider."
 msgstr ""
 
 #. module: phone_system
@@ -963,15 +961,13 @@ msgstr ""
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid "GCNA could not be reached. Retry later or contact support."
+msgid "GCNA could not be reached. Retry later or contact your service provider."
 msgstr ""
 
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid ""
-"GCNA could not complete account linking. Check the code, expiry and account "
-"permissions, or contact support."
+msgid "GCNA could not complete account linking. Check the code, expiry and account permissions, or contact your service provider."
 msgstr ""
 
 #. module: phone_system
@@ -1004,7 +1000,7 @@ msgstr ""
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid "GCNA returned an invalid account-link response. Contact support."
+msgid "GCNA returned an invalid account-link response. Contact your service provider."
 msgstr ""
 
 #. module: phone_system
@@ -1740,7 +1736,7 @@ msgstr ""
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/checkout.js:0
-msgid "Something went wrong. Try again or contact support."
+msgid "Something went wrong. Try again or contact your service provider."
 msgstr ""
 
 #. module: phone_system
@@ -1903,7 +1899,7 @@ msgstr ""
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid "The phone credential for %s is missing. Contact support."
+msgid "The phone credential for %s is missing. Contact your service provider."
 msgstr ""
 
 #. module: phone_system
@@ -2006,9 +2002,7 @@ msgstr ""
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid ""
-"This email address already belongs to an account. Use a different address or"
-" contact support."
+msgid "This email address already belongs to an account. Use a different address or contact your service provider."
 msgstr ""
 
 #. module: phone_system
@@ -2630,7 +2624,7 @@ msgstr ""
 #. module: phone_system
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
-msgid "The phone system could not be created yet. It is retried automatically; contact support if this persists."
+msgid "The phone system could not be created yet. It is retried automatically; contact your service provider if this persists."
 msgstr ""
 
 #. module: phone_system
