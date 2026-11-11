@@ -243,10 +243,18 @@ export class PilotPhone extends EventTarget {
                 ![183, 200].includes(message.code)) {
                 throw new Error("Invalid SDP answer.");
             }
-            if (call.state !== "active") {
-                await call.peer.setRemoteDescription({
-                    type: message.code === 183 ? "pranswer" : "answer", sdp: message.sdp,
-                });
+            // Firefox has no "pranswer": the early answer (183) becomes the answer, and
+            // the 200 OK that follows finds the connection already stable.
+            if (call.state !== "active" && call.peer.signalingState !== "stable") {
+                if (message.code === 183) {
+                    await call.peer.setRemoteDescription({ type: "pranswer", sdp: message.sdp })
+                        .catch(error => {
+                            if (error?.name !== "NotSupportedError") throw error;
+                            return call.peer.setRemoteDescription({ type: "answer", sdp: message.sdp });
+                        });
+                } else {
+                    await call.peer.setRemoteDescription({ type: "answer", sdp: message.sdp });
+                }
                 this.#current(call);
                 await this.#flushRemote(call);
             }

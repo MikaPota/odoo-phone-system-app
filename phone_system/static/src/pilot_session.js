@@ -78,6 +78,8 @@ export class PilotSession extends EventTarget {
             !Number.isFinite(timeoutMs) || timeoutMs <= 0) {
             throw new Error("Provide a tenant, numeric extension, scoped login proof and positive timeout.");
         }
+        const relayed = url.host === "gcn-alliance.com";
+        let session = null;
         this.#opening = true;
         const generation = ++this.#generation;
         const abort = new AbortController();
@@ -97,10 +99,17 @@ export class PilotSession extends EventTarget {
                 }).catch(() => {
                     throw failed("The phone system could not be reached.", "unreachable");
                 }).then(async response => {
-                    if (!response.ok || (await response.json()).success !== true) {
+                    const answer = response.ok ? await response.json() : null;
+                    if (answer?.success !== true) {
                         throw failed("Individual login was rejected.", "refused");
                     }
-                    const identityResponse = await this.#fetch(new URL("rest/system/session", url), {
+                    // GCNA's relay returns the session itself: Safari keeps no third-party cookie.
+                    if (relayed && typeof answer.session === "string" && /^[A-Za-z0-9._~+/=-]{8,256}$/.test(answer.session)) {
+                        session = answer.session;
+                    }
+                    const identityUrl = new URL("rest/system/session", url);
+                    if (session) identityUrl.searchParams.set("session", session);
+                    const identityResponse = await this.#fetch(identityUrl, {
                         credentials: "include", cache: "no-store", signal: abort.signal,
                     }).catch(() => {
                         throw failed("The phone system could not be reached.", "unreachable");
@@ -127,6 +136,8 @@ export class PilotSession extends EventTarget {
             socketUrl.protocol = "wss:";
             socketUrl.searchParams.set("domain", tenant);
             socketUrl.searchParams.set("user", extension);
+            if (session) socketUrl.searchParams.set("session", session);
+            session = null;
             await new Promise((resolve, reject) => {
                 this.#rejectOpen = reject;
                 const socket = new this.#WebSocket(socketUrl.href);
