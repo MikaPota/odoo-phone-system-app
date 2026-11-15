@@ -12,7 +12,7 @@ import requests
 from odoo import _, api, fields, models
 from odoo.exceptions import AccessError, UserError, ValidationError
 
-from .credentials import credential_cipher
+from odoo.addons.gcna_link.models.credentials import credential_cipher
 
 _logger = logging.getLogger(__name__)
 ENDPOINT = re.compile(r"https://[a-z0-9]([a-z0-9.-]{0,253}[a-z0-9])?(:[0-9]{1,5})?")

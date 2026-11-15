@@ -42,7 +42,7 @@ class NetworkInvitation(models.Model):
     @api.model
     def _sync_connections(self):
         """Fetch the accepted invitations from GCNA and link each to its sender's contact with that email."""
-        account = self.env.ref("phone_system.gcna_installation").sudo()
+        account = self.env.ref("gcna_link.gcna_installation").sudo()
         if not account.token_ciphertext or not self.sudo().search_count([]):
             return
         payload = account._post("/v1/connections", {}, 200, account._authorization())

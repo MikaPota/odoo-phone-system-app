@@ -73,7 +73,7 @@ class TestPilotTrunk(TransactionCase):
         response = MagicMock(status_code=200, json=lambda: {"result": {"trunks": [{"id": 3}]}})
         with patch.dict(os.environ, {"VODIA_PROVISIONING_USER": "", "VODIA_PROVISIONING_PASSWORD": ""}), \
                 patch("requests.post", return_value=response) as post, \
-                patch("odoo.addons.phone_system.models.gcna_account.GCNAAccount._authorization", return_value="t" * 43):
+                patch("odoo.addons.gcna_link.models.gcna_account.GCNAAccount._authorization", return_value="t" * 43):
             trunks = self.connection._pbx_client().list_trunks()
         self.assertEqual(trunks, [{"id": 3}])
         self.assertTrue(post.call_args.args[0].endswith("/v1/phone-systems/system-12345/pbx"))
