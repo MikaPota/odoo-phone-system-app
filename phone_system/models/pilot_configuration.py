@@ -11,7 +11,7 @@ from cryptography.fernet import InvalidToken
 from odoo import _, api, fields, models
 from odoo.exceptions import AccessError, UserError, ValidationError
 from odoo.addons.phone_validation.tools import phone_validation
-from .credentials import credential_cipher
+from odoo.addons.gcna_link.models.credentials import credential_cipher
 
 _logger = logging.getLogger(__name__)
 PBX_TENANT = "odoo-pilot.pbx.gcn-alliance.com"
@@ -324,7 +324,7 @@ class PilotMapping(models.Model):
         number = mapping.connection_id._outbound_number()
         if number:
             card["phone"] = number
-        account = self.env.ref("phone_system.gcna_installation").sudo()
+        account = self.env.ref("gcna_link.gcna_installation").sudo()
         # GCNA writes the email in the sender's language (German or English).
         payload = {"to": email, "card": card, "lang": user.lang or "en_US"}
         result = account._post("/v1/contact-cards", payload, 202, account._authorization())

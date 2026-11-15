@@ -6,7 +6,7 @@ from odoo.exceptions import AccessError, UserError
 from odoo.tests import TransactionCase, tagged
 
 CLIENT = "odoo.addons.phone_system.models.pilot_trunk_wizard.PilotTrunkClient"
-ACCOUNT = "odoo.addons.phone_system.models.gcna_account.GCNAAccount"
+ACCOUNT = "odoo.addons.gcna_link.models.gcna_account.GCNAAccount"
 INVITATION = "i" * 43
 
 
@@ -46,7 +46,7 @@ class TestNetwork(TransactionCase):
         self.addCleanup(patcher.stop)
         self.mapping.web_password = self.colleague_mapping.web_password = "shared-individual-password"
         # A linked installation; its credential is read through the patched _authorization.
-        self.env.ref("phone_system.gcna_installation").sudo().token_ciphertext = "linked"
+        self.env.ref("gcna_link.gcna_installation").sudo().token_ciphertext = "linked"
         for target in (patch(CLIENT, NoTrunks), patch(f"{ACCOUNT}._authorization", return_value="t" * 43)):
             target.start()
             self.addCleanup(target.stop)
@@ -127,7 +127,7 @@ class TestNetwork(TransactionCase):
     def test_sync_is_skipped_without_a_linked_installation(self):
         with patch(f"{ACCOUNT}._authorization", side_effect=UserError("no credential")), \
                 patch("requests.post") as post:
-            self.env.ref("phone_system.gcna_installation").sudo().token_ciphertext = False
+            self.env.ref("gcna_link.gcna_installation").sudo().token_ciphertext = False
             self.Invitation._sync_connections()
         post.assert_not_called()
 

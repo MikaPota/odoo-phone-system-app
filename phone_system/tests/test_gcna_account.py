@@ -9,7 +9,7 @@ from odoo import fields
 from odoo.exceptions import AccessError, UserError
 from odoo.tests import HttpCase, TransactionCase, tagged
 
-from odoo.addons.phone_system.models.credentials import KEY_PARAMETER, credential_cipher, installation_key
+from odoo.addons.gcna_link.models.credentials import KEY_PARAMETER, credential_cipher, installation_key
 from odoo.addons.phone_system.controllers.pilot_session import PilotSessionController
 
 
@@ -210,7 +210,7 @@ class TestGCNAAccountLink(TransactionCase):
         }
         with patch.object(fields.Datetime, "now", return_value=later), \
                 patch("requests.post", return_value=response), \
-                patch("odoo.addons.phone_system.models.gcna_account.datetime") as clock:
+                patch("odoo.addons.gcna_link.models.gcna_account.datetime") as clock:
             clock.now.return_value = later.replace(tzinfo=timezone.utc)
             clock.fromisoformat.side_effect = datetime.fromisoformat
             self.assertEqual(self.controller.account_status()["state"], "expired")
@@ -238,7 +238,7 @@ class TestGCNAAccountLink(TransactionCase):
                 self.controller.account_confirm(code="123456")
             approve = Mock(status_code=200)
             approve.json.return_value = {
-                "installationId": self.env.ref("phone_system.gcna_installation").installation_id,
+                "installationId": self.env.ref("gcna_link.gcna_installation").installation_id,
                 "accountId": "account_test_1234", "token": "x" * 48,
                 "scopes": ["phone-system:manage"],
                 "expiresAt": (fields.Datetime.now() + timedelta(hours=1)).isoformat() + "Z",
@@ -251,12 +251,12 @@ class TestGCNAAccountLink(TransactionCase):
                 resumed = self.controller.account_resume()
             self.assertEqual(resumed["state"], "revoked")
             self.assertEqual(self.controller.account_status()["state"], "unlinked")
-            self.assertFalse(self.env.ref("phone_system.gcna_installation").token_ciphertext)
+            self.assertFalse(self.env.ref("gcna_link.gcna_installation").token_ciphertext)
             with patch("requests.post", side_effect=capture):
                 self.assertEqual(self.controller.account_request(email="owner@example.com")["state"],
                                  "verification_pending")
             self.assertEqual(proof, first_proof)
-            self.env.ref("phone_system.gcna_installation").write({
+            self.env.ref("gcna_link.gcna_installation").write({
                 "verification_id": False, "verification_expires_at": False,
             })
 
@@ -264,7 +264,7 @@ class TestGCNAAccountLink(TransactionCase):
         self._linked()
         with patch("requests.post", return_value=Mock(status_code=401)):
             self.controller.account_resume()
-        record = self.env.ref("phone_system.gcna_installation")
+        record = self.env.ref("gcna_link.gcna_installation")
         self.assertEqual(record.account_id, "account_test_1234")
 
     def test_unreachable_gcna_does_not_discard_stored_authorization(self):
@@ -282,8 +282,8 @@ class TestGCNAAccountLink(TransactionCase):
             resumed = self.controller.account_resume()
         self.assertEqual(resumed["state"], "terms_required")
         self.assertIn("accept the updated terms", resumed["message"])
-        self.assertTrue(self.env.ref("phone_system.gcna_installation").token_ciphertext)
-        record = self.env.ref("phone_system.gcna_installation")
+        self.assertTrue(self.env.ref("gcna_link.gcna_installation").token_ciphertext)
+        record = self.env.ref("gcna_link.gcna_installation")
         linked = Mock(status_code=200)
         linked.json.return_value = {"state": "linked", "installationId": record.installation_id,
                                     "accountId": "account_test_1234", "scopes": ["phone-system:manage"]}

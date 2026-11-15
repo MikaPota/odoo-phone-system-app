@@ -66,7 +66,7 @@ class TestCheckout(TransactionCase):
             patcher.start()
             self.addCleanup(patcher.stop)
         self.sent = []
-        installation_id = self.env.ref("phone_system.gcna_installation").installation_id
+        installation_id = self.env.ref("gcna_link.gcna_installation").installation_id
         expires = (fields.Datetime.now() + timedelta(days=30)).isoformat() + "Z"
         self.paid = {
             "state": "payment_required", "orderId": "order_test_1234", "clientSecret": "cs_test_1_secret_abc",
@@ -132,7 +132,7 @@ class TestCheckout(TransactionCase):
         confirmed = self.controller.checkout_confirm(code="123456")
         self.assertEqual(confirmed, {"state": "payment_required", "client_secret": "cs_test_1_secret_abc", "publishable_key": "pk_test_1"})
         self.assertNotIn(TOKEN, str(confirmed))
-        record = self.env.ref("phone_system.gcna_installation")
+        record = self.env.ref("gcna_link.gcna_installation")
         self.assertEqual(record.account_id, "account_test_01")
         self.assertEqual(record._authorization(), TOKEN)
 
@@ -236,7 +236,7 @@ class TestCheckout(TransactionCase):
 
     def test_resend_reopens_the_window_and_then_the_code_confirms(self):
         self._start()
-        record = self.env.ref("phone_system.gcna_installation")
+        record = self.env.ref("gcna_link.gcna_installation")
         record.checkout_expires_at = fields.Datetime.now() - timedelta(minutes=1)
         result = self.controller.checkout_resend()
         self.assertEqual(result["state"], "verification_pending")
@@ -304,7 +304,7 @@ class TestCheckout(TransactionCase):
         self._start()
         self.responses["/status"] = (400, {"error": {"code": "CHECKOUT_EXPIRED"}})
         self.assertEqual(self.controller.checkout_resume(), {"state": "none"})
-        self.assertFalse(self.env.ref("phone_system.gcna_installation").checkout_id)
+        self.assertFalse(self.env.ref("gcna_link.gcna_installation").checkout_id)
 
     def test_administrators_download_call_records_as_csv_and_through_the_api(self):
         self._start()

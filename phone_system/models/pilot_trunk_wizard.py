@@ -103,7 +103,7 @@ class GcnaPbxClient(PilotTrunkClient):
     """The same operations for a purchased phone system: GCNA holds the PBX login and makes the change."""
 
     def __init__(self, env, system_id):
-        self.account = env.ref("phone_system.gcna_installation").sudo()
+        self.account = env.ref("gcna_link.gcna_installation").sudo()
         self.path = f"/v1/phone-systems/{system_id}/pbx"
 
     def _call(self, method, resource, payload=None):

@@ -6,7 +6,7 @@ from odoo.exceptions import UserError
 from odoo.tests import TransactionCase, tagged
 
 CLIENT = "odoo.addons.phone_system.models.pilot_trunk_wizard.PilotTrunkClient"
-ACCOUNT = "odoo.addons.phone_system.models.gcna_account.GCNAAccount"
+ACCOUNT = "odoo.addons.gcna_link.models.gcna_account.GCNAAccount"
 
 
 class FakeTrunks:

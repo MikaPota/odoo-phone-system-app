@@ -1,0 +1,389 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * gcna_link
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-14 23:24+0000\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"A verification is already pending. Use that code or wait until it expires."
+msgstr "Eine Verifizierung läuft bereits. Verwenden Sie den Code oder warten Sie, bis er abläuft."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"Accept the published terms and privacy notice to activate your invitation."
+msgstr "Akzeptieren Sie die veröffentlichten Bedingungen und Datenschutzhinweise, um Ihre Einladung zu aktivieren."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Accept the terms and privacy notice to continue."
+msgstr "Akzeptieren Sie die Bedingungen und die Datenschutzhinweise, um fortzufahren."
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__account_id
+msgid "Account"
+msgstr "Konto"
+
+#. module: gcna_link
+#: model:ir.model.fields.selection,name:gcna_link.selection__vodia_gcna_account__authorization_phase__mfa_required
+msgid "Administrator second factor"
+msgstr "Zweiter Faktor des Administrators"
+
+#. module: gcna_link
+#: model:ir.model.fields.selection,name:gcna_link.selection__vodia_gcna_account__authorization_phase__authorization_required
+msgid "Administrator sign-in"
+msgstr "Administrator-Anmeldung"
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"Approve this Odoo installation to manage Phone Systems for your CORE "
+"company."
+msgstr "Genehmigen Sie dieser Odoo-Installation die Verwaltung von Telefonanlagen für Ihr CORE-Unternehmen."
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__authorization_phase
+msgid "Authorization Phase"
+msgstr "Autorisierungsphase"
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Complete your name, company, company domain and a valid email address."
+msgstr "Geben Sie Ihren Namen, Ihr Unternehmen, die Domain Ihres Unternehmens und eine gültige E-Mail-Adresse an."
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__email
+msgid "Email"
+msgstr "E-Mail"
+
+#. module: gcna_link
+#: model:ir.model.fields.selection,name:gcna_link.selection__vodia_gcna_account__authorization_phase__verification_pending
+msgid "Email verification"
+msgstr "E-Mail-Verifizierung"
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"Email verified. Sign in as the CORE company administrator to authorize this "
+"installation."
+msgstr "E-Mail verifiziert. Melden Sie sich als CORE-Unternehmensadministrator an, um diese Installation zu autorisieren."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Enter a valid email address."
+msgstr "Geben Sie eine gültige E-Mail-Adresse ein."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Enter the invitation token from your CORE invitation email."
+msgstr "Geben Sie den Einladungstoken aus Ihrer CORE-Einladungs-E-Mail ein."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Enter the six-digit verification code."
+msgstr "Geben Sie den sechsstelligen Bestätigungscode ein."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Enter the verification code sent to your email address."
+msgstr "Geben Sie den an Ihre E-Mail-Adresse gesendeten Bestätigungscode ein."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Enter your CORE account password. It is used only for this request."
+msgstr "Geben Sie Ihr CORE-Kontopasswort ein. Es wird nur für diese Anfrage verwendet."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Enter your CORE sign-in code from email or your authenticator."
+msgstr "Geben Sie Ihren CORE-Anmeldecode aus der E-Mail oder Ihrer Authenticator-App ein."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"Enter your name, a password of at least 12 characters, and review the "
+"current legal notices."
+msgstr "Geben Sie Ihren Namen und ein Passwort mit mindestens 12 Zeichen ein und prüfen Sie die aktuellen rechtlichen Hinweise."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Explicit installation approval is required."
+msgstr "Eine ausdrückliche Genehmigung der Installation ist erforderlich."
+
+#. module: gcna_link
+#: model:ir.model,name:gcna_link.model_vodia_gcna_account
+msgid "GCNA Installation Authorization"
+msgstr "GCNA-Installationsautorisierung"
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "GCNA authorization expired. Verify your account again."
+msgstr "Die GCNA-Autorisierung ist abgelaufen. Verifizieren Sie Ihr Konto erneut."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"GCNA authorization is stored. Service permissions are checked by GCNA on "
+"each request."
+msgstr "Die GCNA-Autorisierung ist gespeichert. GCNA prüft die Berechtigungen bei jeder Dienstanfrage."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"GCNA could not be reached. Retry later or contact your service provider."
+msgstr "GCNA ist nicht erreichbar. Versuchen Sie es später erneut oder kontaktieren Sie Ihren Serviceprovider."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"GCNA could not complete account linking. Check the code, expiry and account "
+"permissions, or contact your service provider."
+msgstr "GCNA konnte die Kontoverknüpfung nicht abschließen. Prüfen Sie Code, Gültigkeit und Kontoberechtigungen oder kontaktieren Sie Ihren Serviceprovider."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"GCNA installation authorization cannot be read. Ask the operator to check "
+"the encryption key."
+msgstr "Die GCNA-Installationsautorisierung kann nicht gelesen werden. Bitten Sie den Betreiber, den Verschlüsselungsschlüssel zu prüfen."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "GCNA no longer accepts this installation's authorization."
+msgstr "GCNA akzeptiert die Autorisierung dieser Installation nicht mehr."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"GCNA no longer accepts this installation's authorization: it was revoked or "
+"the approving administrator lost access. Verify your account again."
+msgstr "GCNA akzeptiert die Autorisierung dieser Installation nicht mehr: Sie wurde widerrufen oder der freigebende Administrator hat keinen Zugriff mehr. Verifizieren Sie Ihr Konto erneut."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"GCNA returned an invalid account-link response. Contact your service "
+"provider."
+msgstr "GCNA hat eine ungültige Antwort zur Kontoverknüpfung geliefert. Kontaktieren Sie Ihren Serviceprovider."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"GCNA updated its terms. A company administrator must sign in at app.gcn-"
+"alliance.com and accept the updated terms; GCNA's services then work again."
+msgstr "GCNA hat seine Bedingungen aktualisiert. Ein Unternehmensadministrator muss sich auf app.gcn-alliance.com anmelden und die aktualisierten Bedingungen akzeptieren; danach funktionieren die Dienste von GCNA wieder."
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__id
+msgid "ID"
+msgstr "ID"
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__installation_id
+msgid "Installation"
+msgstr "Installation"
+
+#. module: gcna_link
+#: model:ir.model.fields.selection,name:gcna_link.selection__vodia_gcna_account__authorization_phase__approval_required
+msgid "Installation approval"
+msgstr "Installationsgenehmigung"
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Link your GCNA account to this Odoo installation."
+msgstr "Verknüpfen Sie Ihr GCNA-Konto mit dieser Odoo-Installation."
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__proof_ciphertext
+msgid "Proof Ciphertext"
+msgstr "Verschlüsselter Installationsnachweis"
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Purchases open once the provider has published its terms."
+msgstr "Käufe sind möglich, sobald der Anbieter seine Bedingungen veröffentlicht hat."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Refresh account status and complete the current authorization step."
+msgstr "Aktualisieren Sie den Kontostatus und schließen Sie den aktuellen Autorisierungsschritt ab."
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__signup_id
+msgid "Signup"
+msgstr "Registrierung"
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__signup_expires_at
+msgid "Signup Expires At"
+msgstr "Registrierung gültig bis"
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/credentials.py:0
+msgid "The PBX credential encryption key is missing or invalid."
+msgstr "Der Verschlüsselungsschlüssel für die PBX-Zugangsdaten fehlt oder ist ungültig."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "The sign-up expired. Start again."
+msgstr "Die Registrierung ist abgelaufen. Beginnen Sie erneut."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "The terms or privacy notice changed. Review them again."
+msgstr "Die Bedingungen oder Datenschutzhinweise haben sich geändert. Prüfen Sie sie erneut."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "The verification code expired. Request a new one."
+msgstr "Der Bestätigungscode ist abgelaufen. Fordern Sie einen neuen an."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "The verification code is not correct."
+msgstr "Der Bestätigungscode ist nicht korrekt."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "The verification expired. Request a new code."
+msgstr "Die Verifizierung ist abgelaufen. Fordern Sie einen neuen Code an."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "This Odoo database already belongs to an account."
+msgstr "Diese Odoo-Datenbank gehört bereits zu einem Konto."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "This account operation is not supported."
+msgstr "Diese Kontoaktion wird nicht unterstützt."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"This company already has an account. Its administrator must connect this "
+"Odoo database."
+msgstr "Dieses Unternehmen hat bereits ein Konto. Dessen Administrator muss diese Odoo-Datenbank verbinden."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid ""
+"This email address already belongs to an account. Use a different address or"
+" contact your service provider."
+msgstr "Diese E-Mail-Adresse gehört bereits zu einem Konto. Verwenden Sie eine andere Adresse oder wenden Sie sich an Ihren Serviceprovider."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "This email address is already verified. Continue to payment."
+msgstr "Diese E-Mail-Adresse ist bereits bestätigt. Fahren Sie mit der Zahlung fort."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "This installation already has GCNA authorization."
+msgstr "Diese Installation verfügt bereits über eine GCNA-Autorisierung."
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__token_ciphertext
+msgid "Token Ciphertext"
+msgstr "Verschlüsseltes Token"
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__token_expires_at
+msgid "Token Expires At"
+msgstr "Token gültig bis"
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Too many attempts. Retry later."
+msgstr "Zu viele Versuche. Versuchen Sie es später erneut."
+
+#. module: gcna_link
+#. odoo-python
+#: code:addons/gcna_link/models/gcna_account.py:0
+msgid "Too many wrong codes. Start again."
+msgstr "Zu viele falsche Codes. Beginnen Sie erneut."
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__verification_id
+msgid "Verification"
+msgstr "Verifizierung"
+
+#. module: gcna_link
+#: model:ir.model.fields,field_description:gcna_link.field_vodia_gcna_account__verification_expires_at
+msgid "Verification Expires At"
+msgstr "Verifizierung gültig bis"
