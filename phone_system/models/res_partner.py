@@ -5,14 +5,6 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     vodia_call_count = fields.Integer(compute="_compute_vodia_call_count", string="Calls")
-    vodia_network_connected = fields.Boolean(compute="_compute_vodia_network_connected", string="GCNA connected")
-
-    def _compute_vodia_network_connected(self):
-        # Shown to everyone who sees the contact; who sent the invitation stays private to its sender.
-        connected = set(self.env["vodia.network.invitation"].sudo().search(
-            [("partner_id", "in", self.ids), ("state", "=", "connected")]).partner_id.ids) if self.ids else set()
-        for partner in self:
-            partner.vodia_network_connected = partner.id in connected
 
     @api.depends_context("uid")
     def _compute_vodia_call_count(self):

@@ -3,7 +3,7 @@
     "summary": "Make and take calls inside Odoo with a browser phone and matched call history",
     "author": "GCN-ALLIANCE",
     "website": "https://gcn-alliance.com/support/",
-    "version": "18.0.0.44.0",
+    "version": "18.0.0.45.0",
     "category": "Productivity",
     "license": "LGPL-3",
     "depends": ["web", "phone_validation", "gcna_link"],
@@ -11,7 +11,7 @@
     "data": [
         "security/pilot_groups.xml",
         "security/ir.model.access.csv",
-        "data/network_cron.xml",
+        "data/storage_cron.xml",
         "views/pilot_configuration.xml",
         "views/res_partner.xml",
     ],

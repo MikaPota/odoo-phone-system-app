@@ -67,7 +67,7 @@ export const pilotService = {
             connection: "disconnected", call: "idle", direction: "",
             muted: false, connecting: false, error: "", playbackBlocked: false,
             directory: [], consentRequired: false, consentBusy: false, consentExtension: "", externalCalling: false,
-            number: "", followUp: null,
+            number: "",
         });
         if (canManage) {
             try {
@@ -161,16 +161,7 @@ export const pilotService = {
             const { company_id, answeredAt, ...entry } = log;
             entry.outcome = answeredAt ? "answered" : (log.direction === "incoming" ? "missed" : "failed");
             entry.duration = answeredAt ? Math.min(86400, Math.round((Date.now() - answeredAt) / 1000)) : 0;
-            rpc("/vodia/pilot/call", { company_id, entry }).then(async () => {
-                if (entry.outcome !== "answered") {
-                    return;
-                }
-                // After an answered call with someone outside, offer to send the user's contact info.
-                const offer = await rpc("/vodia/pilot/contact_card/follow_up", { company_id, call_id: entry.call_id });
-                if (offer?.prompt === true) {
-                    state.followUp = { email: offer.email || "", name: offer.name || "", number: offer.number || "" };
-                }
-            }).catch(() => {});
+            rpc("/vodia/pilot/call", { company_id, entry }).catch(() => {});
         }
 
         function report(message) {
@@ -207,7 +198,6 @@ export const pilotService = {
             state.directory = [];
             state.externalCalling = false;
             state.number = "";
-            state.followUp = null;
         }
 
         function requireCaller() {
@@ -477,48 +467,6 @@ export const pilotService = {
                     return;
                 }
                 await api.dial(number);
-            },
-            // The user's own contact card, mailed by GCNA as a courtesy; the address is suggested from the
-            // last call with a known contact.
-            dismissFollowUp() {
-                state.followUp = null;
-            },
-            async contactCardRecipient() {
-                try {
-                    const { email } = await rpc("/vodia/pilot/contact_card/recipient", { company_id: (user.activeCompany?.id ?? user.context.allowed_company_ids[0]) });
-                    return typeof email === "string" ? email : "";
-                } catch {
-                    return "";
-                }
-            },
-            async sendContactCard(email) {
-                try {
-                    await rpc("/vodia/pilot/contact_card", { company_id: (user.activeCompany?.id ?? user.context.allowed_company_ids[0]), email });
-                    notification.add(_t("Your contact info is on its way."), { type: "success" });
-                    return true;
-                } catch (error) {
-                    report(error?.data?.message || _t("Your contact info could not be sent. Retry later."));
-                    return false;
-                }
-            },
-            // Accepted GCNA invitations whose recipient is not yet a contact; the user creates it on purpose.
-            async networkPending() {
-                try {
-                    const { connections } = await rpc("/vodia/pilot/network/pending", { company_id: (user.activeCompany?.id ?? user.context.allowed_company_ids[0]) });
-                    return Array.isArray(connections) ? connections : [];
-                } catch {
-                    return [];
-                }
-            },
-            async createNetworkContact(invitationId) {
-                try {
-                    const contact = await rpc("/vodia/pilot/network/contact", { company_id: (user.activeCompany?.id ?? user.context.allowed_company_ids[0]), invitation_id: invitationId });
-                    notification.add(_t("%s was added to your contacts.", contact.name), { type: "success" });
-                    return true;
-                } catch (error) {
-                    report(error?.data?.message || _t("The contact could not be created."));
-                    return false;
-                }
             },
             async answer() {
                 try {

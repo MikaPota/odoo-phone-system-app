@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0-20261112\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-14 23:24+0000\n"
-"PO-Revision-Date: 2026-11-14 23:24+0000\n"
+"POT-Creation-Date: 2026-11-15 11:36+0000\n"
+"PO-Revision-Date: 2026-11-15 11:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,21 +37,8 @@ msgstr ""
 
 #. module: phone_system
 #. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_service.js:0
-msgid "%s was added to your contacts."
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
 #: code:addons/phone_system/static/src/checkout.js:0
 msgid "1 extension is live on %s."
-msgstr ""
-
-#. module: phone_system
-#: model_terms:ir.ui.view,arch_db:phone_system.view_partner_form_vodia_calls
-msgid ""
-"<span class=\"badge text-bg-success mb-2\" invisible=\"not "
-"vodia_network_connected\">GCNA connected</span>"
 msgstr ""
 
 #. module: phone_system
@@ -84,17 +71,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/phone_system/models/gcna_account.py:0
 msgid "Accept the terms and privacy notice to continue."
-msgstr ""
-
-#. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__accepted_at
-msgid "Accepted At"
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "Accepted your invitation"
 msgstr ""
 
 #. module: phone_system
@@ -150,11 +126,6 @@ msgid "An extension cannot belong to different Odoo users."
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.constraint,message:phone_system.constraint_vodia_network_invitation_invitation_unique
-msgid "An invitation is recorded once."
-msgstr ""
-
-#. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_panel.xml:0
 msgid "Answer"
@@ -207,11 +178,6 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_panel.js:0
 msgid "Authenticating"
-msgstr ""
-
-#. module: phone_system
-#: model:ir.model.fields.selection,name:phone_system.selection__vodia_network_invitation__clearance__review
-msgid "Awaiting review"
 msgstr ""
 
 #. module: phone_system
@@ -354,11 +320,6 @@ msgid "Cancelled. The phone system and its data will be deleted on %s."
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__card_updated_at
-msgid "Card Updated At"
-msgstr ""
-
-#. module: phone_system
 #: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__checkout_id
 msgid "Checkout"
 msgstr ""
@@ -436,16 +397,6 @@ msgid "Clear stored credential"
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__clearance
-msgid "Clearance"
-msgstr ""
-
-#. module: phone_system
-#: model:ir.model.fields.selection,name:phone_system.selection__vodia_network_invitation__clearance__cleared
-msgid "Cleared"
-msgstr ""
-
-#. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/checkout.xml:0
 msgid ""
@@ -464,17 +415,11 @@ msgstr ""
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/checkout.xml:0
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__company_id
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__company_id
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__company_id
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__company_id
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__company_id
 msgid "Company"
-msgstr ""
-
-#. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__company_name
-msgid "Company Name"
 msgstr ""
 
 #. module: phone_system
@@ -552,11 +497,6 @@ msgid "Connect users to %s"
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields.selection,name:phone_system.selection__vodia_network_invitation__state__connected
-msgid "Connected"
-msgstr ""
-
-#. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_panel.js:0
 msgid "Connecting"
@@ -588,12 +528,6 @@ msgid "Contact"
 msgstr ""
 
 #. module: phone_system
-#. odoo-python
-#: code:addons/phone_system/models/network.py:0
-msgid "Contact details updated from %s's GCNA business card."
-msgstr ""
-
-#. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/checkout.xml:0
 msgid "Continue"
@@ -620,17 +554,10 @@ msgstr ""
 #. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "Create contact"
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_panel.xml:0
 msgid "Create phone system"
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__create_uid
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__create_uid
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__create_uid
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__create_uid
@@ -641,7 +568,6 @@ msgid "Created by"
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__create_date
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__create_date
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__create_date
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__create_date
@@ -701,7 +627,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:phone_system.field_res_partner__display_name
 #: model:ir.model.fields,field_description:phone_system.field_res_users__display_name
 #: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__display_name
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__display_name
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__display_name
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__display_name
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__display_name
@@ -737,17 +662,6 @@ msgid "Duration"
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__email
-msgid "Email"
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "Email address"
-msgstr ""
-
-#. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_panel.xml:0
 msgid "Enable audio"
@@ -764,12 +678,6 @@ msgstr ""
 #: code:addons/phone_system/static/src/pilot_service.js:0
 msgid ""
 "Ending the call failed; disconnect the session if the call remains active."
-msgstr ""
-
-#. module: phone_system
-#. odoo-python
-#: code:addons/phone_system/models/pilot_configuration.py:0
-msgid "Enter a valid email address."
 msgstr ""
 
 #. module: phone_system
@@ -933,17 +841,6 @@ msgid ""
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_res_partner__vodia_network_connected
-#: model:ir.model.fields,field_description:phone_system.field_res_users__vodia_network_connected
-msgid "GCNA connected"
-msgstr ""
-
-#. module: phone_system
-#: model:ir.model,name:phone_system.model_vodia_network_invitation
-msgid "GCNA network invitation"
-msgstr ""
-
-#. module: phone_system
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__gcna_system_id
 msgid "Gcna System"
 msgstr ""
@@ -988,7 +885,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:phone_system.field_res_partner__id
 #: model:ir.model.fields,field_description:phone_system.field_res_users__id
 #: model:ir.model.fields,field_description:phone_system.field_vodia_gcna_account__id
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__id
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__id
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__id
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__id
@@ -1061,12 +957,6 @@ msgid "Invalid call entry."
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__invitation_id
-msgid "Invitation"
-msgstr ""
-
-#. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__write_uid
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__write_uid
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__write_uid
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__write_uid
@@ -1077,7 +967,6 @@ msgid "Last Updated by"
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__write_date
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__write_date
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__write_date
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__write_date
@@ -1163,7 +1052,6 @@ msgid "Muting failed."
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__name
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__name
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connection__name
 msgid "Name"
@@ -1190,12 +1078,6 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/phone_system/static/src/checkout.xml:0
 msgid "No plans are available right now."
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "Not now"
 msgstr ""
 
 #. module: phone_system
@@ -1371,11 +1253,6 @@ msgid "Paid:"
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__partner_id
-msgid "Partner"
-msgstr ""
-
-#. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/checkout.xml:0
 msgid "Payments are processed securely by Stripe."
@@ -1479,11 +1356,6 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_service.js:0
 msgid "Phone System setup status could not be loaded. Reload and try again."
-msgstr ""
-
-#. module: phone_system
-#: model:ir.actions.server,name:phone_system.cron_network_connections_ir_actions_server
-msgid "Phone System: follow accepted GCNA invitations"
 msgstr ""
 
 #. module: phone_system
@@ -1650,24 +1522,6 @@ msgstr ""
 
 #. module: phone_system
 #. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "Send"
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "Send Contact Info"
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "Send Contact Info to"
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
 #: code:addons/phone_system/static/src/checkout.xml:0
 msgid "Send a new code"
 msgstr ""
@@ -1681,11 +1535,6 @@ msgstr ""
 #. module: phone_system
 #: model_terms:ir.ui.view,arch_db:phone_system.view_number_form
 msgid "Send to PBX again"
-msgstr ""
-
-#. module: phone_system
-#: model:ir.model.fields.selection,name:phone_system.selection__vodia_network_invitation__state__sent
-msgid "Sent"
 msgstr ""
 
 #. module: phone_system
@@ -1718,17 +1567,10 @@ msgid "Started At"
 msgstr ""
 
 #. module: phone_system
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__state
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_connect_wizard__state
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_number__state
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_trunk_wizard__state
 msgid "State"
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_panel.js:0
-msgid "Stay in contact with %s? Send your contact info."
 msgstr ""
 
 #. module: phone_system
@@ -1858,12 +1700,6 @@ msgstr ""
 msgid ""
 "The contact card could not be sent. Check the address and your name and "
 "email in your preferences."
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_service.js:0
-msgid "The contact could not be created."
 msgstr ""
 
 #. module: phone_system
@@ -2035,12 +1871,6 @@ msgid "This browser cannot enforce single-tab phone ownership."
 msgstr ""
 
 #. module: phone_system
-#. odoo-python
-#: code:addons/phone_system/models/network.py:0
-msgid "This connection has no contact to create any more."
-msgstr ""
-
-#. module: phone_system
 #. odoo-javascript
 #: code:addons/phone_system/static/src/pilot_service.js:0
 msgid "This number cannot be dialed."
@@ -2125,7 +1955,6 @@ msgstr ""
 
 #. module: phone_system
 #: model:ir.model,name:phone_system.model_res_users
-#: model:ir.model.fields,field_description:phone_system.field_vodia_network_invitation__user_id
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_call__user_id
 #: model:ir.model.fields,field_description:phone_system.field_vodia_pilot_mapping__user_id
 msgid "User"
@@ -2276,18 +2105,6 @@ msgstr ""
 
 #. module: phone_system
 #. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_service.js:0
-msgid "Your contact info could not be sent. Retry later."
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_service.js:0
-msgid "Your contact info is on its way."
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
 #: code:addons/phone_system/static/src/checkout.xml:0
 msgid "Your email"
 msgstr ""
@@ -2296,13 +2113,6 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/phone_system/static/src/checkout.xml:0
 msgid "Your name"
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid ""
-"Your name, company, email and phone number, sent by GCNA on your behalf."
 msgstr ""
 
 #. module: phone_system
@@ -2377,12 +2187,6 @@ msgstr ""
 #. module: phone_system
 #: model_terms:ir.ui.view,arch_db:phone_system.view_connection_form
 msgid "https://s3.example.com"
-msgstr ""
-
-#. module: phone_system
-#. odoo-javascript
-#: code:addons/phone_system/static/src/pilot_panel.xml:0
-msgid "name@example.com"
 msgstr ""
 
 #. module: phone_system

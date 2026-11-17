@@ -128,34 +128,6 @@ class PilotSessionController(http.Controller):
         request.future_response.headers["Cache-Control"] = "no-store"
         return self._mapping_model(company_id).env["vodia.pilot.call"]._record_call(entry)
 
-    @http.route("/vodia/pilot/contact_card", type="json", auth="user", methods=["POST"])
-    def contact_card(self, company_id=None, email=None):
-        request.future_response.headers["Cache-Control"] = "no-store"
-        return self._mapping_model(company_id)._send_contact_card(email)
-
-    @http.route("/vodia/pilot/contact_card/recipient", type="json", auth="user", methods=["POST"])
-    def contact_card_recipient(self, company_id=None):
-        request.future_response.headers["Cache-Control"] = "no-store"
-        return self._mapping_model(company_id)._contact_card_recipient()
-
-    @http.route("/vodia/pilot/contact_card/follow_up", type="json", auth="user", methods=["POST"])
-    def contact_card_follow_up(self, company_id=None, call_id=None):
-        request.future_response.headers["Cache-Control"] = "no-store"
-        return self._mapping_model(company_id)._contact_card_follow_up(call_id)
-
-    @http.route("/vodia/pilot/network/pending", type="json", auth="user", methods=["POST"])
-    def network_pending(self, company_id=None):
-        request.future_response.headers["Cache-Control"] = "no-store"
-        model = self._mapping_model(company_id)
-        model.env["vodia.network.invitation"]._sync_connections_soon()
-        return {"connections": model._network_pending()}
-
-    @http.route("/vodia/pilot/network/contact", type="json", auth="user", methods=["POST"])
-    def network_contact(self, company_id=None, invitation_id=None):
-        request.future_response.headers["Cache-Control"] = "no-store"
-        partner = self._mapping_model(company_id)._network_create_contact(invitation_id)
-        return {"id": partner.id, "name": partner.name}
-
     @http.route("/vodia/pilot/session", type="json", auth="user", methods=["POST"])
     def session(self, company_id=None):
         request.future_response.headers["Cache-Control"] = "no-store"

@@ -21,7 +21,6 @@ PBX_ORIGIN = "https://" + PBX_TENANT
 GCNA_PBX_DOMAIN = ".pbx.gcn-alliance.com"
 GCNA_PHONE_RELAY = "https://gcn-alliance.com/phone/"
 HOSTNAME = re.compile(r"(?=.{4,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}")
-EMAIL = re.compile(r"[^\s@<>()\",;:\\]{1,64}@[A-Za-z0-9.-]{1,253}\.[A-Za-z]{2,63}")
 
 
 def server_admin_digest():
@@ -310,58 +309,6 @@ class PilotMapping(models.Model):
         return {"origin": connection._browser_origin(), "tenant": connection.pbx_host, "extension": mapping.extension,
                 "directory": list(contacts.values()), "external_calling": mapping.external_calling,
                 "number": connection._number_label(connection._outbound_number())}
-
-    def _send_contact_card(self, email):
-        """A courtesy of GCNA: it mails the caller's own contact card, so no mail credential is needed here."""
-        mapping = self._caller_mapping()
-        email = email.strip() if isinstance(email, str) else ""
-        if not EMAIL.fullmatch(email):
-            raise UserError(_("Enter a valid email address."))
-        user = self.env.user
-        card = {"name": user.name, "company": mapping.company_id.name}
-        if user.email and EMAIL.fullmatch(user.email):
-            card["email"] = user.email
-        number = mapping.connection_id._outbound_number()
-        if number:
-            card["phone"] = number
-        account = self.env.ref("gcna_link.gcna_installation").sudo()
-        # GCNA writes the email in the sender's language (German or English).
-        payload = {"to": email, "card": card, "lang": user.lang or "en_US"}
-        result = account._post("/v1/contact-cards", payload, 202, account._authorization())
-        # With invitations switched on, GCNA names the invitation, so its acceptance can be followed.
-        if isinstance(result, dict):
-            self.env["vodia.network.invitation"]._remember(result.get("invitationId"), email, mapping.company_id)
-        return {"sent": True}
-
-    def _contact_card_follow_up(self, call_uid):
-        """After an answered call with someone outside, offer the caller to send their card, unless already sent."""
-        self._caller_mapping()
-        call = self.env["vodia.pilot.call"].search([("user_id", "=", self.env.user.id), ("call_uid", "=", call_uid)], limit=1) \
-            if isinstance(call_uid, str) else self.env["vodia.pilot.call"]
-        if not call or call.outcome != "answered" or call.peer_user_id or not call.peer_number:
-            return {"prompt": False}
-        partner = call.peer_partner_id
-        email = partner.email.strip().lower() if partner.email and EMAIL.fullmatch(partner.email.strip()) else ""
-        if email and (partner.vodia_network_connected or self.env["vodia.network.invitation"].search_count(
-                [("user_id", "=", self.env.user.id), ("email", "=", email)])):
-            return {"prompt": False}
-        return {"prompt": True, "email": email, "name": partner.name or "", "number": call.peer_number}
-
-    def _network_pending(self):
-        self._caller_mapping()
-        return self.env["vodia.network.invitation"]._pending()
-
-    def _network_create_contact(self, invitation_id):
-        self._caller_mapping()
-        return self.env["vodia.network.invitation"]._create_contact(invitation_id)
-
-    def _contact_card_recipient(self):
-        """The contact of the caller's most recent call that matched one, to suggest as recipient."""
-        self._caller_mapping()
-        call = self.env["vodia.pilot.call"].search(
-            [("user_id", "=", self.env.user.id), ("peer_partner_id", "!=", False)], limit=1)
-        partner = call.peer_partner_id
-        return {"email": partner.email or "", "name": partner.name or ""}
 
     def _consent_credential(self, extension, password, consent):
         """The caller agrees to share their own PBX web login with Odoo. Signing in with the extension and its
