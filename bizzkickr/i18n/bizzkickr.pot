@@ -1,0 +1,669 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bizzkickr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20261112\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-14 23:41+0000\n"
+"PO-Revision-Date: 2026-11-14 23:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_partner_form_bizzkickr
+msgid ""
+"<span class=\"badge text-bg-success mb-2\" invisible=\"not "
+"bizzkickr_connected\">BIZZKICKR connection</span>"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.constraint,message:bizzkickr.constraint_bizzkickr_connection_connection_unique
+msgid "A connection is recorded once per user."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.constraint,message:bizzkickr.constraint_bizzkickr_person_user_unique
+msgid "A user is one BIZZKICKR person."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "Add your email address in your preferences first."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid ""
+"An administrator must connect this database to GCN-ALLIANCE first: BIZZKICKR"
+" > Setup."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.ui.menu,name:bizzkickr.menu_root
+msgid "BIZZKICKR"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid ""
+"BIZZKICKR answered unexpectedly. Retry later or contact your service "
+"provider."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "BIZZKICKR cannot be reached right now. Retry later."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "BIZZKICKR cannot send email right now. Retry later."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model,name:bizzkickr.model_bizzkickr_connection
+#: model:ir.model.fields,field_description:bizzkickr.field_res_partner__bizzkickr_connected
+#: model:ir.model.fields,field_description:bizzkickr.field_res_users__bizzkickr_connected
+msgid "BIZZKICKR connection"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "BIZZKICKR connections"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "BIZZKICKR is for the users of this company."
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid ""
+"BIZZKICKR is your digital business card. People scan its QR code to connect with you, and every\n"
+"                        confirmed connection becomes a contact here. Register with your email address; BIZZKICKR then\n"
+"                        emails you a link to confirm."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model,name:bizzkickr.model_bizzkickr_person
+msgid "BIZZKICKR person"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model,name:bizzkickr.model_bizzkickr_request
+msgid "BIZZKICKR request"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "BIZZKICKR requests"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model,name:bizzkickr.model_bizzkickr_setup
+msgid "BIZZKICKR setup"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.actions.server,name:bizzkickr.cron_connections_ir_actions_server
+msgid "BIZZKICKR: bring new connections into contacts"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__card_id
+msgid "Card"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__card_link
+msgid "Card link"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid ""
+"Check the card: a phone such as +49 30 1234567 and a web address such as "
+"example.com."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid ""
+"Check the card: each field takes at most 100 characters, without < or >."
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_setup_form
+msgid "Close"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__company_id
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__company_name
+msgid "Company"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__domain
+msgid "Company domain"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_request_list
+msgid "Confirm"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields.selection,name:bizzkickr.selection__bizzkickr_person__state__no_card
+msgid "Confirmed, no card yet"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.actions.act_window,name:bizzkickr.action_setup
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_setup_form
+msgid "Connect to GCN-ALLIANCE"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields.selection,name:bizzkickr.selection__bizzkickr_setup__state__linked
+msgid "Connected"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__connected_at
+msgid "Connected At"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__connection_id
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__connection_ids
+msgid "Connection"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.actions.server,name:bizzkickr.action_my_connections
+#: model:ir.ui.menu,name:bizzkickr.menu_connections
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_connection_list
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid "Connections"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model,name:bizzkickr.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid "Create my card"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_setup_form
+msgid "Create the account"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "Create your BIZZKICKR card first: BIZZKICKR > My card."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "Create your card first."
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid ""
+"Create your card from your name, company and contact details in Odoo; you "
+"can change it afterwards."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__create_uid
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__create_uid
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__create_uid
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__create_date
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__create_date
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__create_date
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_request_list
+msgid "Decline"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__display_name
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__display_name
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__display_name
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__display_name
+#: model:ir.model.fields,field_description:bizzkickr.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__email
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__email
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__email
+msgid "Email"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__card_email
+msgid "Email on the card"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "Enter a valid email address."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields.selection,name:bizzkickr.selection__bizzkickr_setup__state__code
+msgid "Enter the code"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__event
+msgid "Event"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/setup.py:0
+msgid "GCN-ALLIANCE has not published its terms yet. Retry later."
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_setup_form
+msgid ""
+"GCN-ALLIANCE provides BIZZKICKR for Odoo. Connecting this database creates a free\n"
+"                        GCN-ALLIANCE account for your company; nothing is charged. Your users' cards, requests and\n"
+"                        connections are kept by BIZZKICKR in the EU."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid ""
+"GCNA no longer accepts this database's connection. An administrator must "
+"connect it again: BIZZKICKR > Setup."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid ""
+"GCNA updated its terms. A company administrator must sign in at app.gcn-"
+"alliance.com and accept them; BIZZKICKR then works again."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__accept_terms
+msgid "I accept the terms and the privacy notice"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__id
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__id
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__id
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__id
+#: model:ir.model.fields,field_description:bizzkickr.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__write_uid
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__write_uid
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__write_uid
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__write_date
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__write_date
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__write_date
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid "My BIZZKICKR card"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.actions.server,name:bizzkickr.action_my_card
+#: model:ir.ui.menu,name:bizzkickr.menu_card
+msgid "My card"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__name
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__card_name
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__name
+msgid "Name"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields.selection,name:bizzkickr.selection__bizzkickr_person__state__none
+msgid "Not registered"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/setup.py:0
+msgid "Only an administrator may connect this database to GCN-ALLIANCE."
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid "Open the link BIZZKICKR emailed to"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "Open the link BIZZKICKR emailed you to confirm, then refresh."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__operator
+msgid "Operator"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__organization
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__card_organization
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__organization
+msgid "Organization"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__person_id
+msgid "Person"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__card_phone
+msgid "Phone"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__privacy_version
+msgid "Privacy Version"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__card_qr_url
+msgid "QR code"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields.selection,name:bizzkickr.selection__bizzkickr_person__state__ready
+msgid "Ready"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid "Refresh"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid "Register for BIZZKICKR"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "Register for BIZZKICKR first."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__request_id
+msgid "Request"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_request__requested_at
+msgid "Requested At"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.actions.server,name:bizzkickr.action_my_requests
+#: model:ir.ui.menu,name:bizzkickr.menu_requests
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_request_list
+msgid "Requests"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__card_role
+msgid "Role"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid "Save my card"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid "Scan to connect"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_setup_form
+msgid "Send a new code"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_partner_form_bizzkickr
+msgid "Send my card"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_setup_form
+msgid "Send the code"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid "Send the confirmation again"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.ui.menu,name:bizzkickr.menu_setup
+msgid "Setup"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields.selection,name:bizzkickr.selection__bizzkickr_setup__state__form
+msgid "Sign up"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__state
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__state
+msgid "State"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__synced_at
+msgid "Synced At"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__synced_values
+msgid "Synced Values"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__terms_url
+msgid "Terms Url"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__terms_version
+msgid "Terms Version"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,help:bizzkickr.field_bizzkickr_person__email
+msgid "The address BIZZKICKR knows the user by."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "This contact has no valid email address."
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_setup_form
+msgid ""
+"This database is connected to GCN-ALLIANCE. Every user now finds their card "
+"under BIZZKICKR &gt; My card."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "This is another user's BIZZKICKR card."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "This is another user's request."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "This is your own address."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "This no longer exists. Refresh and try again."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "Too many attempts. Retry later."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,help:bizzkickr.field_bizzkickr_person__synced_at
+msgid "Until when connections were fetched."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_connection__user_id
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__user_id
+msgid "User"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__code
+msgid "Verification code"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields.selection,name:bizzkickr.selection__bizzkickr_person__state__unconfirmed
+msgid "Waiting for the email confirmation"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_person__card_web
+msgid "Web"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,help:bizzkickr.field_bizzkickr_connection__synced_values
+msgid "What BIZZKICKR last said, so a change made here is not overwritten."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "You already have a card. Refresh to see it."
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/res_partner.py:0
+msgid "Your BIZZKICKR card is on its way to %s."
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid "Your card"
+msgstr ""
+
+#. module: bizzkickr
+#. odoo-python
+#: code:addons/bizzkickr/models/bizzkickr.py:0
+msgid "Your card needs a name."
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__email
+msgid "Your email address"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,field_description:bizzkickr.field_bizzkickr_setup__admin_name
+msgid "Your name"
+msgstr ""
+
+#. module: bizzkickr
+#: model:ir.model.fields,help:bizzkickr.field_bizzkickr_setup__domain
+msgid "e.g. example.com"
+msgstr ""
+
+#. module: bizzkickr
+#: model_terms:ir.ui.view,arch_db:bizzkickr.view_person_form
+msgid "to confirm, then refresh."
+msgstr ""

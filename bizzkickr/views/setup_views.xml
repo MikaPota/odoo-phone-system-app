@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_setup_form" model="ir.ui.view">
+        <field name="name">bizzkickr.setup.form</field>
+        <field name="model">bizzkickr.setup</field>
+        <field name="arch" type="xml">
+            <form string="Connect to GCN-ALLIANCE">
+                <field name="state" invisible="1"/>
+                <div invisible="state != 'linked'" class="alert alert-success" role="status">
+                    This database is connected to GCN-ALLIANCE. Every user now finds their card under BIZZKICKR > My card.
+                </div>
+                <div invisible="state == 'linked'">
+                    <p>
+                        GCN-ALLIANCE provides BIZZKICKR for Odoo. Connecting this database creates a free
+                        GCN-ALLIANCE account for your company; nothing is charged. Your users' cards, requests and
+                        connections are kept by BIZZKICKR in the EU.
+                    </p>
+                </div>
+                <group invisible="state != 'form'">
+                    <field name="email" required="state == 'form'"/>
+                    <field name="admin_name" required="state == 'form'"/>
+                    <field name="company_name" required="state == 'form'"/>
+                    <field name="domain" required="state == 'form'"/>
+                    <field name="operator" invisible="not operator"/>
+                    <field name="terms_url" widget="url" invisible="not terms_url"/>
+                    <field name="accept_terms"/>
+                </group>
+                <group invisible="state != 'code'">
+                    <field name="code" placeholder="123456"/>
+                </group>
+                <footer>
+                    <button name="action_send_code" type="object" string="Send the code" class="btn-primary" invisible="state != 'form'"/>
+                    <button name="action_confirm" type="object" string="Create the account" class="btn-primary" invisible="state != 'code'"/>
+                    <button name="action_resend" type="object" string="Send a new code" invisible="state != 'code'"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_setup" model="ir.actions.act_window">
+        <field name="name">Connect to GCN-ALLIANCE</field>
+        <field name="res_model">bizzkickr.setup</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

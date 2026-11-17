@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_person_form" model="ir.ui.view">
+        <field name="name">bizzkickr.person.form</field>
+        <field name="model">bizzkickr.person</field>
+        <field name="arch" type="xml">
+            <form string="My BIZZKICKR card" create="false" delete="false">
+                <header>
+                    <button name="action_register" type="object" string="Register for BIZZKICKR" class="btn-primary" invisible="state != 'none'"/>
+                    <button name="action_register" type="object" string="Send the confirmation again" invisible="state != 'unconfirmed'"/>
+                    <button name="action_refresh" type="object" string="Refresh" invisible="state == 'none'"/>
+                    <button name="action_create_card" type="object" string="Create my card" class="btn-primary" invisible="state != 'no_card'"/>
+                    <button name="action_save_card" type="object" string="Save my card" class="btn-primary" invisible="state != 'ready'"/>
+                    <button name="action_requests" type="object" string="Requests" invisible="state not in ('no_card', 'ready')"/>
+                    <button name="action_sync" type="object" string="Connections" invisible="state not in ('no_card', 'ready')"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="alert alert-info" role="status" invisible="state != 'none'">
+                        BIZZKICKR is your digital business card. People scan its QR code to connect with you, and every
+                        confirmed connection becomes a contact here. Register with your email address; BIZZKICKR then
+                        emails you a link to confirm.
+                    </div>
+                    <div class="alert alert-warning" role="status" invisible="state != 'unconfirmed'">
+                        Open the link BIZZKICKR emailed to <field name="email" class="oe_inline"/> to confirm, then refresh.
+                    </div>
+                    <div class="alert alert-info" role="status" invisible="state != 'no_card'">
+                        Create your card from your name, company and contact details in Odoo; you can change it afterwards.
+                    </div>
+                    <group invisible="state != 'ready'">
+                        <group string="Your card">
+                            <field name="card_name" required="state == 'ready'"/>
+                            <field name="card_role"/>
+                            <field name="card_organization"/>
+                            <field name="card_phone" widget="phone"/>
+                            <field name="card_email" widget="email"/>
+                            <field name="card_web" widget="url"/>
+                        </group>
+                        <group string="Scan to connect">
+                            <field name="card_qr_url" widget="image_url" nolabel="1" colspan="2" options="{'size': [260, 260]}"/>
+                            <field name="card_link" widget="url" nolabel="1" colspan="2"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_request_list" model="ir.ui.view">
+        <field name="name">bizzkickr.request.list</field>
+        <field name="model">bizzkickr.request</field>
+        <field name="arch" type="xml">
+            <list string="Requests" create="false" edit="false" delete="false">
+                <field name="name"/>
+                <field name="organization"/>
+                <field name="email"/>
+                <field name="event"/>
+                <field name="requested_at"/>
+                <button name="action_accept" type="object" string="Confirm" icon="fa-check"/>
+                <button name="action_decline" type="object" string="Decline" icon="fa-times"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_connection_list" model="ir.ui.view">
+        <field name="name">bizzkickr.connection.list</field>
+        <field name="model">bizzkickr.connection</field>
+        <field name="arch" type="xml">
+            <list string="Connections" create="false" edit="false" delete="false">
+                <field name="name"/>
+                <field name="organization"/>
+                <field name="email"/>
+                <field name="partner_id"/>
+                <field name="connected_at"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_my_card" model="ir.actions.server">
+        <field name="name">My card</field>
+        <field name="model_id" ref="model_bizzkickr_person"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_mine()</field>
+    </record>
+    <record id="action_my_requests" model="ir.actions.server">
+        <field name="name">Requests</field>
+        <field name="model_id" ref="model_bizzkickr_person"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_requests()</field>
+    </record>
+    <record id="action_my_connections" model="ir.actions.server">
+        <field name="name">Connections</field>
+        <field name="model_id" ref="model_bizzkickr_person"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_connections()</field>
+    </record>
+</odoo>

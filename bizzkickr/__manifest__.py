@@ -1,0 +1,23 @@
+{
+    "name": "BIZZKICKR",
+    "summary": "Your business card with a QR code, and your business network, inside Odoo",
+    "author": "GCN-ALLIANCE",
+    "website": "https://gcn-alliance.com/support/bizzkickr/",
+    "version": "18.0.1.0.0",
+    "category": "Productivity",
+    "license": "LGPL-3",
+    "depends": ["contacts", "gcna_link"],
+    "data": [
+        "security/bizzkickr_security.xml",
+        "security/ir.model.access.csv",
+        "data/bizzkickr_cron.xml",
+        "views/bizzkickr_views.xml",
+        "views/res_partner_views.xml",
+        "views/setup_views.xml",
+        "views/menus.xml",
+    ],
+    "images": ["static/description/icon.png"],
+    "application": True,
+    "installable": True,
+    "auto_install": False,
+}
