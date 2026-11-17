@@ -32,58 +32,6 @@ export class PilotPanel extends Component {
         this.pilot = useService("phone_system");
         this.state = useState(this.pilot.state);
         this.form = useState({ destination: "", number: "", extension: "", password: "", agreed: false });
-        this.card = useState({ open: false, email: "", busy: false, connections: [] });
-    }
-
-    async openContactCard() {
-        this.card.open = !this.card.open;
-        if (this.card.open) {
-            const [email, connections] = await Promise.all([
-                this.card.email ? this.card.email : this.pilot.contactCardRecipient(), this.pilot.networkPending()]);
-            this.card.email = email;
-            this.card.connections = connections;
-        }
-    }
-
-    // The offer after a call: the address is suggested from the matched contact and can be changed.
-    get followUpPrompt() {
-        const offer = this.state.followUp;
-        return _t("Stay in contact with %s? Send your contact info.", offer.name || offer.number);
-    }
-
-    async sendFollowUp() {
-        const email = this.form.followUpEmail ?? this.state.followUp.email;
-        this.card.busy = true;
-        try {
-            if (await this.pilot.sendContactCard(email)) {
-                this.dismissFollowUp();
-            }
-        } finally {
-            this.card.busy = false;
-        }
-    }
-
-    dismissFollowUp() {
-        this.form.followUpEmail = undefined;
-        this.pilot.dismissFollowUp();
-    }
-
-    async createNetworkContact(connection) {
-        if (await this.pilot.createNetworkContact(connection.invitation_id)) {
-            this.card.connections = this.card.connections.filter((c) => c !== connection);
-        }
-    }
-
-    async sendContactCard() {
-        this.card.busy = true;
-        try {
-            if (await this.pilot.sendContactCard(this.card.email)) {
-                this.card.open = false;
-                this.card.email = "";
-            }
-        } finally {
-            this.card.busy = false;
-        }
     }
 
     get connectionLabel() {
