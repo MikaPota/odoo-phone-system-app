@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bizzkickr_person_user,BIZZKICKR person of a user,model_bizzkickr_person,base.group_user,1,1,0,0
+access_bizzkickr_connection_user,BIZZKICKR connections of a user,model_bizzkickr_connection,base.group_user,1,0,0,0
+access_bizzkickr_request_user,BIZZKICKR requests of a user,model_bizzkickr_request,base.group_user,1,0,1,1
+access_bizzkickr_setup_system,BIZZKICKR setup,model_bizzkickr_setup,base.group_system,1,1,1,1

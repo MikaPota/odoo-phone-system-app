@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Each user sees only their own BIZZKICKR person and connections; the contacts themselves are ordinary contacts. -->
+    <record id="rule_person_own" model="ir.rule">
+        <field name="name">BIZZKICKR: own person</field>
+        <field name="model_id" ref="model_bizzkickr_person"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+    </record>
+    <record id="rule_connection_own" model="ir.rule">
+        <field name="name">BIZZKICKR: own connections</field>
+        <field name="model_id" ref="model_bizzkickr_connection"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+    </record>
+    <record id="rule_request_own" model="ir.rule">
+        <field name="name">BIZZKICKR: own requests</field>
+        <field name="model_id" ref="model_bizzkickr_request"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+    </record>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_bizzkickr" model="ir.ui.view">
+        <field name="name">res.partner.form.bizzkickr</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_bizzkickr_send_card" type="object" class="oe_stat_button" icon="fa-id-card-o"
+                        string="Send my card" invisible="not email or is_company" groups="base.group_user"/>
+            </div>
+            <div name="button_box" position="after">
+                <field name="bizzkickr_connected" invisible="1"/>
+                <span class="badge text-bg-success mb-2" invisible="not bizzkickr_connected">BIZZKICKR connection</span>
+            </div>
+        </field>
+    </record>
+</odoo>

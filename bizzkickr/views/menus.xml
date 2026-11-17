@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_root" name="BIZZKICKR" web_icon="bizzkickr,static/description/icon.png" sequence="60" groups="base.group_user"/>
+    <menuitem id="menu_card" name="My card" parent="menu_root" action="action_my_card" sequence="10"/>
+    <menuitem id="menu_requests" name="Requests" parent="menu_root" action="action_my_requests" sequence="20"/>
+    <menuitem id="menu_connections" name="Connections" parent="menu_root" action="action_my_connections" sequence="30"/>
+    <menuitem id="menu_setup" name="Setup" parent="menu_root" action="action_setup" sequence="90" groups="base.group_system"/>
+</odoo>
