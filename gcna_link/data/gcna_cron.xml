@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cron_renew" model="ir.cron">
+        <field name="name">GCNA: renew this database's link before it ends</field>
+        <field name="model_id" ref="model_vodia_gcna_account"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_renew()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+</odoo>

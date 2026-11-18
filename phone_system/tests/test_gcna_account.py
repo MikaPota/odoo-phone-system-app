@@ -82,7 +82,7 @@ class TestGCNAAccountLink(TransactionCase):
                     "accountId": "account_test_1234",
                     "token": token,
                     "scopes": ["phone-system:manage"],
-                    "expiresAt": (fields.Datetime.now() + timedelta(days=1)).isoformat() + "Z",
+                    "expiresAt": (fields.Datetime.now() + timedelta(days=30)).isoformat() + "Z",
                 }
             return response
 
@@ -192,7 +192,7 @@ class TestGCNAAccountLink(TransactionCase):
                 "installationId": kwargs["json"]["installationId"],
                 "accountId": "account_test_1234", "token": "x" * 48,
                 "scopes": ["phone-system:manage"],
-                "expiresAt": (fields.Datetime.now() + timedelta(hours=1)).isoformat() + "Z",
+                "expiresAt": (fields.Datetime.now() + timedelta(days=30)).isoformat() + "Z",
             }
             return response
         with patch("requests.post", side_effect=confirm):
@@ -202,7 +202,7 @@ class TestGCNAAccountLink(TransactionCase):
 
     def test_expired_authorization_can_start_a_fresh_verification(self):
         self._linked()
-        later = fields.Datetime.now() + timedelta(hours=2)
+        later = fields.Datetime.now() + timedelta(days=31)
         response = Mock(status_code=202)
         response.json.return_value = {
             "verificationId": "verify_renew_1234",
