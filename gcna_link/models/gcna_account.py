@@ -6,7 +6,7 @@ import logging
 import os
 import re
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from urllib.parse import urlsplit
 
 import requests
@@ -121,6 +121,7 @@ class GCNAAccount(models.Model):
         record = self._locked()
         invitation = None
         if record.token_ciphertext and record.token_expires_at > fields.Datetime.now():
+            record._renew_if_due()
             try:
                 payload = record._post("/v1/installation/status", {}, 200, record._authorization())
             except GCNATermsPending as pending:
@@ -416,6 +417,38 @@ class GCNAAccount(models.Model):
         )).decode("ascii").rstrip("=")
         self.proof_ciphertext = credential_cipher(self.env).encrypt(proof.encode()).decode()
         return proof
+
+    # GCNA's link lasts 30 days. With fewer than 7 left, the installation renews it with its token and
+    # its proof and stores the fresh token; a revoked or expired link is not renewed (link again).
+    RENEW_BEFORE = timedelta(days=7)
+
+    @api.model
+    def _renew_if_due(self):
+        record = self._locked()
+        if (not record.token_ciphertext or not record.token_expires_at
+                or record.token_expires_at <= fields.Datetime.now()
+                or record.token_expires_at - fields.Datetime.now() > self.RENEW_BEFORE):
+            return False
+        try:
+            payload = record._post("/v1/installation/renew", {
+                "installationId": record.installation_id, "installationProof": record._installation_proof(),
+            }, 200, record._authorization())
+            if payload.get("installationId") != record.installation_id or payload.get("accountId") != record.account_id:
+                record._invalid_response()
+            record._store_authorization(payload)
+        except GCNATermsPending:
+            _logger.warning("GCNA link not renewed: a company administrator must accept GCNA's updated terms first.")
+            return False
+        except UserError as error:
+            # Denied, unreachable, refused or an invalid answer: the stored link stays as it is; the next run tries again.
+            _logger.warning("GCNA link not renewed: %s", error)
+            return False
+        _logger.info("GCNA link renewed until %s.", record.token_expires_at)
+        return True
+
+    @api.model
+    def _cron_renew(self):
+        self._renew_if_due()
 
     @api.model
     def _linked(self):
